@@ -12,10 +12,19 @@
       },
       {
         "package": "Fluxor",
-        "repositoryURL": "git@github.com:MortenGregersen/Fluxor.git",
+        "repositoryURL": "/Users/morten/MoGee/Projects/Fluxor/Fluxor",
+        "state": {
+          "branch": "main-threading",
+          "revision": "38866f82e43ba6b2fe5411118de36187d78f06f8",
+          "version": null
+        }
+      },
+      {
+        "package": "FluxorSwiftUI",
+        "repositoryURL": "/Users/morten/MoGee/Projects/Fluxor/FluxorSwiftUI",
         "state": {
           "branch": "master",
-          "revision": "c622c476e6e275e2e29b3e86a0a1230a7fdab9c9",
+          "revision": "ce20ff6dfeb53154831df7eca67e5f64f26f80cd",
           "version": null
         }
       }

@@ -8,26 +8,29 @@
 
 import Combine
 import Fluxor
+import FluxorSwiftUI
 import SwiftUI
 
 struct TodoListView: View {
-    @ObservedObject var viewModel: TodoListViewModel
+    var viewModel: TodoListViewModel
+    @State private var todos = [Todo]()
+    @State private var loading = false
+    @State private var error: String?
+
     @State private var showAddSheet = false
+    @State private var showErrorAlert = false
 
     var body: some View {
         NavigationView {
             List {
-                if viewModel.todos.count > 0 {
-                    ForEach(viewModel.todos, id: \.id) { todo in
-                        Button(action: {
-                            self.viewModel.toggle(todo: todo)
-                        }, label: {
-                            HStack {
-                                Text(todo.title)
-                                Spacer()
-                                Image(systemName: todo.done ? "checkmark.circle.fill" : "circle")
-                            }
-                        })
+                if self.loading {
+                    HStack {
+                        ActivityIndicator()
+                        Text("Loading todos...")
+                    }
+                } else if todos.count > 0 {
+                    ForEach(todos, id: \.id) { todo in
+                        TodoRowView(todo: todo) { self.viewModel.toggle(todo: todo) }
                     }
                     .onDelete(perform: self.viewModel.delete)
                 } else {
@@ -40,15 +43,33 @@ struct TodoListView: View {
             .sheet(isPresented: $showAddSheet) {
                 AddTodoView(viewModel: .init(store: store), showAddSheet: self.$showAddSheet)
             }
+            .alert(isPresented: $showErrorAlert) {
+                Alert(title: Text("Error"), message: Text(error ?? ""), dismissButton: Alert.Button.default(Text("OK")))
+            }
         }
+        .onAppear {
+            self.viewModel.fetchTodos()
+        }
+        .onReceive(viewModel.todos, perform: { self.todos = $0 })
+        .onReceive(viewModel.loading, perform: { self.loading = $0 })
+        .onReceive(viewModel.error, perform: { self.error = $0; self.showErrorAlert = true })
     }
 }
 
-class TodoListViewModel: ViewModel, ObservableObject {
-    var todos = [Todo]()
+class TodoListViewModel: ViewModel<AppState> {
+    var todos: AnyPublisher<[Todo], Never>
+    var loading: AnyPublisher<Bool, Never>
+    var error: AnyPublisher<String?, Never>
 
-    override func setupSelectors() {
-        assign(selector: Selectors.getTodos, to: \TodoListViewModel.todos)
+    override init(store: Store<AppState>) {
+        self.todos = store.select(\.todos)
+        self.loading = store.select(\.loadingTodos)
+        self.error = store.select(\.error)
+        super.init(store: store)
+    }
+
+    func fetchTodos() {
+        self.store.dispatch(action: FetchTodosAction())
     }
 
     func toggle(todo: Todo) {

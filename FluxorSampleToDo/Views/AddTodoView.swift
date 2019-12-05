@@ -29,7 +29,7 @@ struct AddTodoView: View {
     }
 }
 
-class AddTodoViewModel: ViewModel, ObservableObject {
+class AddTodoViewModel: ViewModel<AppState> {
     func addTodo(title: String) {
         store.dispatch(action: AddTodoAction(title: title))
     }
