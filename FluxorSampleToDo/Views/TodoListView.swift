@@ -52,7 +52,7 @@ struct TodoListView: View {
         }
         .onReceive(viewModel.todos, perform: { self.todos = $0 })
         .onReceive(viewModel.loading, perform: { self.loading = $0 })
-        .onReceive(viewModel.error, perform: { self.error = $0; self.showErrorAlert = true })
+        .onReceive(viewModel.error, perform: { self.error = $0; self.showErrorAlert = $0 != nil })
     }
 }
 
