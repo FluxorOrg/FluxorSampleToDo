@@ -15,8 +15,7 @@ class TodoServiceTests: XCTestCase {
         let todos = [Todo(title: "Buy milk")]
         let jsonData = try! JSONEncoder().encode(todos)
         let json = String(data: jsonData, encoding: .utf8)!
-        print(json)
-        URLProtocolMock.responseByPath["/me"] = (200, json)
+        URLProtocolMock.responseByPath["/MortenGregersen/FluxorSampleToDo/more/todos.json"] = (200, json)
         let todoService = TodoService(urlSession: URLSession.sessionWithMock)
         let expectation = XCTestExpectation(description: debugDescription)
         // When
@@ -27,7 +26,7 @@ class TodoServiceTests: XCTestCase {
                       expectation.fulfill()
             })
         // Then
-        wait(for: [expectation], timeout: 15)
+        wait(for: [expectation], timeout: 5)
         XCTAssertNotNil(cancellable)
     }
 }
