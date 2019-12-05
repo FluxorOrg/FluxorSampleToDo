@@ -1,0 +1,18 @@
+[
+  {
+		"title": "Dispatch actions",
+		"done": false
+	},
+	{
+		"title": "Create effects",
+		"done": false
+	},
+	{
+		"title": "Select something",
+		"done": false
+	},
+	{
+		"title": "Intercept everything",
+		"done": false
+	}
+]
