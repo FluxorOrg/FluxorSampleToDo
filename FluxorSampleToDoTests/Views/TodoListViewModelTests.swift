@@ -12,12 +12,12 @@ import XCTest
 
 class TodoListViewModelTests: XCTestCase {
     var testStore: Store<AppState>!
-    var storeInterceptor: StoreTestInterceptor!
+    var storeInterceptor: TestStoreInterceptor<AppState>!
     var viewModel: TodoListViewModel!
 
     override func setUp() {
         super.setUp()
-        storeInterceptor = StoreTestInterceptor()
+        storeInterceptor = TestStoreInterceptor<AppState>()
         testStore = Store(initialState: AppState())
         testStore.register(interceptor: storeInterceptor)
         viewModel = TodoListViewModel(store: testStore)
@@ -27,7 +27,7 @@ class TodoListViewModelTests: XCTestCase {
         // When
         viewModel.fetchTodos()
         // Then
-        XCTAssertNotNil(storeInterceptor.dispatchedActions[0] as? FetchTodosAction)
+        XCTAssertNotNil(storeInterceptor.dispatchedActionsAndStates[0].action as? FetchTodosAction)
     }
 
     func testToggleIncompleteTodo() {
@@ -36,7 +36,7 @@ class TodoListViewModelTests: XCTestCase {
         // When
         viewModel.toggle(todo: todo)
         // Then
-        let action = storeInterceptor.dispatchedActions[0] as! CompleteTodoAction
+        let action = storeInterceptor.dispatchedActionsAndStates[0].action as! CompleteTodoAction
         XCTAssertEqual(action.todo, todo)
     }
 
@@ -47,7 +47,7 @@ class TodoListViewModelTests: XCTestCase {
         // When
         viewModel.toggle(todo: todo)
         // Then
-        let action = storeInterceptor.dispatchedActions[0] as! UncompleteTodoAction
+        let action = storeInterceptor.dispatchedActionsAndStates[0].action as! UncompleteTodoAction
         XCTAssertEqual(action.todo, todo)
     }
 
@@ -57,7 +57,7 @@ class TodoListViewModelTests: XCTestCase {
         // When
         viewModel.delete(at: offsets)
         // Then
-        let action = storeInterceptor.dispatchedActions[0] as! DeleteTodoAction
+        let action = storeInterceptor.dispatchedActionsAndStates[0].action as! DeleteTodoAction
         XCTAssertEqual(action.offsets, offsets)
     }
 }

@@ -12,24 +12,24 @@ import XCTest
 
 class AddTodoViewModelTests: XCTestCase {
     var testStore: Store<AppState>!
-    var storeInterceptor: StoreTestInterceptor!
+    var storeInterceptor: TestStoreInterceptor<AppState>!
     var viewModel: AddTodoViewModel!
 
     override func setUp() {
         super.setUp()
-        storeInterceptor = StoreTestInterceptor()
+        storeInterceptor = TestStoreInterceptor<AppState>()
         testStore = Store(initialState: AppState())
         testStore.register(interceptor: storeInterceptor)
         viewModel = AddTodoViewModel(store: testStore)
     }
 
-    func testFetchTodos() {
+    func testAddTodo() {
         // Given
         let title = "Buy milk"
         // When
         viewModel.addTodo(title: title)
         // Then
-        let action = storeInterceptor.dispatchedActions[0] as! AddTodoAction
+        let action = storeInterceptor.dispatchedActionsAndStates[0].action as! AddTodoAction
         XCTAssertEqual(action.title, title)
     }
 }

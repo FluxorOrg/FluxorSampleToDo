@@ -8,11 +8,13 @@
 
 import SwiftUI
 
-struct AddTodoView: View {
+struct AddTodoView {
     @ObservedObject var viewModel: AddTodoViewModel
     @Binding var showAddSheet: Bool
     @State var todoTitle = ""
+}
 
+extension AddTodoView: View {
     var body: some View {
         NavigationView {
             Form {

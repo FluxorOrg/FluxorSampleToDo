@@ -8,10 +8,9 @@
 
 import Combine
 import Fluxor
-import FluxorSwiftUI
 import SwiftUI
 
-struct TodoListView: View {
+struct TodoListView {
     var viewModel: TodoListViewModel
     @State private var todos = [Todo]()
     @State private var loading = false
@@ -19,7 +18,9 @@ struct TodoListView: View {
 
     @State private var showAddSheet = false
     @State private var showErrorAlert = false
+}
 
+extension TodoListView: View {
     var body: some View {
         NavigationView {
             List {

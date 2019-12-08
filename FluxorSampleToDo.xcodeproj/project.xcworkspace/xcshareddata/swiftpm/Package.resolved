@@ -14,17 +14,8 @@
         "package": "Fluxor",
         "repositoryURL": "/Users/morten/MoGee/Projects/Fluxor/Fluxor",
         "state": {
-          "branch": "main-threading",
-          "revision": "38866f82e43ba6b2fe5411118de36187d78f06f8",
-          "version": null
-        }
-      },
-      {
-        "package": "FluxorSwiftUI",
-        "repositoryURL": "/Users/morten/MoGee/Projects/Fluxor/FluxorSwiftUI",
-        "state": {
           "branch": "master",
-          "revision": "ce20ff6dfeb53154831df7eca67e5f64f26f80cd",
+          "revision": "b5ac8092056396f798334196ed687a4bd8014b70",
           "version": null
         }
       }
