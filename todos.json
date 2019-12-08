@@ -1,0 +1,22 @@
+[
+  {
+    "id": "CA1F655F-38D4-440A-BECC-024AF300A662",
+    "title": "Dispatch actions",
+    "done": false
+  },
+  {
+    "id": "D740EBC8-76F1-4627-8ED5-F35F4691B98A",
+    "title": "Create effects",
+    "done": false
+  },
+  {
+    "id": "77D871E0-C64C-4A3D-822F-38E03D098945",
+    "title": "Select something",
+    "done": false
+  },
+  {
+    "id": "64095461-619C-4603-9951-8CC65CDB395F",
+    "title": "Intercept everything",
+    "done": false
+  }
+]
