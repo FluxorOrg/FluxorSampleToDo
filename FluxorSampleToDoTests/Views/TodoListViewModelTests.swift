@@ -10,22 +10,22 @@
 @testable import FluxorSampleToDo
 import XCTest
 
-class TodoListViewModelTests: XCTestCase {
-    var testStore: Store<AppState>!
+class TodoListViewTests: XCTestCase {
+    var store: Store<AppState>!
     var storeInterceptor: TestStoreInterceptor<AppState>!
-    var viewModel: TodoListViewModel!
+    var model: TodoListView.Model!
 
     override func setUp() {
         super.setUp()
-        storeInterceptor = TestStoreInterceptor<AppState>()
-        testStore = Store(initialState: AppState())
-        testStore.register(interceptor: storeInterceptor)
-        viewModel = TodoListViewModel(store: testStore)
+        storeInterceptor = .init()
+        store = .init(initialState: AppState())
+        store.register(interceptor: storeInterceptor)
+        model = .init(store: store)
     }
 
     func testFetchTodos() {
         // When
-        viewModel.fetchTodos()
+        model.fetchTodos()
         // Then
         XCTAssertNotNil(storeInterceptor.dispatchedActionsAndStates[0].action as? FetchTodosAction)
     }
@@ -34,7 +34,7 @@ class TodoListViewModelTests: XCTestCase {
         // Given
         let todo = Todo(title: "Buy milk")
         // When
-        viewModel.toggle(todo: todo)
+        model.toggle(todo: todo)
         // Then
         let action = storeInterceptor.dispatchedActionsAndStates[0].action as! CompleteTodoAction
         XCTAssertEqual(action.todo, todo)
@@ -45,7 +45,7 @@ class TodoListViewModelTests: XCTestCase {
         var todo = Todo(title: "Buy milk")
         todo.done = true
         // When
-        viewModel.toggle(todo: todo)
+        model.toggle(todo: todo)
         // Then
         let action = storeInterceptor.dispatchedActionsAndStates[0].action as! UncompleteTodoAction
         XCTAssertEqual(action.todo, todo)
@@ -55,7 +55,7 @@ class TodoListViewModelTests: XCTestCase {
         // Given
         let offsets = IndexSet(arrayLiteral: 1)
         // When
-        viewModel.delete(at: offsets)
+        model.delete(at: offsets)
         // Then
         let action = storeInterceptor.dispatchedActionsAndStates[0].action as! DeleteTodoAction
         XCTAssertEqual(action.offsets, offsets)

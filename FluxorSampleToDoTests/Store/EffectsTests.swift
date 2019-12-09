@@ -17,7 +17,8 @@ class EffectsTests: XCTestCase {
     func testFetchTodosSuccess() {
         // Given
         let expectation = XCTestExpectation(description: debugDescription)
-        let effects = TodosEffects($action, todoService: TodoServiceMock(shouldSucceed: true))
+        Current.todoService = TodoServiceMock(shouldSucceed: true)
+        let effects = TodosEffects($action)
         let cancellable = effects.fetchTodos.sink { action in
             guard let didFetchTodosAction = action as? DidFetchTodosAction else { return }
             XCTAssertEqual(didFetchTodosAction.todos.count, 4)
@@ -33,7 +34,8 @@ class EffectsTests: XCTestCase {
     func testFetchTodosFailure() {
         // Given
         let expectation = XCTestExpectation(description: debugDescription)
-        let effects = TodosEffects($action, todoService: TodoServiceMock(shouldSucceed: false))
+        Current.todoService = TodoServiceMock(shouldSucceed: false)
+        let effects = TodosEffects($action)
         let cancellable = effects.fetchTodos.sink { action in
             guard let didFailFetchingTodosAction = action as? DidFailFetchingTodosAction else { return }
             XCTAssertEqual(didFailFetchingTodosAction.error, "Something bad happened, and the todos could not be fetched.")
