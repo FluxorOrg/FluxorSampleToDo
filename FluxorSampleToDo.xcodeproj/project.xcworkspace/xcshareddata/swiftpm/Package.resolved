@@ -12,7 +12,7 @@
       },
       {
         "package": "Fluxor",
-        "repositoryURL": "/Users/morten/MoGee/Projects/Fluxor/Fluxor",
+        "repositoryURL": "https://github.com/MortenGregersen/Fluxor",
         "state": {
           "branch": "master",
           "revision": "f91e0e7c5a1ff4dc87b12e4781f9ab53e718a293",

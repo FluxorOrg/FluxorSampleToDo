@@ -21,6 +21,7 @@
 		5A25A8A623907258004F6074 /* ReducersHandlingTodosReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25A8A523907258004F6074 /* ReducersHandlingTodosReducerTests.swift */; };
 		5A2F4F05239DB6FE00352C74 /* PreviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F04239DB6FE00352C74 /* PreviewStore.swift */; };
 		5A2F4F0A239F006A00352C74 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F09239F006A00352C74 /* Environment.swift */; };
+		5A2F4F1823A04F6E00352C74 /* Fluxor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2F4F1723A04F6E00352C74 /* Fluxor */; };
 		5A7AC78223873BD300EC24AF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC78123873BD300EC24AF /* AppState.swift */; };
 		5A7AC7862389E3A300EC24AF /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC7852389E3A300EC24AF /* Actions.swift */; };
 		5A7AC7892389EAAD00EC24AF /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC7882389EAAD00EC24AF /* AddTodoView.swift */; };
@@ -34,7 +35,6 @@
 		5AEA829A23984DED00C90466 /* TodoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA829923984DED00C90466 /* TodoListViewModelTests.swift */; };
 		5AEA829C239858CD00C90466 /* AddTodoViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA829B239858CD00C90466 /* AddTodoViewModelTests.swift */; };
 		5AEA82A123985B3100C90466 /* TodoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA82A023985B3100C90466 /* TodoRowView.swift */; };
-		5AEA82A42399A05700C90466 /* Fluxor in Frameworks */ = {isa = PBXBuildFile; productRef = 5AEA82A32399A05700C90466 /* Fluxor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AEA82A42399A05700C90466 /* Fluxor in Frameworks */,
+				5A2F4F1823A04F6E00352C74 /* Fluxor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +295,7 @@
 			);
 			name = FluxorSampleToDo;
 			packageProductDependencies = (
-				5AEA82A32399A05700C90466 /* Fluxor */,
+				5A2F4F1723A04F6E00352C74 /* Fluxor */,
 			);
 			productName = FluxorSampleToDo;
 			productReference = 5AD0A11E2384951000A32232 /* FluxorSampleToDo.app */;
@@ -330,7 +330,7 @@
 			);
 			mainGroup = 5AD0A1152384951000A32232;
 			packageReferences = (
-				5AEA82A22399A05700C90466 /* XCRemoteSwiftPackageReference "Fluxor" */,
+				5A2F4F1623A04F6E00352C74 /* XCRemoteSwiftPackageReference "Fluxor" */,
 			);
 			productRefGroup = 5AD0A11F2384951000A32232 /* Products */;
 			projectDirPath = "";
@@ -502,9 +502,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5AEA82A22399A05700C90466 /* XCRemoteSwiftPackageReference "Fluxor" */ = {
+		5A2F4F1623A04F6E00352C74 /* XCRemoteSwiftPackageReference "Fluxor" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "file:///Users/morten/MoGee/Projects/Fluxor/Fluxor";
+			repositoryURL = "https://github.com/MortenGregersen/Fluxor";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -513,9 +513,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5AEA82A32399A05700C90466 /* Fluxor */ = {
+		5A2F4F1723A04F6E00352C74 /* Fluxor */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5AEA82A22399A05700C90466 /* XCRemoteSwiftPackageReference "Fluxor" */;
+			package = 5A2F4F1623A04F6E00352C74 /* XCRemoteSwiftPackageReference "Fluxor" */;
 			productName = Fluxor;
 		};
 		5AEA82A8239C58E000C90466 /* FluxorTestSupport */ = {
