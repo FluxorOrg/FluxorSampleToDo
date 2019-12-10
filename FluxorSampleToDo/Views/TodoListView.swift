@@ -10,26 +10,50 @@ import Combine
 import Fluxor
 import SwiftUI
 
-struct TodoListView: View {
-    @ObservedObject var viewModel: TodoListViewModel
-    @State private var showAddSheet = false
+struct TodoListView {
+    let model: Model
+    @State private var todos = [Todo]()
+    @State private var loading = false
+    @State private var error: String?
 
+    @State private var showAddSheet = false
+    @State private var showErrorAlert = false
+}
+
+extension TodoListView {
+    class Model: ViewModel {
+        func fetchTodos() {
+            store.dispatch(action: FetchTodosAction())
+        }
+
+        func toggle(todo: Todo) {
+            if todo.done {
+                store.dispatch(action: UncompleteTodoAction(todo: todo))
+            } else {
+                store.dispatch(action: CompleteTodoAction(todo: todo))
+            }
+        }
+
+        func delete(at offsets: IndexSet) {
+            store.dispatch(action: DeleteTodoAction(offsets: offsets))
+        }
+    }
+}
+
+extension TodoListView: View {
     var body: some View {
         NavigationView {
             List {
-                if viewModel.todos.count > 0 {
-                    ForEach(viewModel.todos, id: \.id) { todo in
-                        Button(action: {
-                            self.viewModel.toggle(todo: todo)
-                        }, label: {
-                            HStack {
-                                Text(todo.title)
-                                Spacer()
-                                Image(systemName: todo.done ? "checkmark.circle.fill" : "circle")
-                            }
-                        })
+                if self.loading {
+                    HStack {
+                        ActivityIndicator()
+                        Text("Loading todos...")
                     }
-                    .onDelete(perform: self.viewModel.delete)
+                } else if todos.count > 0 {
+                    ForEach(todos, id: \.id) { todo in
+                        TodoRowView(todo: todo) { self.model.toggle(todo: todo) }
+                    }
+                    .onDelete(perform: self.model.delete)
                 } else {
                     Text("No todos").multilineTextAlignment(.center)
                 }
@@ -38,34 +62,23 @@ struct TodoListView: View {
             .navigationBarTitle("Fluxor todos")
             .navigationBarItems(trailing: Button("Add") { self.showAddSheet = true })
             .sheet(isPresented: $showAddSheet) {
-                AddTodoView(viewModel: .init(store: store), showAddSheet: self.$showAddSheet)
+                AddTodoView(model: .init(store: self.model.store), showAddSheet: self.$showAddSheet)
+            }
+            .alert(isPresented: $showErrorAlert) {
+                Alert(title: Text("Error"), message: Text(error ?? ""), dismissButton: Alert.Button.default(Text("OK")))
             }
         }
-    }
-}
-
-class TodoListViewModel: ViewModel, ObservableObject {
-    var todos = [Todo]()
-
-    override func setupSelectors() {
-        assign(selector: Selectors.getTodos, to: \TodoListViewModel.todos)
-    }
-
-    func toggle(todo: Todo) {
-        if todo.done {
-            store.dispatch(action: UncompleteTodoAction(todo: todo))
-        } else {
-            store.dispatch(action: CompleteTodoAction(todo: todo))
+        .onAppear {
+            self.model.fetchTodos()
         }
-    }
-
-    func delete(at offsets: IndexSet) {
-        store.dispatch(action: DeleteTodoAction(offsets: offsets))
+        .onReceive(model.store.select(\.todos), perform: { self.todos = $0 })
+        .onReceive(model.store.select(\.loadingTodos), perform: { self.loading = $0 })
+        .onReceive(model.store.select(\.error), perform: { self.error = $0; self.showErrorAlert = $0 != nil })
     }
 }
 
 struct TodoListView_Previews: PreviewProvider {
     static var previews: some View {
-        TodoListView(viewModel: .init(store: store))
+        TodoListView(model: .init(store: previewStore))
     }
 }

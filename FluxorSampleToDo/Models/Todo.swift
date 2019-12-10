@@ -8,8 +8,13 @@
 
 import Foundation
 
-struct Todo: Encodable, Identifiable, Equatable {
-    let id = UUID()
+struct Todo: Codable, Identifiable, Equatable {
+    let id: UUID
     let title: String
     var done = false
+    
+    init(title: String) {
+        id = UUID()
+        self.title = title
+    }
 }

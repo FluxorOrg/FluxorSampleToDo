@@ -1,17 +1,34 @@
 //
-//  Store.swift
+//  Reducers.swift
 //  FluxorSampleToDo
 //
-//  Created by Morten Bjerg Gregersen on 21/11/2019.
+//  Created by Morten Bjerg Gregersen on 28/11/2019.
 //  Copyright © 2019 MoGee. All rights reserved.
 //
 
 import Fluxor
-import Foundation
 
-let store: Store<AppState> = {
-    let store = Store(initialState: AppState())
-    store.register(reducer: Reducer<AppState, Action>(reduce: { (state, action) -> AppState in
+struct Reducers {
+    static let fetchingTodosReducer = Reducer<AppState>(reduce: { state, action in
+        var state = state
+        switch action {
+        case let fetchTodosAction as FetchTodosAction:
+            state.loadingTodos = true
+            state.error = nil
+        case let didFetchTodosAction as DidFetchTodosAction:
+            state.todos = didFetchTodosAction.todos
+            state.loadingTodos = false
+        case let didFailFetchingTodosAction as DidFailFetchingTodosAction:
+            state.todos = []
+            state.loadingTodos = false
+            state.error = didFailFetchingTodosAction.error
+        default:
+            ()
+        }
+        return state
+    })
+
+    static let handlingTodosReducer = Reducer<AppState>(reduce: { state, action in
         var state = state
         switch action {
         case let addTodoAction as AddTodoAction:
@@ -36,6 +53,5 @@ let store: Store<AppState> = {
             ()
         }
         return state
-    }))
-    return store
-}()
+    })
+}

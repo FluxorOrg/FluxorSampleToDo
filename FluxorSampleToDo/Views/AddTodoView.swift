@@ -6,13 +6,24 @@
 //  Copyright © 2019 MoGee. All rights reserved.
 //
 
+import Fluxor
 import SwiftUI
 
-struct AddTodoView: View {
-    @ObservedObject var viewModel: AddTodoViewModel
+struct AddTodoView {
+    let model: Model
     @Binding var showAddSheet: Bool
     @State var todoTitle = ""
+}
 
+extension AddTodoView {
+    class Model: ViewModel {
+        func addTodo(title: String) {
+            store.dispatch(action: AddTodoAction(title: title))
+        }
+    }
+}
+
+extension AddTodoView: View {
     var body: some View {
         NavigationView {
             Form {
@@ -22,15 +33,15 @@ struct AddTodoView: View {
             .navigationBarItems(leading: Button("Cancel") {
                 self.showAddSheet = false
             }, trailing: Button("Save") {
-                self.viewModel.addTodo(title: self.todoTitle)
+                self.model.addTodo(title: self.todoTitle)
                 self.showAddSheet = false
             })
         }
     }
 }
 
-class AddTodoViewModel: ViewModel, ObservableObject {
-    func addTodo(title: String) {
-        store.dispatch(action: AddTodoAction(title: title))
+struct AddTodoView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddTodoView(model: .init(store: previewStore), showAddSheet: .constant(false))
     }
 }

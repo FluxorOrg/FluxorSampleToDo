@@ -12,10 +12,10 @@
       },
       {
         "package": "Fluxor",
-        "repositoryURL": "git@github.com:MortenGregersen/Fluxor.git",
+        "repositoryURL": "https://github.com/MortenGregersen/Fluxor",
         "state": {
           "branch": "master",
-          "revision": "c622c476e6e275e2e29b3e86a0a1230a7fdab9c9",
+          "revision": "f91e0e7c5a1ff4dc87b12e4781f9ab53e718a293",
           "version": null
         }
       }

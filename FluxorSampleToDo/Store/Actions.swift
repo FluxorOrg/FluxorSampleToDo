@@ -9,6 +9,18 @@
 import Fluxor
 import Foundation
 
+struct FetchTodosAction: Action {}
+
+struct DidFetchTodosAction: Action {
+    let todos: [Todo]
+}
+
+struct DidFailFetchingTodosAction: Action {
+    let error: String
+}
+
+struct ClearFetchingErrorAction: Action {}
+
 struct AddTodoAction: Action {
     let title: String
 }

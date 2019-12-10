@@ -10,12 +10,21 @@ import SwiftUI
 
 struct TodoRowView: View {
     var todo: Todo
-    
+    var didSelect: () -> Void
+
     var body: some View {
-        HStack {
-            Text(todo.title)
-            Spacer()
-            Image(systemName: todo.done ? "checkmark.circle.fill" : "circle")
+        Button(action: didSelect) {
+            HStack {
+                Text(todo.title)
+                Spacer()
+                Image(systemName: todo.done ? "checkmark.circle.fill" : "circle")
+            }
         }
+    }
+}
+
+struct TodoRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        TodoRowView(todo: Todo(title: "Buy milk"), didSelect: {})
     }
 }
