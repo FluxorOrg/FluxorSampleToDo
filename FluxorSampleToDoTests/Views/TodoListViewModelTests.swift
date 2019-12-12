@@ -10,7 +10,7 @@
 @testable import FluxorSampleToDo
 import XCTest
 
-class TodoListViewTests: XCTestCase {
+class TodoListViewModelTests: XCTestCase {
     var store: Store<AppState>!
     var storeInterceptor: TestStoreInterceptor<AppState>!
     var model: TodoListView.Model!
