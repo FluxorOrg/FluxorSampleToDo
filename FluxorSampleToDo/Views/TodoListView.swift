@@ -12,12 +12,10 @@ import SwiftUI
 
 struct TodoListView {
     let model: Model
-    @State private var todos = [Todo]()
-    @State private var loading = false
-    @State private var error: String?
-
-    @State private var showAddSheet = false
-    @State private var showErrorAlert = false
+    @State var todos = [Todo]()
+    @State var loading = false
+    @State var error: String?
+    @State var showErrorAlert = false
 }
 
 extension TodoListView {
@@ -42,31 +40,25 @@ extension TodoListView {
 
 extension TodoListView: View {
     var body: some View {
-        NavigationView {
-            List {
-                if self.loading {
-                    HStack {
-                        ActivityIndicator()
-                        Text("Loading todos...")
-                    }
-                } else if todos.count > 0 {
-                    ForEach(todos, id: \.id) { todo in
-                        TodoRowView(todo: todo) { self.model.toggle(todo: todo) }
-                    }
-                    .onDelete(perform: self.model.delete)
-                } else {
-                    Text("No todos").multilineTextAlignment(.center)
+        List {
+            if loading {
+                HStack {
+                    ActivityIndicator()
+                    Text("Loading todos...")
                 }
+            } else if todos.count > 0 {
+                ForEach(todos, id: \.id) { todo in
+                    AnyView(TodoRowView(todo: todo) { self.model.toggle(todo: todo) })
+                }
+                .onDelete(perform: self.model.delete)
+            } else {
+                Text("No todos").multilineTextAlignment(.center)
             }
-            .listStyle(GroupedListStyle())
-            .navigationBarTitle("Fluxor todos")
-            .navigationBarItems(trailing: Button("Add") { self.showAddSheet = true })
-            .sheet(isPresented: $showAddSheet) {
-                AddTodoView(model: .init(store: self.model.store), showAddSheet: self.$showAddSheet)
-            }
-            .alert(isPresented: $showErrorAlert) {
-                Alert(title: Text("Error"), message: Text(error ?? ""), dismissButton: Alert.Button.default(Text("OK")))
-            }
+        }
+        .listStyle(GroupedListStyle())
+        .navigationBarTitle("Fluxor todos")
+        .alert(isPresented: $showErrorAlert) {
+            Alert(title: Text("Error"), message: Text(error ?? ""), dismissButton: Alert.Button.default(Text("OK")))
         }
         .onAppear {
             self.model.fetchTodos()
