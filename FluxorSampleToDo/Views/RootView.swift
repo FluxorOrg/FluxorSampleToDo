@@ -17,7 +17,8 @@ struct RootView: View {
                 .navigationBarItems(trailing: Button("Add") {
                     self.showAddSheet = true
                 })
-        }.sheet(isPresented: $showAddSheet) {
+        }
+        .sheet(isPresented: $showAddSheet) {
             AddTodoView(model: .init(), showAddSheet: self.$showAddSheet)
         }
     }
