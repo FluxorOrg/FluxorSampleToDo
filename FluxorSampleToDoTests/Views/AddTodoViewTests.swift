@@ -10,12 +10,13 @@
 import ViewInspector
 import XCTest
 
-class AddTodoViewTests: XCTestCase {
-    func testTodos() throws {
+// ViewInspector can't inspect the view because of the .navigationBarItems
+//class AddTodoViewTests: XCTestCase {
+//    func testTodos() throws {
 //        let view = AddTodoView(showAddSheet: .constant(true))
 //        let textField = try view.inspect().navigationView().form(0).textField(0)
 //        print(textField)
-    }
-}
+//    }
+//}
 
 extension AddTodoView: Inspectable {}
