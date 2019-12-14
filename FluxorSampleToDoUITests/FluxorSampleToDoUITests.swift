@@ -15,17 +15,17 @@ class FluxorSampleToDoUITests: XCTestCase {
         app.launch()
         
         let listPage = ListPage(app: app)
-        XCTAssertEqual(listPage.numberOfTodods, 0)
+        XCTAssertEqual(listPage.numberOfTodods, 4)
         
         // Add todo
         listPage.showAddPage()
             .enterTitle(title: "Buy milk")
             .save()
-        XCTAssertEqual(listPage.numberOfTodods, 1)
+        XCTAssertEqual(listPage.numberOfTodods, 5)
         
         // Delete todo
         listPage.deleteTodo(title: "Buy milk")
-        XCTAssertEqual(listPage.numberOfTodods, 0)
+        XCTAssertEqual(listPage.numberOfTodods, 4)
         
         // Cancel adding todo
         listPage.showAddPage().cancel()

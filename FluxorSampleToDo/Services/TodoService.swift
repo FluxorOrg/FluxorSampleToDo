@@ -22,7 +22,7 @@ class TodoService: TodoServiceProtocol {
 
     func fetchTodos() -> AnyPublisher<[Todo], Error> {
         return urlSession
-            .dataTaskPublisher(for: URL(string: "https://raw.githubusercontent.com/MortenGregersen/FluxorSampleToDo/more/todos.json")!)
+            .dataTaskPublisher(for: URL(string: "https://raw.githubusercontent.com/MortenGregersen/FluxorSampleToDo/master/todos.json")!)
             .map { $0.data }
             .decode(type: [Todo].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
