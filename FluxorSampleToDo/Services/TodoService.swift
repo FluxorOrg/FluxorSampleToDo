@@ -21,8 +21,14 @@ class TodoService: TodoServiceProtocol {
     }
 
     func fetchTodos() -> AnyPublisher<[Todo], Error> {
+        var url = URL(string: "https://raw.githubusercontent.com/MortenGregersen/FluxorSampleToDo/master/todos.json")!
+        #if DEBUG
+        if CommandLine.arguments.contains("-fail-fetching") {
+           url = URL(string: "https://google.com")!
+        }
+        #endif
         return urlSession
-            .dataTaskPublisher(for: URL(string: "https://raw.githubusercontent.com/MortenGregersen/FluxorSampleToDo/master/todos.json")!)
+            .dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: [Todo].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()

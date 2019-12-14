@@ -15,6 +15,7 @@ class FluxorSampleToDoUITests: XCTestCase {
         app.launch()
         
         let listPage = ListPage(app: app)
+        XCTAssertFalse(listPage.alertIsShown)
         XCTAssertEqual(listPage.numberOfTodods, 4)
         
         // Add todo
@@ -30,6 +31,16 @@ class FluxorSampleToDoUITests: XCTestCase {
         // Cancel adding todo
         listPage.showAddPage().cancel()
     }
+    
+    func testAlert() {
+        continueAfterFailure = false
+        let app = XCUIApplication()
+        app.launchArguments = ["-fail-fetching"]
+        app.launch()
+        
+        let listPage = ListPage(app: app)
+        XCTAssertTrue(listPage.alertIsShown)
+    }
 }
 
 struct ListPage {
@@ -37,6 +48,10 @@ struct ListPage {
     
     var numberOfTodods: Int {
         app.tables.buttons.count
+    }
+    
+    var alertIsShown: Bool {
+        app.alerts["Error"].exists
     }
     
     func showAddPage() -> AddPage {
