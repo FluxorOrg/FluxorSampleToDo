@@ -13,7 +13,7 @@ struct RootView: View {
     
     var body: some View {
         NavigationView {
-            TodoListView(model: .init(store: Current.store))
+            TodoListView()
         }.sheet(isPresented: $showAddSheet) {
             AddTodoView(model: .init(), showAddSheet: self.$showAddSheet)
         }

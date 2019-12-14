@@ -11,7 +11,7 @@ import Fluxor
 import SwiftUI
 
 struct TodoListView {
-    let model: Model
+    var model = Model()
     @State var todos = [Todo]()
     @State var loading = false
     @State var error: String?
@@ -48,7 +48,7 @@ extension TodoListView: View {
                 }
             } else if todos.count > 0 {
                 ForEach(todos, id: \.id) { todo in
-                    AnyView(TodoRowView(todo: todo) { self.model.toggle(todo: todo) })
+                    TodoRowView(todo: todo) { self.model.toggle(todo: todo) }
                 }
                 .onDelete(perform: self.model.delete)
             } else {
