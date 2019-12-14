@@ -17,5 +17,5 @@ jobs:
       run: |
         xcodebuild -version
         xcode-select -print-path
-        xcodebuild test -scheme FluxorSampleToDo -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+        xcodebuild test -scheme FluxorSampleToDo -destination "platform=iOS Simulator,name=iPhone 11 Pro,OS=13.1"
         
