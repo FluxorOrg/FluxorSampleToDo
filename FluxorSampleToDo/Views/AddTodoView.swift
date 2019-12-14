@@ -10,9 +10,9 @@ import Fluxor
 import SwiftUI
 
 struct AddTodoView {
-    let model: Model
+    var model = Model()
     @Binding var showAddSheet: Bool
-    @State var todoTitle = ""
+    @State private var todoTitle = ""
 }
 
 extension AddTodoView {

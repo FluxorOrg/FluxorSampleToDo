@@ -15,7 +15,7 @@ class TodoServiceTests: XCTestCase {
         let todos = [Todo(title: "Buy milk")]
         let jsonData = try! JSONEncoder().encode(todos)
         let json = String(data: jsonData, encoding: .utf8)!
-        URLProtocolMock.responseByPath["/MortenGregersen/FluxorSampleToDo/more/todos.json"] = (200, json)
+        URLProtocolMock.responseByPath["/MortenGregersen/FluxorSampleToDo/master/todos.json"] = (200, json)
         let todoService = TodoService(urlSession: URLSession.sessionWithMock)
         let expectation = XCTestExpectation(description: debugDescription)
         // When

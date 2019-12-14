@@ -22,6 +22,13 @@
 		5A2F4F05239DB6FE00352C74 /* PreviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F04239DB6FE00352C74 /* PreviewStore.swift */; };
 		5A2F4F0A239F006A00352C74 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F09239F006A00352C74 /* Environment.swift */; };
 		5A2F4F1823A04F6E00352C74 /* Fluxor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2F4F1723A04F6E00352C74 /* Fluxor */; };
+		5A2F4F2023A2D0FE00352C74 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2F4F1F23A2D0FE00352C74 /* ViewInspector */; };
+		5A2F4F2223A2D29300352C74 /* TodoListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F2123A2D29300352C74 /* TodoListViewTests.swift */; };
+		5A2F4F2423A2EBF100352C74 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F2323A2EBF100352C74 /* RootView.swift */; };
+		5A2F4F2623A440A900352C74 /* TodoRowViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F2523A440A900352C74 /* TodoRowViewTests.swift */; };
+		5A2F4F2823A4465400352C74 /* AddTodoViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F2723A4465400352C74 /* AddTodoViewTests.swift */; };
+		5A2F4F2A23A515D900352C74 /* PreviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F2923A515D900352C74 /* PreviewTests.swift */; };
+		5A2F4F3A23A51CE900352C74 /* FluxorSampleToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F3923A51CE900352C74 /* FluxorSampleToDoUITests.swift */; };
 		5A7AC78223873BD300EC24AF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC78123873BD300EC24AF /* AppState.swift */; };
 		5A7AC7862389E3A300EC24AF /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC7852389E3A300EC24AF /* Actions.swift */; };
 		5A7AC7892389EAAD00EC24AF /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC7882389EAAD00EC24AF /* AddTodoView.swift */; };
@@ -39,6 +46,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		5A060B4D238C6CA6007EF3C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AD0A1162384951000A32232 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD0A11D2384951000A32232;
+			remoteInfo = FluxorSampleToDo;
+		};
+		5A2F4F3C23A51CE900352C74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5AD0A1162384951000A32232 /* Project object */;
 			proxyType = 1;
@@ -73,6 +87,17 @@
 		5A2F4F1323A044E200352C74 /* FluxorSampleToDoTests-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FluxorSampleToDoTests-Release.xcconfig"; sourceTree = "<group>"; };
 		5A2F4F1423A044E200352C74 /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
 		5A2F4F1523A044E200352C74 /* FluxorSampleToDoTests-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FluxorSampleToDoTests-Shared.xcconfig"; sourceTree = "<group>"; };
+		5A2F4F2123A2D29300352C74 /* TodoListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewTests.swift; sourceTree = "<group>"; };
+		5A2F4F2323A2EBF100352C74 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		5A2F4F2523A440A900352C74 /* TodoRowViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRowViewTests.swift; sourceTree = "<group>"; };
+		5A2F4F2723A4465400352C74 /* AddTodoViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewTests.swift; sourceTree = "<group>"; };
+		5A2F4F2923A515D900352C74 /* PreviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewTests.swift; sourceTree = "<group>"; };
+		5A2F4F3723A51CE900352C74 /* FluxorSampleToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxorSampleToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A2F4F3923A51CE900352C74 /* FluxorSampleToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxorSampleToDoUITests.swift; sourceTree = "<group>"; };
+		5A2F4F3B23A51CE900352C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A64593223A570550074E7D6 /* FluxorSampleToDoUITests-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FluxorSampleToDoUITests-Shared.xcconfig"; sourceTree = "<group>"; };
+		5A64593323A570550074E7D6 /* FluxorSampleToDoUITests-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FluxorSampleToDoUITests-Release.xcconfig"; sourceTree = "<group>"; };
+		5A64593423A570550074E7D6 /* FluxorSampleToDoUITests-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FluxorSampleToDoUITests-Debug.xcconfig"; sourceTree = "<group>"; };
 		5A7AC78123873BD300EC24AF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		5A7AC7852389E3A300EC24AF /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		5A7AC7882389EAAD00EC24AF /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
@@ -92,6 +117,14 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		5A060B45238C6CA6007EF3C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A2F4F2023A2D0FE00352C74 /* ViewInspector in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A2F4F3423A51CE900352C74 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -176,8 +209,20 @@
 				5A2F4F1523A044E200352C74 /* FluxorSampleToDoTests-Shared.xcconfig */,
 				5A2F4F1123A044E200352C74 /* FluxorSampleToDoTests-Debug.xcconfig */,
 				5A2F4F1323A044E200352C74 /* FluxorSampleToDoTests-Release.xcconfig */,
+				5A64593223A570550074E7D6 /* FluxorSampleToDoUITests-Shared.xcconfig */,
+				5A64593423A570550074E7D6 /* FluxorSampleToDoUITests-Debug.xcconfig */,
+				5A64593323A570550074E7D6 /* FluxorSampleToDoUITests-Release.xcconfig */,
 			);
 			path = xcconfig;
+			sourceTree = "<group>";
+		};
+		5A2F4F3823A51CE900352C74 /* FluxorSampleToDoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5A2F4F3923A51CE900352C74 /* FluxorSampleToDoUITests.swift */,
+				5A2F4F3B23A51CE900352C74 /* Info.plist */,
+			);
+			path = FluxorSampleToDoUITests;
 			sourceTree = "<group>";
 		};
 		5A7AC78023873BC700EC24AF /* Store */ = {
@@ -196,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				5A060B43238C66AE007EF3C8 /* UIViewRepresentable */,
+				5A2F4F2323A2EBF100352C74 /* RootView.swift */,
 				5AD0A1252384951000A32232 /* TodoListView.swift */,
 				5A7AC7882389EAAD00EC24AF /* AddTodoView.swift */,
 				5AEA82A023985B3100C90466 /* TodoRowView.swift */,
@@ -208,6 +254,7 @@
 			children = (
 				5AD0A1202384951000A32232 /* FluxorSampleToDo */,
 				5A060B49238C6CA6007EF3C8 /* FluxorSampleToDoTests */,
+				5A2F4F3823A51CE900352C74 /* FluxorSampleToDoUITests */,
 				5A2F4F0C23A044E200352C74 /* xcconfig */,
 				5AD0A11F2384951000A32232 /* Products */,
 			);
@@ -218,6 +265,7 @@
 			children = (
 				5AD0A11E2384951000A32232 /* FluxorSampleToDo.app */,
 				5A060B48238C6CA6007EF3C8 /* FluxorSampleToDoTests.xctest */,
+				5A2F4F3723A51CE900352C74 /* FluxorSampleToDoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,8 +301,12 @@
 		5AEA829823984DCB00C90466 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A2F4F2123A2D29300352C74 /* TodoListViewTests.swift */,
 				5AEA829923984DED00C90466 /* TodoListViewModelTests.swift */,
+				5A2F4F2723A4465400352C74 /* AddTodoViewTests.swift */,
 				5AEA829B239858CD00C90466 /* AddTodoViewModelTests.swift */,
+				5A2F4F2523A440A900352C74 /* TodoRowViewTests.swift */,
+				5A2F4F2923A515D900352C74 /* PreviewTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,9 +329,30 @@
 				5A060B4E238C6CA6007EF3C8 /* PBXTargetDependency */,
 			);
 			name = FluxorSampleToDoTests;
+			packageProductDependencies = (
+				5A2F4F1F23A2D0FE00352C74 /* ViewInspector */,
+			);
 			productName = FluxorSampleToDoTests;
 			productReference = 5A060B48238C6CA6007EF3C8 /* FluxorSampleToDoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5A2F4F3623A51CE900352C74 /* FluxorSampleToDoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A2F4F3E23A51CE900352C74 /* Build configuration list for PBXNativeTarget "FluxorSampleToDoUITests" */;
+			buildPhases = (
+				5A2F4F3323A51CE900352C74 /* Sources */,
+				5A2F4F3423A51CE900352C74 /* Frameworks */,
+				5A2F4F3523A51CE900352C74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A2F4F3D23A51CE900352C74 /* PBXTargetDependency */,
+			);
+			name = FluxorSampleToDoUITests;
+			productName = FluxorSampleToDoUITests;
+			productReference = 5A2F4F3723A51CE900352C74 /* FluxorSampleToDoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		5AD0A11D2384951000A32232 /* FluxorSampleToDo */ = {
 			isa = PBXNativeTarget;
@@ -315,6 +388,10 @@
 						CreatedOnToolsVersion = 11.2.1;
 						TestTargetID = 5AD0A11D2384951000A32232;
 					};
+					5A2F4F3623A51CE900352C74 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 5AD0A11D2384951000A32232;
+					};
 					5AD0A11D2384951000A32232 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
@@ -331,6 +408,7 @@
 			mainGroup = 5AD0A1152384951000A32232;
 			packageReferences = (
 				5A2F4F1623A04F6E00352C74 /* XCRemoteSwiftPackageReference "Fluxor" */,
+				5A2F4F1E23A2D0FE00352C74 /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			productRefGroup = 5AD0A11F2384951000A32232 /* Products */;
 			projectDirPath = "";
@@ -338,12 +416,20 @@
 			targets = (
 				5AD0A11D2384951000A32232 /* FluxorSampleToDo */,
 				5A060B47238C6CA6007EF3C8 /* FluxorSampleToDoTests */,
+				5A2F4F3623A51CE900352C74 /* FluxorSampleToDoUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5A060B46238C6CA6007EF3C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A2F4F3523A51CE900352C74 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -369,12 +455,24 @@
 			files = (
 				5A060B63238F24B9007EF3C8 /* URLSessionMock.swift in Sources */,
 				5A25A8A423906F62004F6074 /* ReducersFetchingTodosReducerTests.swift in Sources */,
+				5A2F4F2A23A515D900352C74 /* PreviewTests.swift in Sources */,
 				5AEA829C239858CD00C90466 /* AddTodoViewModelTests.swift in Sources */,
 				5AEA829A23984DED00C90466 /* TodoListViewModelTests.swift in Sources */,
 				5A25A8A623907258004F6074 /* ReducersHandlingTodosReducerTests.swift in Sources */,
+				5A2F4F2823A4465400352C74 /* AddTodoViewTests.swift in Sources */,
 				5A060B57238C894B007EF3C8 /* EffectsTests.swift in Sources */,
 				5A060B53238C6CFE007EF3C8 /* SelectorsTests.swift in Sources */,
+				5A2F4F2623A440A900352C74 /* TodoRowViewTests.swift in Sources */,
+				5A2F4F2223A2D29300352C74 /* TodoListViewTests.swift in Sources */,
 				5A060B5F238F209E007EF3C8 /* TodoServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A2F4F3323A51CE900352C74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A2F4F3A23A51CE900352C74 /* FluxorSampleToDoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +483,7 @@
 				5A060B39238B17C9007EF3C8 /* Selectors.swift in Sources */,
 				5A2F4F0A239F006A00352C74 /* Environment.swift in Sources */,
 				5AD0A1222384951000A32232 /* AppDelegate.swift in Sources */,
+				5A2F4F2423A2EBF100352C74 /* RootView.swift in Sources */,
 				5A060B42238C6566007EF3C8 /* ActivityIndicator.swift in Sources */,
 				5A060B40238B3748007EF3C8 /* Effects.swift in Sources */,
 				5A7AC7892389EAAD00EC24AF /* AddTodoView.swift in Sources */,
@@ -408,6 +507,11 @@
 			isa = PBXTargetDependency;
 			target = 5AD0A11D2384951000A32232 /* FluxorSampleToDo */;
 			targetProxy = 5A060B4D238C6CA6007EF3C8 /* PBXContainerItemProxy */;
+		};
+		5A2F4F3D23A51CE900352C74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD0A11D2384951000A32232 /* FluxorSampleToDo */;
+			targetProxy = 5A2F4F3C23A51CE900352C74 /* PBXContainerItemProxy */;
 		};
 		5AEA82A9239C58E000C90466 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -437,6 +541,20 @@
 		5A060B51238C6CA6007EF3C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A2F4F1323A044E200352C74 /* FluxorSampleToDoTests-Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		5A2F4F3F23A51CE900352C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A64593423A570550074E7D6 /* FluxorSampleToDoUITests-Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		5A2F4F4023A51CE900352C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A64593323A570550074E7D6 /* FluxorSampleToDoUITests-Release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -481,6 +599,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		5A2F4F3E23A51CE900352C74 /* Build configuration list for PBXNativeTarget "FluxorSampleToDoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A2F4F3F23A51CE900352C74 /* Debug */,
+				5A2F4F4023A51CE900352C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5AD0A1192384951000A32232 /* Build configuration list for PBXProject "FluxorSampleToDo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -510,6 +637,14 @@
 				kind = branch;
 			};
 		};
+		5A2F4F1E23A2D0FE00352C74 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -517,6 +652,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A2F4F1623A04F6E00352C74 /* XCRemoteSwiftPackageReference "Fluxor" */;
 			productName = Fluxor;
+		};
+		5A2F4F1F23A2D0FE00352C74 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A2F4F1E23A2D0FE00352C74 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
 		};
 		5AEA82A8239C58E000C90466 /* FluxorTestSupport */ = {
 			isa = XCSwiftPackageProductDependency;
