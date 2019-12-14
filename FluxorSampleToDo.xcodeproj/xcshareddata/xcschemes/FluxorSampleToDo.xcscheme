@@ -39,6 +39,16 @@
                ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5A2F4F3623A51CE900352C74"
+               BuildableName = "FluxorSampleToDoUITests.xctest"
+               BlueprintName = "FluxorSampleToDoUITests"
+               ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

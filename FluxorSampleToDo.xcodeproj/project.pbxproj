@@ -28,6 +28,7 @@
 		5A2F4F2623A440A900352C74 /* TodoRowViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F2523A440A900352C74 /* TodoRowViewTests.swift */; };
 		5A2F4F2823A4465400352C74 /* AddTodoViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F2723A4465400352C74 /* AddTodoViewTests.swift */; };
 		5A2F4F2A23A515D900352C74 /* PreviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F2923A515D900352C74 /* PreviewTests.swift */; };
+		5A2F4F3A23A51CE900352C74 /* FluxorSampleToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F3923A51CE900352C74 /* FluxorSampleToDoUITests.swift */; };
 		5A7AC78223873BD300EC24AF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC78123873BD300EC24AF /* AppState.swift */; };
 		5A7AC7862389E3A300EC24AF /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC7852389E3A300EC24AF /* Actions.swift */; };
 		5A7AC7892389EAAD00EC24AF /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC7882389EAAD00EC24AF /* AddTodoView.swift */; };
@@ -45,6 +46,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		5A060B4D238C6CA6007EF3C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AD0A1162384951000A32232 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD0A11D2384951000A32232;
+			remoteInfo = FluxorSampleToDo;
+		};
+		5A2F4F3C23A51CE900352C74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5AD0A1162384951000A32232 /* Project object */;
 			proxyType = 1;
@@ -84,6 +92,9 @@
 		5A2F4F2523A440A900352C74 /* TodoRowViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRowViewTests.swift; sourceTree = "<group>"; };
 		5A2F4F2723A4465400352C74 /* AddTodoViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewTests.swift; sourceTree = "<group>"; };
 		5A2F4F2923A515D900352C74 /* PreviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewTests.swift; sourceTree = "<group>"; };
+		5A2F4F3723A51CE900352C74 /* FluxorSampleToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluxorSampleToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A2F4F3923A51CE900352C74 /* FluxorSampleToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxorSampleToDoUITests.swift; sourceTree = "<group>"; };
+		5A2F4F3B23A51CE900352C74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A7AC78123873BD300EC24AF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		5A7AC7852389E3A300EC24AF /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		5A7AC7882389EAAD00EC24AF /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
@@ -107,6 +118,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A2F4F2023A2D0FE00352C74 /* ViewInspector in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A2F4F3423A51CE900352C74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +210,15 @@
 			path = xcconfig;
 			sourceTree = "<group>";
 		};
+		5A2F4F3823A51CE900352C74 /* FluxorSampleToDoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5A2F4F3923A51CE900352C74 /* FluxorSampleToDoUITests.swift */,
+				5A2F4F3B23A51CE900352C74 /* Info.plist */,
+			);
+			path = FluxorSampleToDoUITests;
+			sourceTree = "<group>";
+		};
 		5A7AC78023873BC700EC24AF /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +248,7 @@
 			children = (
 				5AD0A1202384951000A32232 /* FluxorSampleToDo */,
 				5A060B49238C6CA6007EF3C8 /* FluxorSampleToDoTests */,
+				5A2F4F3823A51CE900352C74 /* FluxorSampleToDoUITests */,
 				5A2F4F0C23A044E200352C74 /* xcconfig */,
 				5AD0A11F2384951000A32232 /* Products */,
 			);
@@ -231,6 +259,7 @@
 			children = (
 				5AD0A11E2384951000A32232 /* FluxorSampleToDo.app */,
 				5A060B48238C6CA6007EF3C8 /* FluxorSampleToDoTests.xctest */,
+				5A2F4F3723A51CE900352C74 /* FluxorSampleToDoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -301,6 +330,24 @@
 			productReference = 5A060B48238C6CA6007EF3C8 /* FluxorSampleToDoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		5A2F4F3623A51CE900352C74 /* FluxorSampleToDoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A2F4F3E23A51CE900352C74 /* Build configuration list for PBXNativeTarget "FluxorSampleToDoUITests" */;
+			buildPhases = (
+				5A2F4F3323A51CE900352C74 /* Sources */,
+				5A2F4F3423A51CE900352C74 /* Frameworks */,
+				5A2F4F3523A51CE900352C74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A2F4F3D23A51CE900352C74 /* PBXTargetDependency */,
+			);
+			name = FluxorSampleToDoUITests;
+			productName = FluxorSampleToDoUITests;
+			productReference = 5A2F4F3723A51CE900352C74 /* FluxorSampleToDoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		5AD0A11D2384951000A32232 /* FluxorSampleToDo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5AD0A1322384951400A32232 /* Build configuration list for PBXNativeTarget "FluxorSampleToDo" */;
@@ -335,6 +382,10 @@
 						CreatedOnToolsVersion = 11.2.1;
 						TestTargetID = 5AD0A11D2384951000A32232;
 					};
+					5A2F4F3623A51CE900352C74 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 5AD0A11D2384951000A32232;
+					};
 					5AD0A11D2384951000A32232 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
@@ -359,12 +410,20 @@
 			targets = (
 				5AD0A11D2384951000A32232 /* FluxorSampleToDo */,
 				5A060B47238C6CA6007EF3C8 /* FluxorSampleToDoTests */,
+				5A2F4F3623A51CE900352C74 /* FluxorSampleToDoUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5A060B46238C6CA6007EF3C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A2F4F3523A51CE900352C74 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,6 +462,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5A2F4F3323A51CE900352C74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A2F4F3A23A51CE900352C74 /* FluxorSampleToDoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AD0A11A2384951000A32232 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -435,6 +502,11 @@
 			target = 5AD0A11D2384951000A32232 /* FluxorSampleToDo */;
 			targetProxy = 5A060B4D238C6CA6007EF3C8 /* PBXContainerItemProxy */;
 		};
+		5A2F4F3D23A51CE900352C74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD0A11D2384951000A32232 /* FluxorSampleToDo */;
+			targetProxy = 5A2F4F3C23A51CE900352C74 /* PBXContainerItemProxy */;
+		};
 		5AEA82A9239C58E000C90466 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 5AEA82A8239C58E000C90466 /* FluxorTestSupport */;
@@ -464,6 +536,146 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A2F4F1323A044E200352C74 /* FluxorSampleToDoTests-Release.xcconfig */;
 			buildSettings = {
+			};
+			name = Release;
+		};
+		5A2F4F3F23A51CE900352C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = R7YA4RGA8U;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = FluxorSampleToDoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorSampleToDoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FluxorSampleToDo;
+			};
+			name = Debug;
+		};
+		5A2F4F4023A51CE900352C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = R7YA4RGA8U;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = FluxorSampleToDoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorSampleToDoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FluxorSampleToDo;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -503,6 +715,15 @@
 			buildConfigurations = (
 				5A060B50238C6CA6007EF3C8 /* Debug */,
 				5A060B51238C6CA6007EF3C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A2F4F3E23A51CE900352C74 /* Build configuration list for PBXNativeTarget "FluxorSampleToDoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A2F4F3F23A51CE900352C74 /* Debug */,
+				5A2F4F4023A51CE900352C74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
