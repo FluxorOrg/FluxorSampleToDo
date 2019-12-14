@@ -58,7 +58,7 @@ extension TodoListView: View {
         .listStyle(GroupedListStyle())
         .navigationBarTitle("Fluxor todos")
         .alert(isPresented: $showErrorAlert) {
-            Alert(title: Text("Error"), message: Text(error ?? ""), dismissButton: Alert.Button.default(Text("OK")))
+            Alert(title: Text("Error"), message: Text(error!), dismissButton: .default(Text("OK")))
         }
         .onAppear {
             self.model.fetchTodos()

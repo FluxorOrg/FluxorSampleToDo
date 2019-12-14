@@ -17,12 +17,12 @@ class PreviewTests: XCTestCase {
         let preview = TodoListView_Previews.previews as! TodoListView
         XCTAssertEqual(preview.model.store.state, previewStore.state)
     }
-    
+
     func testAddTodoViewPreview() {
         let preview = AddTodoView_Previews.previews as! AddTodoView
         XCTAssertEqual(preview.model.store.state, previewStore.state)
     }
-    
+
     func testTodoRowViewPreview() throws {
         let preview = TodoRowView_Previews.previews as! TodoRowView
         try preview.inspect().button().tap()

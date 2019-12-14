@@ -36,7 +36,7 @@ class TodoListViewTests: XCTestCase {
         let text = try view.inspect().list().text(0)
         XCTAssertEqual(try text.string(), "No todos")
     }
-    
+
     func testToggleTodo() throws {
         let viewModel = MockViewModel()
         let view = TodoListView(model: viewModel, todos: todos)
@@ -46,9 +46,9 @@ class TodoListViewTests: XCTestCase {
     }
 }
 
-fileprivate class MockViewModel: TodoListView.Model {
+private class MockViewModel: TodoListView.Model {
     var toggledTodo: Todo?
-    
+
     override func toggle(todo: Todo) {
         super.toggle(todo: todo)
         toggledTodo = todo

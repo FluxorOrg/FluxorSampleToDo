@@ -14,7 +14,7 @@ class AddTodoViewModelTests: XCTestCase {
     var store: Store<AppState>!
     var storeInterceptor: TestStoreInterceptor<AppState>!
     var model: AddTodoView.Model!
-    
+
     override func setUp() {
         super.setUp()
         storeInterceptor = .init()
