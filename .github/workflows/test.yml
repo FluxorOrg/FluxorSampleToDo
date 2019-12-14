@@ -14,4 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Test
-      run: xcodebuild test -scheme FluxorSampleToDo -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+      run: |
+        xcodebuild -version
+        xcode-select -print-path
+        xcodebuild test -scheme FluxorSampleToDo -destination "platform=iOS Simulator,name=iPhone 11 Pro"
+        
