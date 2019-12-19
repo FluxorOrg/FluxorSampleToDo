@@ -7,6 +7,8 @@
 //
 
 import Fluxor
+import FluxorExplorerStoreInterceptor
+import UIKit
 
 struct Environment {
     var todoService: TodoServiceProtocol = TodoService()
@@ -15,6 +17,9 @@ struct Environment {
         store.register(reducer: Reducers.fetchingTodosReducer)
         store.register(reducer: Reducers.handlingTodosReducer)
         store.register(effects: TodosEffects.self)
+        #if DEBUG
+        store.register(interceptor: FluxorExplorerStoreInterceptor(displayName: UIDevice.current.name))
+        #endif
         return store
     }()
 }

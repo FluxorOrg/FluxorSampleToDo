@@ -20,12 +20,30 @@
         }
       },
       {
+        "package": "FluxorExplorerSnapshot",
+        "repositoryURL": "https://github.com/MortenGregersen/FluxorExplorerSnapshot",
+        "state": {
+          "branch": "master",
+          "revision": "1b82152dd09c4540bb9d47a5b7b7cccfcef505b7",
+          "version": null
+        }
+      },
+      {
+        "package": "FluxorExplorerStoreInterceptor",
+        "repositoryURL": "https://github.com/MortenGregersen/FluxorExplorerStoreInterceptor",
+        "state": {
+          "branch": "master",
+          "revision": "544cca217a8ee983e73ded43e91061611fe3180f",
+          "version": null
+        }
+      },
+      {
         "package": "ViewInspector",
         "repositoryURL": "https://github.com/nalexn/ViewInspector",
         "state": {
           "branch": null,
-          "revision": "aef32ac90ff2f7fa50a9e160eedcf446843cc515",
-          "version": "0.1.0"
+          "revision": "d05c28b0c0cb5545227a4361456168053c952488",
+          "version": "0.1.1"
         }
       }
     ]
