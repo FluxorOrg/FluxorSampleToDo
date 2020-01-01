@@ -12,7 +12,7 @@ import Fluxor
 import XCTest
 
 class EffectsTests: XCTestCase {
-    @Published var action: Action = InitialAction()
+    @Published private var action: Action = InitialTestAction()
 
     func testFetchTodosSuccess() {
         // Given
@@ -49,7 +49,9 @@ class EffectsTests: XCTestCase {
     }
 }
 
-fileprivate class TodoServiceMock: TodoServiceProtocol {
+private struct InitialTestAction: Action {}
+
+private class TodoServiceMock: TodoServiceProtocol {
     let shouldSucceed: Bool
 
     init(shouldSucceed: Bool) {
