@@ -28,6 +28,7 @@ extension AddTodoView: View {
         NavigationView {
             Form {
                 TextField("Title", text: $todoTitle)
+                    .disableAutocorrection(true)
             }
             .navigationBarTitle("Add Todo")
             .navigationBarItems(leading: Button("Cancel") {
