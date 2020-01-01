@@ -13,9 +13,17 @@ import XCTest
 
 class TodoListViewTests: XCTestCase {
     let todos = [Todo(title: "Dispatch actions"),
-                 Todo(title: "Create effects"),
+                 { var todo = Todo(title: "Create effects"); todo.done = true; return todo }(),
                  Todo(title: "Select something"),
                  Todo(title: "Intercept everything")]
+
+    func testFetching() throws {
+        let viewModel = MockViewModel()
+        let view = TodoListView(model: viewModel, loading: true)
+        XCTAssertFalse(viewModel.didFetchTodos)
+        try view.inspect().list().callOnAppear()
+        XCTAssertTrue(viewModel.didFetchTodos)
+    }
 
     func testLoading() throws {
         let view = TodoListView(loading: true)
@@ -40,17 +48,25 @@ class TodoListViewTests: XCTestCase {
     func testToggleTodo() throws {
         let viewModel = MockViewModel()
         let view = TodoListView(model: viewModel, todos: todos)
-        let row1 = try view.inspect().list().forEach(0).view(TodoRowView.self, 0).actualView()
+        let forEach = try view.inspect().list().forEach(0)
+        let row1 = try forEach.view(TodoRowView.self, 0).actualView()
         row1.didSelect()
         XCTAssertEqual(viewModel.toggledTodo, todos[0])
+        let row2 = try forEach.view(TodoRowView.self, 1).actualView()
+        row2.didSelect()
+        XCTAssertEqual(viewModel.toggledTodo, todos[1])
     }
 }
 
 private class MockViewModel: TodoListView.Model {
+    var didFetchTodos = false
     var toggledTodo: Todo?
 
+    override func fetchTodos() {
+        didFetchTodos = true
+    }
+
     override func toggle(todo: Todo) {
-        super.toggle(todo: todo)
         toggledTodo = todo
     }
 }
