@@ -1,10 +1,8 @@
-//
-//  FetchingTodosReducerTests.swift
-//  FluxorSampleToDoTests
-//
-//  Created by Morten Bjerg Gregersen on 28/11/2019.
-//  Copyright © 2019 MoGee. All rights reserved.
-//
+/**
+ * FluxorSampleToDoTests
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 @testable import Fluxor
 @testable import FluxorSampleToDo
@@ -43,6 +41,7 @@ class FetchingTodosReducerTests: XCTestCase {
 }
 
 private struct IrrelevantAction: Action {}
+
 extension AppState: Equatable {
     public static func == (lhs: AppState, rhs: AppState) -> Bool {
         return lhs.todos == rhs.todos

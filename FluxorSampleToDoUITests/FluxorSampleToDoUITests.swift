@@ -1,10 +1,8 @@
-//
-//  FluxorSampleToDoUITests.swift
-//  FluxorSampleToDoUITests
-//
-//  Created by Morten Bjerg Gregersen on 14/12/2019.
-//  Copyright © 2019 MoGee. All rights reserved.
-//
+/**
+ * FluxorSampleToDoTests
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 import XCTest
 
@@ -38,6 +36,13 @@ class FluxorSampleToDoUITests: XCTestCase {
         app.launchArguments = ["-fail-fetching"]
         app.launch()
         
+        // Wait for spinner to disappear
+        let spinner = app.activityIndicators.firstMatch
+        let exists = NSPredicate(format: "exists == false")
+        expectation(for: exists, evaluatedWith: spinner, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        // See error alert
         let listPage = ListPage(app: app)
         XCTAssertTrue(listPage.alertIsShown)
     }

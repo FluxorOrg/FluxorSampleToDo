@@ -1,10 +1,8 @@
-//
-//  EffectsTests.swift
-//  FluxorSampleToDoTests
-//
-//  Created by Morten Bjerg Gregersen on 25/11/2019.
-//  Copyright © 2019 MoGee. All rights reserved.
-//
+/**
+ * FluxorSampleToDoTests
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 import Combine
 import Fluxor

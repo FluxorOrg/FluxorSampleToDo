@@ -1,13 +1,13 @@
-//
-//  Actions.swift
-//  FluxorSampleToDo
-//
-//  Created by Morten Bjerg Gregersen on 23/11/2019.
-//  Copyright © 2019 MoGee. All rights reserved.
-//
+/**
+ * FluxorSampleToDo
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 import Fluxor
 import Foundation
+
+// MARK: - Fetching Todos
 
 struct FetchTodosAction: Action {}
 
@@ -20,6 +20,8 @@ struct DidFailFetchingTodosAction: Action {
 }
 
 struct ClearFetchingErrorAction: Action {}
+
+// MARK: - Handling Todos
 
 struct AddTodoAction: Action {
     let title: String

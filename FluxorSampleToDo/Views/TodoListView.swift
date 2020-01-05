@@ -1,10 +1,8 @@
-//
-//  TodoListView.swift
-//  FluxorSampleToDo
-//
-//  Created by Morten Bjerg Gregersen on 19/11/2019.
-//  Copyright © 2019 MoGee. All rights reserved.
-//
+/**
+ * FluxorSampleToDo
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 import Combine
 import Fluxor
@@ -63,9 +61,10 @@ extension TodoListView: View {
         .onAppear {
             self.model.fetchTodos()
         }
-        .onReceive(model.store.select(\.todos), perform: { self.todos = $0 })
-        .onReceive(model.store.select(\.loadingTodos), perform: { self.loading = $0 })
-        .onReceive(model.store.select(\.error), perform: { self.error = $0; self.showErrorAlert = $0 != nil })
+        .onReceive(model.store.select(Selectors.getTodos), perform: { self.todos = $0 })
+        .onReceive(model.store.select(Selectors.isLoadingTodos), perform: { self.loading = $0 })
+        .onReceive(model.store.select(Selectors.getError), perform: { self.error = $0 })
+        .onReceive(model.store.select(Selectors.shouldShowError), perform: { self.showErrorAlert = $0 })
     }
 }
 
