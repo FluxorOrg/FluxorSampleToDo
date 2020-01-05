@@ -7,6 +7,8 @@
 import Fluxor
 import Foundation
 
+// MARK: - Fetching Todos
+
 struct FetchTodosAction: Action {}
 
 struct DidFetchTodosAction: Action {
@@ -18,6 +20,8 @@ struct DidFailFetchingTodosAction: Action {
 }
 
 struct ClearFetchingErrorAction: Action {}
+
+// MARK: - Handling Todos
 
 struct AddTodoAction: Action {
     let title: String
