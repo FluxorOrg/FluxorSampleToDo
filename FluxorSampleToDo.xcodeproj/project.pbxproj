@@ -17,8 +17,8 @@
 		5A060B5F238F209E007EF3C8 /* TodoServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B5E238F209E007EF3C8 /* TodoServiceTests.swift */; };
 		5A060B63238F24B9007EF3C8 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B62238F24B9007EF3C8 /* URLSessionMock.swift */; };
 		5A25A8A223906EA4004F6074 /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25A8A123906EA4004F6074 /* Reducers.swift */; };
-		5A25A8A423906F62004F6074 /* ReducersFetchingTodosReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25A8A323906F62004F6074 /* ReducersFetchingTodosReducerTests.swift */; };
-		5A25A8A623907258004F6074 /* ReducersHandlingTodosReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25A8A523907258004F6074 /* ReducersHandlingTodosReducerTests.swift */; };
+		5A25A8A423906F62004F6074 /* FetchingTodosReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25A8A323906F62004F6074 /* FetchingTodosReducerTests.swift */; };
+		5A25A8A623907258004F6074 /* HandlingTodosReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25A8A523907258004F6074 /* HandlingTodosReducerTests.swift */; };
 		5A2EF51823BCD97D0098218E /* Fluxor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2EF51723BCD97D0098218E /* Fluxor */; };
 		5A2EF51B23BCD99C0098218E /* FluxorExplorerStoreInterceptor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2EF51A23BCD99C0098218E /* FluxorExplorerStoreInterceptor */; };
 		5A2F4F05239DB6FE00352C74 /* PreviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F04239DB6FE00352C74 /* PreviewStore.swift */; };
@@ -75,8 +75,8 @@
 		5A060B5E238F209E007EF3C8 /* TodoServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoServiceTests.swift; sourceTree = "<group>"; };
 		5A060B62238F24B9007EF3C8 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 		5A25A8A123906EA4004F6074 /* Reducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
-		5A25A8A323906F62004F6074 /* ReducersFetchingTodosReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducersFetchingTodosReducerTests.swift; sourceTree = "<group>"; };
-		5A25A8A523907258004F6074 /* ReducersHandlingTodosReducerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReducersHandlingTodosReducerTests.swift; sourceTree = "<group>"; };
+		5A25A8A323906F62004F6074 /* FetchingTodosReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingTodosReducerTests.swift; sourceTree = "<group>"; };
+		5A25A8A523907258004F6074 /* HandlingTodosReducerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandlingTodosReducerTests.swift; sourceTree = "<group>"; };
 		5A2F4F04239DB6FE00352C74 /* PreviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewStore.swift; sourceTree = "<group>"; };
 		5A2F4F09239F006A00352C74 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		5A2F4F0D23A044E200352C74 /* Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
@@ -192,9 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				5A060B52238C6CFE007EF3C8 /* SelectorsTests.swift */,
+				5A25A8A323906F62004F6074 /* FetchingTodosReducerTests.swift */,
+				5A25A8A523907258004F6074 /* HandlingTodosReducerTests.swift */,
 				5A060B56238C894B007EF3C8 /* EffectsTests.swift */,
-				5A25A8A323906F62004F6074 /* ReducersFetchingTodosReducerTests.swift */,
-				5A25A8A523907258004F6074 /* ReducersHandlingTodosReducerTests.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -458,11 +458,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A060B63238F24B9007EF3C8 /* URLSessionMock.swift in Sources */,
-				5A25A8A423906F62004F6074 /* ReducersFetchingTodosReducerTests.swift in Sources */,
+				5A25A8A423906F62004F6074 /* FetchingTodosReducerTests.swift in Sources */,
 				5A2F4F2A23A515D900352C74 /* PreviewTests.swift in Sources */,
 				5AEA829C239858CD00C90466 /* AddTodoViewModelTests.swift in Sources */,
 				5AEA829A23984DED00C90466 /* TodoListViewModelTests.swift in Sources */,
-				5A25A8A623907258004F6074 /* ReducersHandlingTodosReducerTests.swift in Sources */,
+				5A25A8A623907258004F6074 /* HandlingTodosReducerTests.swift in Sources */,
 				5A2F4F2823A4465400352C74 /* AddTodoViewTests.swift in Sources */,
 				5A060B57238C894B007EF3C8 /* EffectsTests.swift in Sources */,
 				5A060B53238C6CFE007EF3C8 /* SelectorsTests.swift in Sources */,

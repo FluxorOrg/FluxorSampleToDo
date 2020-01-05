@@ -13,12 +13,12 @@ import Foundation
 class TodosEffects: Effects {
     lazy var effects: [Effect] = [fetchTodos]
     private let actions: ActionPublisher
-    
+
     required init(_ actions: ActionPublisher) {
         self.actions = actions
     }
 
-    lazy var fetchTodos: Effect = {
+    lazy var fetchTodos = createEffect(
         actions
             .ofType(FetchTodosAction.self)
             .flatMap { _ in
@@ -27,5 +27,5 @@ class TodosEffects: Effects {
                     .catch { _ in Just(DidFailFetchingTodosAction(error: "Something bad happened, and the todos could not be fetched.")) }
             }
             .eraseToAnyPublisher()
-    }()
+    )
 }
