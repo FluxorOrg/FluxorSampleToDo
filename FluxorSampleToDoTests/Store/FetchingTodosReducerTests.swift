@@ -41,6 +41,7 @@ class FetchingTodosReducerTests: XCTestCase {
 }
 
 private struct IrrelevantAction: Action {}
+
 extension AppState: Equatable {
     public static func == (lhs: AppState, rhs: AppState) -> Bool {
         return lhs.todos == rhs.todos
