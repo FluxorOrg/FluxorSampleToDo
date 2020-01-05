@@ -1,5 +1,5 @@
 //
-//  ReducersTests.swift
+//  FetchingTodosReducerTests.swift
 //  FluxorSampleToDoTests
 //
 //  Created by Morten Bjerg Gregersen on 28/11/2019.
@@ -10,18 +10,18 @@
 @testable import FluxorSampleToDo
 import XCTest
 
-class ReducersFetchingTodosReducerTests: XCTestCase {
-    let reducer = Reducers.fetchingTodosReducer
-    
+class FetchingTodosReducerTests: XCTestCase {
+    let reducer = FetchingTodosReducer()
+
     func testFetchTodosAction() {
-        let newState = reducer.reduce(AppState(), FetchTodosAction())
+        let newState = reducer.reduce(state: AppState(), action: FetchTodosAction())
         XCTAssertTrue(newState.loadingTodos)
         XCTAssertNil(newState.error)
     }
 
     func testDidFetchTodosAction() {
         let todos = [Todo(title: "Buy milk"), Todo(title: "Walk the dog")]
-        let newState = reducer.reduce(AppState(), DidFetchTodosAction(todos: todos))
+        let newState = reducer.reduce(state: AppState(), action: DidFetchTodosAction(todos: todos))
         XCTAssertEqual(newState.todos, todos)
         XCTAssertFalse(newState.loadingTodos)
     }
@@ -29,7 +29,7 @@ class ReducersFetchingTodosReducerTests: XCTestCase {
     func testDidFailFetchingTodosAction() {
         let todos = [Todo(title: "Buy milk"), Todo(title: "Walk the dog")]
         let error = "Some error occurred"
-        let newState = reducer.reduce(AppState(todos: todos), DidFailFetchingTodosAction(error: error))
+        let newState = reducer.reduce(state: AppState(todos: todos), action: DidFailFetchingTodosAction(error: error))
         XCTAssertEqual(newState.todos, [])
         XCTAssertFalse(newState.loadingTodos)
         XCTAssertEqual(newState.error, error)
@@ -37,12 +37,12 @@ class ReducersFetchingTodosReducerTests: XCTestCase {
 
     func testIrrelevantAction() {
         let state = AppState()
-        let newState = reducer.reduce(state, IrrelevantAction())
+        let newState = reducer.reduce(state: state, action: IrrelevantAction())
         XCTAssertEqual(newState, state)
     }
 }
 
-fileprivate struct IrrelevantAction: Action {}
+private struct IrrelevantAction: Action {}
 extension AppState: Equatable {
     public static func == (lhs: AppState, rhs: AppState) -> Bool {
         return lhs.todos == rhs.todos

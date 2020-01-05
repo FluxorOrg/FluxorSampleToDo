@@ -8,11 +8,13 @@
 
 import Fluxor
 
-struct Reducers {
-    static let fetchingTodosReducer = Reducer<AppState>(reduce: { state, action in
+struct FetchingTodosReducer: Reducer {
+    typealias State = AppState
+
+    func reduce(state: AppState, action: Action) -> AppState {
         var state = state
         switch action {
-        case let fetchTodosAction as FetchTodosAction:
+        case is FetchTodosAction:
             state.loadingTodos = true
             state.error = nil
         case let didFetchTodosAction as DidFetchTodosAction:
@@ -26,9 +28,13 @@ struct Reducers {
             ()
         }
         return state
-    })
+    }
+}
 
-    static let handlingTodosReducer = Reducer<AppState>(reduce: { state, action in
+struct HandlingTodosReducer: Reducer {
+    typealias State = AppState
+
+    func reduce(state: AppState, action: Action) -> AppState {
         var state = state
         switch action {
         case let addTodoAction as AddTodoAction:
@@ -53,5 +59,5 @@ struct Reducers {
             ()
         }
         return state
-    })
+    }
 }
