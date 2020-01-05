@@ -1,10 +1,8 @@
-//
-//  ActivityIndicator.swift
-//  FluxorSampleToDo
-//
-//  Created by Morten Bjerg Gregersen on 25/11/2019.
-//  Copyright © 2019 MoGee. All rights reserved.
-//
+/**
+ * FluxorSampleToDo
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 import SwiftUI
 

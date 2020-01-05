@@ -1,10 +1,8 @@
-//
-//  HandlingTodosReducerTests.swift
-//  FluxorSampleToDoTests
-//
-//  Created by Morten Bjerg Gregersen on 28/11/2019.
-//  Copyright © 2019 MoGee. All rights reserved.
-//
+/**
+ * FluxorSampleToDoTests
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 @testable import Fluxor
 @testable import FluxorSampleToDo
@@ -12,7 +10,7 @@ import XCTest
 
 class HandlingTodosReducerTests: XCTestCase {
     let reducer = HandlingTodosReducer()
-    
+
     func testAddTodoAction() {
         let newTodoTitle = "Walk the dog"
         let state = AppState(todos: [Todo(title: "Buy milk")])
@@ -41,7 +39,7 @@ class HandlingTodosReducerTests: XCTestCase {
         XCTAssertFalse(newState.todos[0].done)
         XCTAssertFalse(newState.todos[1].done)
     }
-    
+
     func testDeleteTodoAction() {
         let todoToDelete = Todo(title: "Buy milk")
         let todoToKeep = Todo(title: "Walk the dog")
@@ -59,4 +57,4 @@ class HandlingTodosReducerTests: XCTestCase {
     }
 }
 
-fileprivate struct IrrelevantAction: Action {}
+private struct IrrelevantAction: Action {}

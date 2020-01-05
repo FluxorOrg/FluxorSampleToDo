@@ -1,10 +1,8 @@
-//
-//  SelectorsTests.swift
-//  FluxorSampleToDoTests
-//
-//  Created by Morten Bjerg Gregersen on 25/11/2019.
-//  Copyright © 2019 MoGee. All rights reserved.
-//
+/**
+ * FluxorSampleToDoTests
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
 @testable import FluxorSampleToDo
 import XCTest
@@ -24,11 +22,11 @@ class SelectorsTests: XCTestCase {
     func testIsLoadingTotods() {
         XCTAssertEqual(Selectors.isLoadingTodos(state), state.loadingTodos)
     }
-    
+
     func testGetError() {
         XCTAssertEqual(Selectors.getError(state), state.error)
     }
-    
+
     func testShouldShowError() {
         XCTAssertEqual(Selectors.shouldShowError(state), true)
     }

@@ -1,14 +1,12 @@
-//
-//  TodoListViewTests.swift
-//  FluxorSampleToDoTests
-//
-//  Created by Morten Bjerg Gregersen on 12/12/2019.
-//  Copyright © 2019 MoGee. All rights reserved.
-//
+/**
+ * FluxorSampleToDoTests
+ *  Copyright (c) Morten Bjerg Gregersen 2020
+ *  MIT license, see LICENSE file for details
+ */
 
-@testable import Fluxor
+import Fluxor
 @testable import FluxorSampleToDo
-@testable import ViewInspector
+import ViewInspector
 import XCTest
 
 class TodoListViewTests: XCTestCase {
