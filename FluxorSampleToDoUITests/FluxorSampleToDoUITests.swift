@@ -36,6 +36,11 @@ class FluxorSampleToDoUITests: XCTestCase {
         app.launchArguments = ["-fail-fetching"]
         app.launch()
         
+        let spinner = app.activityIndicators.firstMatch
+        let exists = NSPredicate(format: "exists == false")
+        expectation(for: exists, evaluatedWith: spinner, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
+        
         let listPage = ListPage(app: app)
         XCTAssertTrue(listPage.alertIsShown)
     }

@@ -22,7 +22,7 @@ class TodoService: TodoServiceProtocol {
         var url = URL(string: "https://raw.githubusercontent.com/MortenGregersen/FluxorSampleToDo/master/todos.json")!
         #if DEBUG
         if CommandLine.arguments.contains("-fail-fetching") {
-            url = URL(string: "https://google.com")!
+            url = URL(string: "https://httpstat.us/500")!
         }
         #endif
         return urlSession
