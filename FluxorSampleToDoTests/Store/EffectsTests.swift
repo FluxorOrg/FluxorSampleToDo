@@ -6,7 +6,7 @@
 
 import Combine
 import Fluxor
-@testable import FluxorSampleToDo
+@testable import FluxorSampleToDoSwiftUI
 import XCTest
 
 class EffectsTests: XCTestCase {

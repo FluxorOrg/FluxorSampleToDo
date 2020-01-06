@@ -5,7 +5,7 @@
  */
 
 import Fluxor
-@testable import FluxorSampleToDo
+@testable import FluxorSampleToDoSwiftUI
 import XCTest
 
 class TodoListViewModelTests: XCTestCase {
@@ -56,6 +56,6 @@ class TodoListViewModelTests: XCTestCase {
         model.delete(at: offsets)
         // Then
         let action = storeInterceptor.dispatchedActionsAndStates[0].action as! DeleteTodoAction
-        XCTAssertEqual(action.offsets, offsets)
+        XCTAssertEqual(action.index, offsets.first!)
     }
 }

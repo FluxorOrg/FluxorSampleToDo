@@ -5,7 +5,7 @@
  */
 
 import Fluxor
-@testable import FluxorSampleToDo
+@testable import FluxorSampleToDoSwiftUI
 import ViewInspector
 import XCTest
 
