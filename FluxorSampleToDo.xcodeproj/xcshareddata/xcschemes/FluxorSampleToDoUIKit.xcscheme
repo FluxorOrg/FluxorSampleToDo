@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5AD0A11D2384951000A32232"
+               BlueprintIdentifier = "5AD63F5E23C2A4A800FAA419"
                BuildableName = "FluxorSampleToDo.app"
-               BlueprintName = "FluxorSampleToDo"
+               BlueprintName = "FluxorSampleToDoUIKit"
                ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,22 +30,26 @@
       codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5A060B47238C6CA6007EF3C8"
-               BuildableName = "FluxorSampleToDoTests.xctest"
-               BlueprintName = "FluxorSampleToDoTests"
+               BlueprintIdentifier = "5AD63F7323C2A4AD00FAA419"
+               BuildableName = "FluxorSampleToDoUIKitTests.xctest"
+               BlueprintName = "FluxorSampleToDoUIKitTests"
                ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5A2F4F3623A51CE900352C74"
-               BuildableName = "FluxorSampleToDoUITests.xctest"
-               BlueprintName = "FluxorSampleToDoUITests"
+               BlueprintIdentifier = "5AD63F7E23C2A4AD00FAA419"
+               BuildableName = "FluxorSampleToDoUIKitUITests.xctest"
+               BlueprintName = "FluxorSampleToDoUIKitUITests"
                ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -65,9 +69,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5AD0A11D2384951000A32232"
+            BlueprintIdentifier = "5AD63F5E23C2A4A800FAA419"
             BuildableName = "FluxorSampleToDo.app"
-            BlueprintName = "FluxorSampleToDo"
+            BlueprintName = "FluxorSampleToDoUIKit"
             ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -82,9 +86,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5AD0A11D2384951000A32232"
+            BlueprintIdentifier = "5AD63F5E23C2A4A800FAA419"
             BuildableName = "FluxorSampleToDo.app"
-            BlueprintName = "FluxorSampleToDo"
+            BlueprintName = "FluxorSampleToDoUIKit"
             ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

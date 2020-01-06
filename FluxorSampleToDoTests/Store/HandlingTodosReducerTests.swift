@@ -45,7 +45,7 @@ class HandlingTodosReducerTests: XCTestCase {
         let todoToKeep = Todo(title: "Walk the dog")
         let state = AppState(todos: [todoToDelete, todoToKeep])
         XCTAssertEqual(state.todos.count, 2)
-        let newState = reducer.reduce(state: state, action: DeleteTodoAction(offsets: IndexSet(arrayLiteral: 0)))
+        let newState = reducer.reduce(state: state, action: DeleteTodoAction(index: 0))
         XCTAssertEqual(newState.todos.count, 1)
         XCTAssertEqual(newState.todos[0], todoToKeep)
     }

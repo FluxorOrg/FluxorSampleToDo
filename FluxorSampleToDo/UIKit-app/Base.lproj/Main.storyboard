@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p1d-7x-2zz">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Fluxor todos-->
+        <scene sceneID="wrp-6t-eQB">
+            <objects>
+                <tableViewController id="yS6-1K-Ywn" customClass="TodoListViewController" customModule="FluxorSampleToDoUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CA4-kO-bx2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ECh-JL-0lf">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ECh-JL-0lf" id="5PC-6u-if8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yS6-1K-Ywn" id="tel-Rh-reX"/>
+                            <outlet property="delegate" destination="yS6-1K-Ywn" id="8cD-Sv-el2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Fluxor todos" largeTitleDisplayMode="always" id="Kf3-UF-Xuw">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="UjB-4A-sEJ">
+                            <connections>
+                                <segue destination="Dv7-cG-eeE" kind="presentation" id="qDQ-YM-nMz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KGe-oI-N8z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="549" y="121"/>
+        </scene>
+        <!--Add Todo-->
+        <scene sceneID="0Hq-8Y-8BY">
+            <objects>
+                <tableViewController id="DmK-Y1-thu" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YAT-U1-9S6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection id="m33-q7-s61">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uxD-nr-W4c">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uxD-nr-W4c" id="8wu-f3-6ww">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iZo-1L-xBD">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iZo-1L-xBD" firstAttribute="leading" secondItem="8wu-f3-6ww" secondAttribute="leadingMargin" id="J5a-7k-m53"/>
+                                                <constraint firstItem="iZo-1L-xBD" firstAttribute="top" secondItem="8wu-f3-6ww" secondAttribute="top" id="MpV-Mf-FSe"/>
+                                                <constraint firstAttribute="bottom" secondItem="iZo-1L-xBD" secondAttribute="bottom" id="Tm3-wa-dDT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="iZo-1L-xBD" secondAttribute="trailing" id="ddc-9U-EQl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="DmK-Y1-thu" id="sbN-Xq-zmc"/>
+                            <outlet property="delegate" destination="DmK-Y1-thu" id="JWF-bn-Vyb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Todo" largeTitleDisplayMode="always" id="yYs-XE-HNv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6fV-mk-zDl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="o59-nY-TEN"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fsb-fq-9yo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2029" y="121"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QTV-pM-CfU">
+            <objects>
+                <navigationController id="Dv7-cG-eeE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="owN-9q-JM1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DmK-Y1-thu" kind="relationship" relationship="rootViewController" id="J7x-Ha-sGb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hKD-Kc-JLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1287" y="121"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Z3-qH-Mre">
+            <objects>
+                <navigationController id="p1d-7x-2zz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="OTb-mZ-XVg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yS6-1K-Ywn" kind="relationship" relationship="rootViewController" id="nqn-V3-XSM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p5H-Fv-W3E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-190" y="121"/>
+        </scene>
+    </scenes>
+</document>

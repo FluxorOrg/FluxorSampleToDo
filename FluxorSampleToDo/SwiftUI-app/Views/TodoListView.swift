@@ -31,7 +31,7 @@ extension TodoListView {
         }
 
         func delete(at offsets: IndexSet) {
-            store.dispatch(action: DeleteTodoAction(offsets: offsets))
+            store.dispatch(action: DeleteTodoAction(index: offsets.first!))
         }
     }
 }

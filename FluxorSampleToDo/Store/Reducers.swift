@@ -52,7 +52,7 @@ struct HandlingTodosReducer: Reducer {
                 return todo
             }
         case let deleteTodoAction as DeleteTodoAction:
-            state.todos.remove(atOffsets: deleteTodoAction.offsets)
+            state.todos.remove(at: deleteTodoAction.index)
         default:
             ()
         }
