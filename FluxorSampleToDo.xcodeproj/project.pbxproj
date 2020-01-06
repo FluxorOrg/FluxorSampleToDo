@@ -40,6 +40,10 @@
 		5A4D9E8D23C3E94500BC3D8B /* SelectorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B52238C6CFE007EF3C8 /* SelectorsTests.swift */; };
 		5A4D9E9023C3E94500BC3D8B /* TodoServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B5E238F209E007EF3C8 /* TodoServiceTests.swift */; };
 		5A4D9E9223C3E94500BC3D8B /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 5A4D9E8223C3E94500BC3D8B /* ViewInspector */; };
+		5A4D9EA123C3F1D700BC3D8B /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4D9EA023C3F1D700BC3D8B /* TodoListViewModel.swift */; };
+		5A4D9EA223C3F1D700BC3D8B /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4D9EA023C3F1D700BC3D8B /* TodoListViewModel.swift */; };
+		5A4D9EA523C3F35B00BC3D8B /* AddTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4D9EA423C3F35B00BC3D8B /* AddTodoViewModel.swift */; };
+		5A4D9EA623C3F35B00BC3D8B /* AddTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4D9EA423C3F35B00BC3D8B /* AddTodoViewModel.swift */; };
 		5A7AC78223873BD300EC24AF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC78123873BD300EC24AF /* AppState.swift */; };
 		5A7AC7862389E3A300EC24AF /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC7852389E3A300EC24AF /* Actions.swift */; };
 		5A7AC7892389EAAD00EC24AF /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC7882389EAAD00EC24AF /* AddTodoView.swift */; };
@@ -169,6 +173,8 @@
 		5A4D9E9C23C3EAF700BC3D8B /* FluxorSampleToDoUITests-SwiftUI.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FluxorSampleToDoUITests-SwiftUI.xcconfig"; sourceTree = "<group>"; };
 		5A4D9E9D23C3EF7B00BC3D8B /* UIKit-Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "UIKit-Tests-Info.plist"; path = "FluxorSampleToDoTests/UIKit-Tests-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5A4D9E9E23C3EF8A00BC3D8B /* UIKit-UITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UIKit-UITests-Info.plist"; sourceTree = "<group>"; };
+		5A4D9EA023C3F1D700BC3D8B /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
+		5A4D9EA423C3F35B00BC3D8B /* AddTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewModel.swift; sourceTree = "<group>"; };
 		5A64593223A570550074E7D6 /* FluxorSampleToDoUITests-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FluxorSampleToDoUITests-Shared.xcconfig"; sourceTree = "<group>"; };
 		5A7AC78123873BD300EC24AF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		5A7AC7852389E3A300EC24AF /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
@@ -341,6 +347,15 @@
 			path = FluxorSampleToDoUITests;
 			sourceTree = "<group>";
 		};
+		5A4D9E9F23C3F1B600BC3D8B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5A4D9EA023C3F1D700BC3D8B /* TodoListViewModel.swift */,
+				5A4D9EA423C3F35B00BC3D8B /* AddTodoViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		5A7AC78023873BC700EC24AF /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,9 +410,10 @@
 			children = (
 				5AD63F8F23C2A4C000FAA419 /* SwiftUI-app */,
 				5AD63F9023C2A4C900FAA419 /* UIKit-app */,
-				5A060B5A238F201D007EF3C8 /* Services */,
-				5A060B3A238B182D007EF3C8 /* Models */,
+				5A4D9E9F23C3F1B600BC3D8B /* ViewModels */,
 				5A7AC78023873BC700EC24AF /* Store */,
+				5A060B3A238B182D007EF3C8 /* Models */,
+				5A060B5A238F201D007EF3C8 /* Services */,
 				5AD0A1212384951000A32232 /* AppDelegate.swift */,
 				5ACB8EAB239DA9A700CA9D2F /* ViewModel.swift */,
 				5A2F4F09239F006A00352C74 /* Environment.swift */,
@@ -747,6 +763,7 @@
 				5A2F4F0A239F006A00352C74 /* Environment.swift in Sources */,
 				5AD0A1222384951000A32232 /* AppDelegate.swift in Sources */,
 				5A2F4F2423A2EBF100352C74 /* RootView.swift in Sources */,
+				5A4D9EA123C3F1D700BC3D8B /* TodoListViewModel.swift in Sources */,
 				5A060B42238C6566007EF3C8 /* ActivityIndicator.swift in Sources */,
 				5A060B40238B3748007EF3C8 /* Effects.swift in Sources */,
 				5A7AC7892389EAAD00EC24AF /* AddTodoView.swift in Sources */,
@@ -755,6 +772,7 @@
 				5AEA82A123985B3100C90466 /* TodoRowView.swift in Sources */,
 				5AD0A1242384951000A32232 /* SceneDelegate.swift in Sources */,
 				5A060B5C238F2028007EF3C8 /* TodoService.swift in Sources */,
+				5A4D9EA523C3F35B00BC3D8B /* AddTodoViewModel.swift in Sources */,
 				5A2F4F05239DB6FE00352C74 /* PreviewStore.swift in Sources */,
 				5A7AC7862389E3A300EC24AF /* Actions.swift in Sources */,
 				5AD0A1262384951000A32232 /* TodoListView.swift in Sources */,
@@ -769,6 +787,7 @@
 			files = (
 				5AD63F9223C2A54B00FAA419 /* AppDelegate.swift in Sources */,
 				5AD63F9B23C2A5C500FAA419 /* Environment.swift in Sources */,
+				5A4D9EA223C3F1D700BC3D8B /* TodoListViewModel.swift in Sources */,
 				5AD63F6623C2A4A800FAA419 /* TodoListViewController.swift in Sources */,
 				5AD63F6423C2A4A800FAA419 /* SceneDelegate.swift in Sources */,
 				5AD63F9A23C2A5C100FAA419 /* ViewModel.swift in Sources */,
@@ -776,6 +795,7 @@
 				5AD63F9323C2A5AE00FAA419 /* TodoService.swift in Sources */,
 				5AD63F9423C2A5B200FAA419 /* Todo.swift in Sources */,
 				5AD63F9923C2A5B700FAA419 /* Reducers.swift in Sources */,
+				5A4D9EA623C3F35B00BC3D8B /* AddTodoViewModel.swift in Sources */,
 				5AD63F9723C2A5B700FAA419 /* Selectors.swift in Sources */,
 				5AD63F9823C2A5B700FAA419 /* Effects.swift in Sources */,
 				5AD63F9623C2A5B700FAA419 /* Actions.swift in Sources */,
