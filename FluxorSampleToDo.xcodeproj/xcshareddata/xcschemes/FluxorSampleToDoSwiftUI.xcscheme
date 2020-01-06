@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5AD0A11D2384951000A32232"
-               BuildableName = "FluxorSampleToDo.app"
+               BuildableName = "FluxorSampleToDoSwiftUI.app"
                BlueprintName = "FluxorSampleToDoSwiftUI"
                ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
             </BuildableReference>
@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO"
@@ -35,8 +36,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A060B47238C6CA6007EF3C8"
-               BuildableName = "FluxorSampleToDoSwiftUITests.xctest"
-               BlueprintName = "FluxorSampleToDoSwiftUITests"
+               BuildableName = "FluxorSampleToDoTests.xctest"
+               BlueprintName = "FluxorSampleToDoTests"
                ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -47,8 +48,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A2F4F3623A51CE900352C74"
-               BuildableName = "FluxorSampleToDoSwiftUIUITests.xctest"
-               BlueprintName = "FluxorSampleToDoSwiftUIUITests"
+               BuildableName = "FluxorSampleToDoUITests.xctest"
+               BlueprintName = "FluxorSampleToDoUITests"
                ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -69,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5AD0A11D2384951000A32232"
-            BuildableName = "FluxorSampleToDo.app"
+            BuildableName = "FluxorSampleToDoSwiftUI.app"
             BlueprintName = "FluxorSampleToDoSwiftUI"
             ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
          </BuildableReference>
@@ -86,7 +87,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5AD0A11D2384951000A32232"
-            BuildableName = "FluxorSampleToDo.app"
+            BuildableName = "FluxorSampleToDoSwiftUI.app"
             BlueprintName = "FluxorSampleToDoSwiftUI"
             ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
          </BuildableReference>

@@ -12,4 +12,4 @@ INFOPLIST_FILE = FluxorSampleToDoTests/Info.plist
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorSampleToDoTests
 PRODUCT_NAME = $(TARGET_NAME)
-TEST_HOST = $(BUILT_PRODUCTS_DIR)/FluxorSampleToDo.app/FluxorSampleToDo
+TEST_HOST = $(BUILT_PRODUCTS_DIR)/FluxorSampleToDoSwiftUI.app/FluxorSampleToDoSwiftUI
