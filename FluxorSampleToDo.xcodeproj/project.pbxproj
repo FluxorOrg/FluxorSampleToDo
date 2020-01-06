@@ -649,8 +649,8 @@
 				5AD63F5E23C2A4A800FAA419 /* FluxorSampleToDoUIKit */,
 				5A060B47238C6CA6007EF3C8 /* FluxorSampleToDoSwiftUI-Tests */,
 				5A2F4F3623A51CE900352C74 /* FluxorSampleToDoSwiftUI-UITests */,
-				5A4D9E6F23C3E93500BC3D8B /* FluxorSampleToDoUIKit-UITests */,
 				5A4D9E7D23C3E94500BC3D8B /* FluxorSampleToDoUIKit-Tests */,
+				5A4D9E6F23C3E93500BC3D8B /* FluxorSampleToDoUIKit-UITests */,
 			);
 		};
 /* End PBXProject section */
