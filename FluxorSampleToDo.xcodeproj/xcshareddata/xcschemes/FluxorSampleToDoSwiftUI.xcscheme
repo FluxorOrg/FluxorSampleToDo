@@ -36,8 +36,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A060B47238C6CA6007EF3C8"
-               BuildableName = "FluxorSampleToDoTests.xctest"
-               BlueprintName = "FluxorSampleToDoTests"
+               BuildableName = "FluxorSampleToDoSwiftUI-Tests.xctest"
+               BlueprintName = "FluxorSampleToDoSwiftUI-Tests"
                ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -48,8 +48,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A2F4F3623A51CE900352C74"
-               BuildableName = "FluxorSampleToDoUITests.xctest"
-               BlueprintName = "FluxorSampleToDoUITests"
+               BuildableName = "FluxorSampleToDoSwiftUI-UITests.xctest"
+               BlueprintName = "FluxorSampleToDoSwiftUI-UITests"
                ReferencedContainer = "container:FluxorSampleToDo.xcodeproj">
             </BuildableReference>
          </TestableReference>

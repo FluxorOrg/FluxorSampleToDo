@@ -4,7 +4,11 @@
  *  MIT license, see LICENSE file for details
  */
 
+#if SWIFTUI
 @testable import FluxorSampleToDoSwiftUI
+#else
+@testable import FluxorSampleToDoUIKit
+#endif
 import XCTest
 
 class TodoServiceTests: XCTestCase {
