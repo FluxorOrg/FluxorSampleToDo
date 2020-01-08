@@ -19,6 +19,7 @@
 		5A25A8A223906EA4004F6074 /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25A8A123906EA4004F6074 /* Reducers.swift */; };
 		5A25A8A423906F62004F6074 /* FetchingTodosReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25A8A323906F62004F6074 /* FetchingTodosReducerTests.swift */; };
 		5A25A8A623907258004F6074 /* HandlingTodosReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25A8A523907258004F6074 /* HandlingTodosReducerTests.swift */; };
+		5A28D01B23C533920088E443 /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28D01A23C533920088E443 /* AddTodoViewController.swift */; };
 		5A2EF51823BCD97D0098218E /* Fluxor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2EF51723BCD97D0098218E /* Fluxor */; };
 		5A2EF51B23BCD99C0098218E /* FluxorExplorerStoreInterceptor in Frameworks */ = {isa = PBXBuildFile; productRef = 5A2EF51A23BCD99C0098218E /* FluxorExplorerStoreInterceptor */; };
 		5A2F4F05239DB6FE00352C74 /* PreviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2F4F04239DB6FE00352C74 /* PreviewStore.swift */; };
@@ -56,7 +57,6 @@
 		5AD0A12E2384951400A32232 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD0A12C2384951400A32232 /* LaunchScreen.storyboard */; };
 		5AD63F6423C2A4A800FAA419 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD63F6323C2A4A800FAA419 /* SceneDelegate.swift */; };
 		5AD63F6623C2A4A800FAA419 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD63F6523C2A4A800FAA419 /* TodoListViewController.swift */; };
-		5AD63F6923C2A4A800FAA419 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD63F6723C2A4A800FAA419 /* Main.storyboard */; };
 		5AD63F9223C2A54B00FAA419 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD0A1212384951000A32232 /* AppDelegate.swift */; };
 		5AD63F9323C2A5AE00FAA419 /* TodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B5B238F2028007EF3C8 /* TodoService.swift */; };
 		5AD63F9423C2A5B200FAA419 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B3B238B1836007EF3C8 /* Todo.swift */; };
@@ -148,6 +148,7 @@
 		5A25A8A123906EA4004F6074 /* Reducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
 		5A25A8A323906F62004F6074 /* FetchingTodosReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingTodosReducerTests.swift; sourceTree = "<group>"; };
 		5A25A8A523907258004F6074 /* HandlingTodosReducerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandlingTodosReducerTests.swift; sourceTree = "<group>"; };
+		5A28D01A23C533920088E443 /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
 		5A2F4F04239DB6FE00352C74 /* PreviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewStore.swift; sourceTree = "<group>"; };
 		5A2F4F09239F006A00352C74 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		5A2F4F0D23A044E200352C74 /* Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
@@ -191,7 +192,6 @@
 		5AD63F5F23C2A4A800FAA419 /* FluxorSampleToDoUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluxorSampleToDoUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD63F6323C2A4A800FAA419 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5AD63F6523C2A4A800FAA419 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
-		5AD63F6823C2A4A800FAA419 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AD63F6F23C2A4AD00FAA419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD63FA323C3CA3A00FAA419 /* FluxorSampleToDoUIKit-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FluxorSampleToDoUIKit-Debug.xcconfig"; sourceTree = "<group>"; };
 		5AD63FA423C3CA3A00FAA419 /* FluxorSampleToDoUIKit-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "FluxorSampleToDoUIKit-Release.xcconfig"; sourceTree = "<group>"; };
@@ -356,6 +356,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		5A4D9EC323C51ED500BC3D8B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5AD63F6523C2A4A800FAA419 /* TodoListViewController.swift */,
+				5A28D01A23C533920088E443 /* AddTodoViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		5A7AC78023873BC700EC24AF /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,9 +455,8 @@
 		5AD63F9023C2A4C900FAA419 /* UIKit-app */ = {
 			isa = PBXGroup;
 			children = (
+				5A4D9EC323C51ED500BC3D8B /* ViewControllers */,
 				5AD63F6323C2A4A800FAA419 /* SceneDelegate.swift */,
-				5AD63F6523C2A4A800FAA419 /* TodoListViewController.swift */,
-				5AD63F6723C2A4A800FAA419 /* Main.storyboard */,
 				5AD63F6F23C2A4AD00FAA419 /* Info.plist */,
 			);
 			path = "UIKit-app";
@@ -698,7 +706,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD63F6923C2A4A800FAA419 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,6 +793,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD63F9223C2A54B00FAA419 /* AppDelegate.swift in Sources */,
+				5A28D01B23C533920088E443 /* AddTodoViewController.swift in Sources */,
 				5AD63F9B23C2A5C500FAA419 /* Environment.swift in Sources */,
 				5A4D9EA223C3F1D700BC3D8B /* TodoListViewModel.swift in Sources */,
 				5AD63F6623C2A4A800FAA419 /* TodoListViewController.swift in Sources */,
@@ -854,14 +862,6 @@
 				5AD0A12D2384951400A32232 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		5AD63F6723C2A4A800FAA419 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5AD63F6823C2A4A800FAA419 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -8,4 +8,5 @@
 #include "FluxorSampleToDoUITests-Shared.xcconfig"
 
 INFOPLIST_FILE = FluxorSampleToDoUITests/SwiftUI-UITests-Info.plist
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFTUI
 TEST_TARGET_NAME = FluxorSampleToDoSwiftUI

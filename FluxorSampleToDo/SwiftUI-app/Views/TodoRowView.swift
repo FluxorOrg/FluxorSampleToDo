@@ -18,6 +18,7 @@ struct TodoRowView: View {
                 Image(systemName: todo.done ? "checkmark.circle.fill" : "circle")
             }
         }
+        .accessibility(label: Text("\(todo.title) - \(todo.done ? "Done" : "Undone")"))
     }
 }
 
