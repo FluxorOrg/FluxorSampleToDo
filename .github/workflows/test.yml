@@ -15,5 +15,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: Test
       run: |
-        instruments -s devices
         xcodebuild clean test -scheme FluxorSampleToDoSwiftUI -destination "platform=iOS Simulator,name=iPhone 11 Pro,OS=latest"
+        xcodebuild clean test -scheme FluxorSampleToDoUIKit -destination "platform=iOS Simulator,name=iPhone 11 Pro,OS=latest"
