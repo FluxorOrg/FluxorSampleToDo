@@ -5,13 +5,17 @@
  */
 
 import Fluxor
-@testable import FluxorSampleToDo
+#if SWIFTUI
+@testable import FluxorSampleToDoSwiftUI
+#else
+@testable import FluxorSampleToDoUIKit
+#endif
 import XCTest
 
 class AddTodoViewModelTests: XCTestCase {
     var store: Store<AppState>!
     var storeInterceptor: TestStoreInterceptor<AppState>!
-    var model: AddTodoView.Model!
+    var model: AddTodoViewModel!
 
     override func setUp() {
         super.setUp()

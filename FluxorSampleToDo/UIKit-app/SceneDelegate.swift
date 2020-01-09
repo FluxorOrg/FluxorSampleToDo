@@ -4,8 +4,6 @@
  *  MIT license, see LICENSE file for details
  */
 
-import Combine
-import SwiftUI
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -14,7 +12,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: RootView())
+            let navC = UINavigationController(rootViewController: TodoListViewController(style: .grouped))
+            navC.navigationBar.prefersLargeTitles = true
+            window.rootViewController = navC
             self.window = window
             window.makeKeyAndVisible()
         }

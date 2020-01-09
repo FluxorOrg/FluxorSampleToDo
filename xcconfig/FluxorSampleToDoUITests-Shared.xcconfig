@@ -7,8 +7,6 @@
 
 CODE_SIGN_STYLE = Automatic
 DEVELOPMENT_TEAM = R7YA4RGA8U
-INFOPLIST_FILE = FluxorSampleToDoUITests/Info.plist
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorSampleToDoUITests
 PRODUCT_NAME = $(TARGET_NAME)
-TEST_TARGET_NAME = FluxorSampleToDo

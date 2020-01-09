@@ -5,7 +5,11 @@
  */
 
 @testable import Fluxor
-@testable import FluxorSampleToDo
+#if SWIFTUI
+@testable import FluxorSampleToDoSwiftUI
+#else
+@testable import FluxorSampleToDoUIKit
+#endif
 import XCTest
 
 class FetchingTodosReducerTests: XCTestCase {

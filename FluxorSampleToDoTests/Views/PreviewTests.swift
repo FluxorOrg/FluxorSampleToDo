@@ -5,7 +5,7 @@
  */
 
 @testable import Fluxor
-@testable import FluxorSampleToDo
+@testable import FluxorSampleToDoSwiftUI
 import XCTest
 
 // These tests only exists for previews not to harm code coverage

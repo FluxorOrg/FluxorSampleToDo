@@ -5,13 +5,17 @@
  */
 
 import Fluxor
-@testable import FluxorSampleToDo
+#if SWIFTUI
+@testable import FluxorSampleToDoSwiftUI
+#else
+@testable import FluxorSampleToDoUIKit
+#endif
 import XCTest
 
 class TodoListViewModelTests: XCTestCase {
     var store: Store<AppState>!
     var storeInterceptor: TestStoreInterceptor<AppState>!
-    var model: TodoListView.Model!
+    var model: TodoListViewModel!
 
     override func setUp() {
         super.setUp()
@@ -51,11 +55,11 @@ class TodoListViewModelTests: XCTestCase {
 
     func testDelete() {
         // Given
-        let offsets = IndexSet(arrayLiteral: 1)
+        let index = 1
         // When
-        model.delete(at: offsets)
+        model.delete(at: index)
         // Then
         let action = storeInterceptor.dispatchedActionsAndStates[0].action as! DeleteTodoAction
-        XCTAssertEqual(action.offsets, offsets)
+        XCTAssertEqual(action.index, index)
     }
 }

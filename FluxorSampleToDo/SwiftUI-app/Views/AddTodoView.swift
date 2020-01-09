@@ -8,17 +8,9 @@ import Fluxor
 import SwiftUI
 
 struct AddTodoView {
-    var model = Model()
+    var model = AddTodoViewModel()
     @Binding var showAddSheet: Bool
     @State private var todoTitle = ""
-}
-
-extension AddTodoView {
-    class Model: ViewModel {
-        func addTodo(title: String) {
-            store.dispatch(action: AddTodoAction(title: title))
-        }
-    }
 }
 
 extension AddTodoView: View {

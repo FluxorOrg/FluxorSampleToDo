@@ -9,31 +9,11 @@ import Fluxor
 import SwiftUI
 
 struct TodoListView {
-    var model = Model()
+    var model = TodoListViewModel()
     @State var todos = [Todo]()
     @State var loading = false
     @State var error: String?
     @State var showErrorAlert = false
-}
-
-extension TodoListView {
-    class Model: ViewModel {
-        func fetchTodos() {
-            store.dispatch(action: FetchTodosAction())
-        }
-
-        func toggle(todo: Todo) {
-            if todo.done {
-                store.dispatch(action: UncompleteTodoAction(todo: todo))
-            } else {
-                store.dispatch(action: CompleteTodoAction(todo: todo))
-            }
-        }
-
-        func delete(at offsets: IndexSet) {
-            store.dispatch(action: DeleteTodoAction(offsets: offsets))
-        }
-    }
 }
 
 extension TodoListView: View {
@@ -48,7 +28,7 @@ extension TodoListView: View {
                 ForEach(todos, id: \.id) { todo in
                     TodoRowView(todo: todo) { self.model.toggle(todo: todo) }
                 }
-                .onDelete(perform: self.model.delete)
+                .onDelete(perform: { self.model.delete(at: $0.first!) })
             } else {
                 Text("No todos").multilineTextAlignment(.center)
             }

@@ -36,5 +36,5 @@ struct UncompleteTodoAction: Action {
 }
 
 struct DeleteTodoAction: Action {
-    let offsets: IndexSet
+    let index: Int
 }

@@ -5,7 +5,7 @@
  */
 
 import Fluxor
-@testable import FluxorSampleToDo
+@testable import FluxorSampleToDoSwiftUI
 import ViewInspector
 import XCTest
 
@@ -70,7 +70,7 @@ class TodoListViewTests: XCTestCase {
     }
 }
 
-private class MockViewModel: TodoListView.Model {
+private class MockViewModel: TodoListViewModel {
     var didFetchTodos = false
     var toggledTodo: Todo?
 
