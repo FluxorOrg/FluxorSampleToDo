@@ -41,10 +41,10 @@ extension TodoListView: View {
         .onAppear {
             self.model.fetchTodos()
         }
-        .onReceive(model.store.select(Selectors.getTodos), perform: { self.todos = $0 })
-        .onReceive(model.store.select(Selectors.isLoadingTodos), perform: { self.loading = $0 })
-        .onReceive(model.store.select(Selectors.getError), perform: { self.error = $0 })
-        .onReceive(model.store.select(Selectors.shouldShowError), perform: { self.showErrorAlert = $0 })
+        .onReceive(model.store.select(TodosSelectors.getTodos), perform: { self.todos = $0 })
+        .onReceive(model.store.select(TodosSelectors.isLoadingTodos), perform: { self.loading = $0 })
+        .onReceive(model.store.select(TodosSelectors.getError), perform: { self.error = $0 })
+        .onReceive(model.store.select(TodosSelectors.shouldShowError), perform: { self.showErrorAlert = $0 })
     }
 }
 

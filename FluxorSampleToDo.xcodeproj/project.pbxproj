@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A060B39238B17C9007EF3C8 /* Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B38238B17C9007EF3C8 /* Selectors.swift */; };
+		5A060B39238B17C9007EF3C8 /* TodosSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B38238B17C9007EF3C8 /* TodosSelectors.swift */; };
 		5A060B3C238B1836007EF3C8 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B3B238B1836007EF3C8 /* Todo.swift */; };
 		5A060B40238B3748007EF3C8 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B3F238B3748007EF3C8 /* Effects.swift */; };
 		5A060B42238C6566007EF3C8 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B41238C6566007EF3C8 /* ActivityIndicator.swift */; };
@@ -62,7 +62,7 @@
 		5AD63F9423C2A5B200FAA419 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B3B238B1836007EF3C8 /* Todo.swift */; };
 		5AD63F9523C2A5B700FAA419 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC78123873BD300EC24AF /* AppState.swift */; };
 		5AD63F9623C2A5B700FAA419 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AC7852389E3A300EC24AF /* Actions.swift */; };
-		5AD63F9723C2A5B700FAA419 /* Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B38238B17C9007EF3C8 /* Selectors.swift */; };
+		5AD63F9723C2A5B700FAA419 /* TodosSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B38238B17C9007EF3C8 /* TodosSelectors.swift */; };
 		5AD63F9823C2A5B700FAA419 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A060B3F238B3748007EF3C8 /* Effects.swift */; };
 		5AD63F9923C2A5B700FAA419 /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A25A8A123906EA4004F6074 /* Reducers.swift */; };
 		5AD63F9A23C2A5C100FAA419 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB8EAB239DA9A700CA9D2F /* ViewModel.swift */; };
@@ -134,7 +134,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5A060B38238B17C9007EF3C8 /* Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectors.swift; sourceTree = "<group>"; };
+		5A060B38238B17C9007EF3C8 /* TodosSelectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosSelectors.swift; sourceTree = "<group>"; };
 		5A060B3B238B1836007EF3C8 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		5A060B3F238B3748007EF3C8 /* Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
 		5A060B41238C6566007EF3C8 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -370,7 +370,7 @@
 			children = (
 				5A7AC78123873BD300EC24AF /* AppState.swift */,
 				5A7AC7852389E3A300EC24AF /* Actions.swift */,
-				5A060B38238B17C9007EF3C8 /* Selectors.swift */,
+				5A060B38238B17C9007EF3C8 /* TodosSelectors.swift */,
 				5A060B3F238B3748007EF3C8 /* Effects.swift */,
 				5A25A8A123906EA4004F6074 /* Reducers.swift */,
 			);
@@ -766,7 +766,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A060B39238B17C9007EF3C8 /* Selectors.swift in Sources */,
+				5A060B39238B17C9007EF3C8 /* TodosSelectors.swift in Sources */,
 				5A2F4F0A239F006A00352C74 /* Environment.swift in Sources */,
 				5AD0A1222384951000A32232 /* AppDelegate.swift in Sources */,
 				5A2F4F2423A2EBF100352C74 /* RootView.swift in Sources */,
@@ -804,7 +804,7 @@
 				5AD63F9423C2A5B200FAA419 /* Todo.swift in Sources */,
 				5AD63F9923C2A5B700FAA419 /* Reducers.swift in Sources */,
 				5A4D9EA623C3F35B00BC3D8B /* AddTodoViewModel.swift in Sources */,
-				5AD63F9723C2A5B700FAA419 /* Selectors.swift in Sources */,
+				5AD63F9723C2A5B700FAA419 /* TodosSelectors.swift in Sources */,
 				5AD63F9823C2A5B700FAA419 /* Effects.swift in Sources */,
 				5AD63F9623C2A5B700FAA419 /* Actions.swift in Sources */,
 			);

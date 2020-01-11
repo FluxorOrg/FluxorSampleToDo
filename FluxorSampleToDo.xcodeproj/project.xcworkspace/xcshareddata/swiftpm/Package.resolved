@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/MortenGregersen/Fluxor",
         "state": {
           "branch": "master",
-          "revision": "cbca85b12861ce8a1bacc7f92a016b5787d11f6a",
+          "revision": "c28706b552bc7a15835c70f8017a0b57dd9e9195",
           "version": null
         }
       },
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/nalexn/ViewInspector",
         "state": {
           "branch": null,
-          "revision": "895cd52e82579a85a6473a557584a64a9077fe0b",
-          "version": "0.2.3"
+          "revision": "d402d9c339f0d09af18bd814acfa89e48809a064",
+          "version": "0.3.2"
         }
       }
     ]

@@ -9,9 +9,9 @@
 import Fluxor
 
 let previewStore: Store<AppState> = {
-    let state = AppState(todos: [Todo(title: "Dispatch actions"),
-                                 Todo(title: "Create effects"),
-                                 Todo(title: "Select something"),
-                                 Todo(title: "Intercept everything")])
+    let state = AppState(todos: TodosState(todos: [Todo(title: "Dispatch actions"),
+                                                   Todo(title: "Create effects"),
+                                                   Todo(title: "Select something"),
+                                                   Todo(title: "Intercept everything")]))
     return Store(initialState: state)
 }()
