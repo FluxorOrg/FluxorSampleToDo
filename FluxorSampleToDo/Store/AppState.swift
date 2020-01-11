@@ -5,6 +5,10 @@
  */
 
 struct AppState: Encodable {
+    var todos = TodosState()
+}
+
+struct TodosState: Encodable {
     var todos = [Todo]()
     var loadingTodos = false
     var error: String?

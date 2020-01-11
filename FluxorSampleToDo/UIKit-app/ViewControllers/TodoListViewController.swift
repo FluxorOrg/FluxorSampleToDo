@@ -19,9 +19,9 @@ class TodoListViewController: UITableViewController {
         title = "Fluxor todos"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(TodoListViewController.addTodo))
         cancellables.append(contentsOf: [
-            model.store.select(Selectors.getTodos).sink(receiveValue: { self.todos = $0 }),
-            model.store.select(Selectors.isLoadingTodos).sink(receiveValue: { self.loading = $0 }),
-            model.store.select(Selectors.getError).sink(receiveValue: { self.error = $0 }),
+            model.store.select(TodosSelectors.getTodos).sink(receiveValue: { self.todos = $0 }),
+            model.store.select(TodosSelectors.isLoadingTodos).sink(receiveValue: { self.loading = $0 }),
+            model.store.select(TodosSelectors.getError).sink(receiveValue: { self.error = $0 }),
         ])
         model.fetchTodos()
     }

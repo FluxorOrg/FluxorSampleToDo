@@ -12,26 +12,26 @@
 import XCTest
 
 class SelectorsTests: XCTestCase {
-    let state = AppState(todos: [Todo(title: "Dispatch actions"),
-                                 Todo(title: "Create effects"),
-                                 Todo(title: "Select something"),
-                                 Todo(title: "Intercept everything")],
-                         loadingTodos: true,
-                         error: "Some error")
+    let state = TodosState(todos: [Todo(title: "Dispatch actions"),
+                                   Todo(title: "Create effects"),
+                                   Todo(title: "Select something"),
+                                   Todo(title: "Intercept everything")],
+                           loadingTodos: true,
+                           error: "Some error")
 
     func testGetTodos() {
-        XCTAssertEqual(Selectors.getTodos(state), state.todos)
+        XCTAssertEqual(TodosSelectors.getTodos.projector(state), state.todos)
     }
 
     func testIsLoadingTotods() {
-        XCTAssertEqual(Selectors.isLoadingTodos(state), state.loadingTodos)
+        XCTAssertEqual(TodosSelectors.isLoadingTodos.projector(state), state.loadingTodos)
     }
 
     func testGetError() {
-        XCTAssertEqual(Selectors.getError(state), state.error)
+        XCTAssertEqual(TodosSelectors.getError.projector(state), state.error)
     }
 
     func testShouldShowError() {
-        XCTAssertEqual(Selectors.shouldShowError(state), true)
+        XCTAssertEqual(TodosSelectors.shouldShowError.projector(state), true)
     }
 }
