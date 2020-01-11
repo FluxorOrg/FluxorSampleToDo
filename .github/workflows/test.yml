@@ -11,9 +11,11 @@ on:
 jobs:
   build:
     runs-on: macOS-latest
+    env: 
+      DEVELOPER_DIR: /Applications/Xcode_11.3.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Test
       run: |
-        xcodebuild clean test -scheme FluxorSampleToDoSwiftUI -destination "platform=iOS Simulator,name=iPhone 11 Pro,OS=latest"
-        xcodebuild clean test -scheme FluxorSampleToDoUIKit -destination "platform=iOS Simulator,name=iPhone 11 Pro,OS=latest"
+        set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme FluxorSampleToDoSwiftUI -destination "OS=13.1,name=iPhone 11 Pro" clean test | xcpretty
+        set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme FluxorSampleToDoUIKit -destination "OS=13.1,name=iPhone 11 Pro" clean test | xcpretty
