@@ -12,8 +12,8 @@ struct Environment {
     var todoService: TodoServiceProtocol = TodoService()
     let store: Store<AppState> = {
         let store = Store(initialState: AppState())
-        store.register(reducer: FetchingTodosReducer())
-        store.register(reducer: HandlingTodosReducer())
+        store.register(reducer: Reducers.fetchingTodosReducer)
+        store.register(reducer: Reducers.handlingTodosReducer)
         store.register(effects: TodosEffects.self)
         #if DEBUG
         store.register(interceptor: FluxorExplorerInterceptor(displayName: UIDevice.current.name))

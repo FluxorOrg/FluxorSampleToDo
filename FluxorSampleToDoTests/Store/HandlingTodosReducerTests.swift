@@ -13,7 +13,7 @@
 import XCTest
 
 class HandlingTodosReducerTests: XCTestCase {
-    let reducer = HandlingTodosReducer()
+    let reducer = Reducers.handlingTodosReducer
 
     func testAddTodoAction() {
         let newTodoTitle = "Walk the dog"

@@ -13,7 +13,7 @@
 import XCTest
 
 class FetchingTodosReducerTests: XCTestCase {
-    let reducer = FetchingTodosReducer()
+    let reducer = Reducers.fetchingTodosReducer
 
     func testFetchTodosAction() {
         let newState = reducer.reduce(state: AppState(), action: FetchTodosAction())

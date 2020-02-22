@@ -6,10 +6,8 @@
 
 import Fluxor
 
-struct FetchingTodosReducer: Reducer {
-    typealias State = AppState
-
-    func reduce(state: AppState, action: Action) -> AppState {
+struct Reducers {
+    static let fetchingTodosReducer = createReducer { (state: AppState, action) in
         var state = state
         switch action {
         case is FetchTodosAction:
@@ -27,12 +25,8 @@ struct FetchingTodosReducer: Reducer {
         }
         return state
     }
-}
 
-struct HandlingTodosReducer: Reducer {
-    typealias State = AppState
-
-    func reduce(state: AppState, action: Action) -> AppState {
+    static let handlingTodosReducer = createReducer { (state: AppState, action) in
         var state = state
         switch action {
         case let addTodoAction as AddTodoAction:
