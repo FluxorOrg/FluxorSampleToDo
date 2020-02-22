@@ -15,7 +15,16 @@
         "repositoryURL": "https://github.com/MortenGregersen/Fluxor",
         "state": {
           "branch": "master",
-          "revision": "c28706b552bc7a15835c70f8017a0b57dd9e9195",
+          "revision": "b65eee0f6ab50b3b310ac76c9b3aa6dd7212c464",
+          "version": null
+        }
+      },
+      {
+        "package": "FluxorExplorerInterceptor",
+        "repositoryURL": "https://github.com/MortenGregersen/FluxorExplorerInterceptor",
+        "state": {
+          "branch": "master",
+          "revision": "70b13ce14d96a8abd2005f58245068a3cb33af29",
           "version": null
         }
       },
@@ -24,16 +33,7 @@
         "repositoryURL": "https://github.com/MortenGregersen/FluxorExplorerSnapshot",
         "state": {
           "branch": "master",
-          "revision": "b82c60ea6ca324ff0f5d71f5baef1417c675571a",
-          "version": null
-        }
-      },
-      {
-        "package": "FluxorExplorerStoreInterceptor",
-        "repositoryURL": "https://github.com/MortenGregersen/FluxorExplorerStoreInterceptor",
-        "state": {
-          "branch": "master",
-          "revision": "0894b75d9391c2924fb505a0a08f7e5b091a2464",
+          "revision": "a78416d3f6c21c12ee1731067e778b6f2a5dcc96",
           "version": null
         }
       },
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/nalexn/ViewInspector",
         "state": {
           "branch": null,
-          "revision": "d402d9c339f0d09af18bd814acfa89e48809a064",
-          "version": "0.3.2"
+          "revision": "ec943ed718cd293b95f17a2b81e8917d6ed70752",
+          "version": "0.3.8"
         }
       }
     ]

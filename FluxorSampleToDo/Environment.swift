@@ -5,7 +5,7 @@
  */
 
 import Fluxor
-import FluxorExplorerStoreInterceptor
+import FluxorExplorerInterceptor
 import UIKit
 
 struct Environment {
@@ -16,7 +16,7 @@ struct Environment {
         store.register(reducer: HandlingTodosReducer())
         store.register(effects: TodosEffects.self)
         #if DEBUG
-        store.register(interceptor: FluxorExplorerStoreInterceptor(displayName: UIDevice.current.name))
+        store.register(interceptor: FluxorExplorerInterceptor(displayName: UIDevice.current.name))
         #endif
         return store
     }()

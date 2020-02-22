@@ -14,7 +14,7 @@ import XCTest
 
 class AddTodoViewModelTests: XCTestCase {
     var store: Store<AppState>!
-    var storeInterceptor: TestStoreInterceptor<AppState>!
+    var storeInterceptor: TestInterceptor<AppState>!
     var model: AddTodoViewModel!
 
     override func setUp() {

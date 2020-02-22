@@ -14,7 +14,7 @@ import XCTest
 
 class TodoListViewModelTests: XCTestCase {
     var store: Store<AppState>!
-    var storeInterceptor: TestStoreInterceptor<AppState>!
+    var storeInterceptor: TestInterceptor<AppState>!
     var model: TodoListViewModel!
 
     override func setUp() {
