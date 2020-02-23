@@ -17,7 +17,7 @@ struct RootView: View {
                 })
         }
         .sheet(isPresented: $showAddSheet) {
-            AddTodoView(model: .init(), showAddSheet: self.$showAddSheet)
+            AddTodoView(showAddSheet: self.$showAddSheet)
         }
     }
 }
