@@ -32,7 +32,7 @@ class TodoListViewModelTests: XCTestCase {
         XCTAssertNotNil(storeInterceptor.dispatchedActionsAndStates[0].action as? FetchTodosAction)
     }
 
-    func testToggleIncompleteTodo() {
+    func testToggleUncompleteTodo() {
         // Given
         let todo = Todo(title: "Buy milk")
         // When

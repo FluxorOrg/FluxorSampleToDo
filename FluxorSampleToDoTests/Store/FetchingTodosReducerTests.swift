@@ -16,31 +16,34 @@ class FetchingTodosReducerTests: XCTestCase {
     let reducer = Reducers.fetchingTodosReducer
 
     func testFetchTodosAction() {
-        let newState = reducer.reduce(state: AppState(), action: FetchTodosAction())
-        XCTAssertTrue(newState.todos.loadingTodos)
-        XCTAssertNil(newState.todos.error)
+        var state = AppState()
+        reducer.reduce(&state, FetchTodosAction())
+        XCTAssertTrue(state.todos.loadingTodos)
+        XCTAssertNil(state.todos.error)
     }
 
     func testDidFetchTodosAction() {
+        var state = AppState()
         let todos = [Todo(title: "Buy milk"), Todo(title: "Walk the dog")]
-        let newState = reducer.reduce(state: AppState(), action: DidFetchTodosAction(todos: todos))
-        XCTAssertEqual(newState.todos.todos, todos)
-        XCTAssertFalse(newState.todos.loadingTodos)
+        reducer.reduce(&state, DidFetchTodosAction(todos: todos))
+        XCTAssertEqual(state.todos.todos, todos)
+        XCTAssertFalse(state.todos.loadingTodos)
     }
 
     func testDidFailFetchingTodosAction() {
         let todos = [Todo(title: "Buy milk"), Todo(title: "Walk the dog")]
+        var state = AppState(todos: TodosState(todos: todos))
         let error = "Some error occurred"
-        let newState = reducer.reduce(state: AppState(todos: TodosState(todos: todos)), action: DidFailFetchingTodosAction(error: error))
-        XCTAssertEqual(newState.todos.todos, [])
-        XCTAssertFalse(newState.todos.loadingTodos)
-        XCTAssertEqual(newState.todos.error, error)
+        reducer.reduce(&state, DidFailFetchingTodosAction(error: error))
+        XCTAssertEqual(state.todos.todos, [])
+        XCTAssertFalse(state.todos.loadingTodos)
+        XCTAssertEqual(state.todos.error, error)
     }
 
     func testIrrelevantAction() {
-        let state = AppState()
-        let newState = reducer.reduce(state: state, action: IrrelevantAction())
-        XCTAssertEqual(newState, state)
+        var state = AppState()
+        reducer.reduce(&state, IrrelevantAction())
+        XCTAssertEqual(state, state)
     }
 }
 

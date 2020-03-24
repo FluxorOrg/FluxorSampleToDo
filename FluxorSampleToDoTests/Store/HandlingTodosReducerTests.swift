@@ -17,47 +17,47 @@ class HandlingTodosReducerTests: XCTestCase {
 
     func testAddTodoAction() {
         let newTodoTitle = "Walk the dog"
-        let state = AppState(todos: TodosState(todos: [Todo(title: "Buy milk")]))
+        var state = AppState(todos: TodosState(todos: [Todo(title: "Buy milk")]))
         XCTAssertEqual(state.todos.todos.count, 1)
-        let newState = reducer.reduce(state: state, action: AddTodoAction(title: newTodoTitle))
-        XCTAssertEqual(newState.todos.todos.count, 2)
-        XCTAssertEqual(newState.todos.todos[1].title, newTodoTitle)
+        reducer.reduce(&state, AddTodoAction(title: newTodoTitle))
+        XCTAssertEqual(state.todos.todos.count, 2)
+        XCTAssertEqual(state.todos.todos[1].title, newTodoTitle)
     }
 
     func testCompleteTodoAction() {
         let todoToComplete = Todo(title: "Buy milk")
         let otherTodo = Todo(title: "Walk the dog")
-        let state = AppState(todos: TodosState(todos: [todoToComplete, otherTodo]))
+        var state = AppState(todos: TodosState(todos: [todoToComplete, otherTodo]))
         XCTAssertFalse(state.todos.todos[0].done)
-        let newState = reducer.reduce(state: state, action: CompleteTodoAction(todo: todoToComplete))
-        XCTAssertTrue(newState.todos.todos[0].done)
-        XCTAssertFalse(newState.todos.todos[1].done)
+        reducer.reduce(&state, CompleteTodoAction(todo: todoToComplete))
+        XCTAssertTrue(state.todos.todos[0].done)
+        XCTAssertFalse(state.todos.todos[1].done)
     }
 
     func testUncompleteTodoAction() {
         var completedTodo = Todo(title: "Buy milk")
         completedTodo.done = true
         let otherTodo = Todo(title: "Walk the dog")
-        let state = AppState(todos: TodosState(todos: [completedTodo, otherTodo]))
-        let newState = reducer.reduce(state: state, action: UncompleteTodoAction(todo: completedTodo))
-        XCTAssertFalse(newState.todos.todos[0].done)
-        XCTAssertFalse(newState.todos.todos[1].done)
+        var state = AppState(todos: TodosState(todos: [completedTodo, otherTodo]))
+        reducer.reduce(&state, UncompleteTodoAction(todo: completedTodo))
+        XCTAssertFalse(state.todos.todos[0].done)
+        XCTAssertFalse(state.todos.todos[1].done)
     }
 
     func testDeleteTodoAction() {
         let todoToDelete = Todo(title: "Buy milk")
         let todoToKeep = Todo(title: "Walk the dog")
-        let state = AppState(todos: TodosState(todos: [todoToDelete, todoToKeep]))
+        var state = AppState(todos: TodosState(todos: [todoToDelete, todoToKeep]))
         XCTAssertEqual(state.todos.todos.count, 2)
-        let newState = reducer.reduce(state: state, action: DeleteTodoAction(index: 0))
-        XCTAssertEqual(newState.todos.todos.count, 1)
-        XCTAssertEqual(newState.todos.todos[0], todoToKeep)
+        reducer.reduce(&state, DeleteTodoAction(index: 0))
+        XCTAssertEqual(state.todos.todos.count, 1)
+        XCTAssertEqual(state.todos.todos[0], todoToKeep)
     }
 
     func testIrrelevantAction() {
-        let state = AppState()
-        let newState = reducer.reduce(state: state, action: IrrelevantAction())
-        XCTAssertEqual(newState, state)
+        var state = AppState()
+        reducer.reduce(&state, IrrelevantAction())
+        XCTAssertEqual(state, state)
     }
 }
 

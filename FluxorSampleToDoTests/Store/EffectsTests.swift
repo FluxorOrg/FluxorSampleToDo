@@ -23,8 +23,8 @@ class EffectsTests: XCTestCase {
         let effects = TodosEffects($action)
         guard case .dispatching(let fetchTodos) = effects.fetchTodos else { XCTFail(); return }
         let cancellable = fetchTodos.sink { action in
-            guard let didFetchTodosAction = action as? DidFetchTodosAction else { return }
-            XCTAssertEqual(didFetchTodosAction.todos.count, 4)
+            guard let action = action as? DidFetchTodosAction else { return }
+            XCTAssertEqual(action.todos.count, 4)
             expectation.fulfill()
         }
         // When
@@ -41,8 +41,8 @@ class EffectsTests: XCTestCase {
         let effects = TodosEffects($action)
         guard case .dispatching(let fetchTodos) = effects.fetchTodos else { XCTFail(); return }
         let cancellable = fetchTodos.sink { action in
-            guard let didFailFetchingTodosAction = action as? DidFailFetchingTodosAction else { return }
-            XCTAssertEqual(didFailFetchingTodosAction.error, "Something bad happened, and the todos could not be fetched.")
+            guard let action = action as? DidFailFetchingTodosAction else { return }
+            XCTAssertEqual(action.error, "Something bad happened, and the todos could not be fetched.")
             expectation.fulfill()
         }
         // When

@@ -7,49 +7,44 @@
 import Fluxor
 
 struct Reducers {
-    static let fetchingTodosReducer = createReducer { (state: AppState, action) in
-        var state = state
-        switch action {
-        case is FetchTodosAction:
+    static let fetchingTodosReducer = createReducer(
+        reduceOn(FetchTodosAction.self) { (state: inout AppState, _) in
             state.todos.loadingTodos = true
             state.todos.error = nil
-        case let didFetchTodosAction as DidFetchTodosAction:
-            state.todos.todos = didFetchTodosAction.todos
+        },
+        reduceOn(DidFetchTodosAction.self) { (state: inout AppState, action) in
+            state.todos.todos = action.todos
             state.todos.loadingTodos = false
-        case let didFailFetchingTodosAction as DidFailFetchingTodosAction:
+        },
+        reduceOn(DidFailFetchingTodosAction.self) { (state: inout AppState, action) in
             state.todos.todos = []
             state.todos.loadingTodos = false
-            state.todos.error = didFailFetchingTodosAction.error
-        default:
-            ()
+            state.todos.error = action.error
         }
-        return state
-    }
+    )
 
-    static let handlingTodosReducer = createReducer { (state: AppState, action) in
-        var state = state
-        switch action {
-        case let addTodoAction as AddTodoAction:
-            state.todos.todos.append(Todo(title: addTodoAction.title))
-        case let completeTodoAction as CompleteTodoAction:
+    static let handlingTodosReducer = createReducer(
+        reduceOn(AddTodoAction.self) { (state: inout AppState, action) in
+            state.todos.todos.append(Todo(title: action.title))
+        },
+        reduceOn(CompleteTodoAction.self) { (state: inout AppState, action) in
             state.todos.todos = state.todos.todos.map {
-                guard $0 == completeTodoAction.todo else { return $0 }
+                guard $0 == action.todo else { return $0 }
                 var todo = $0
                 todo.done = true
                 return todo
             }
-        case let uncompleteTodoAction as UncompleteTodoAction:
+        },
+        reduceOn(UncompleteTodoAction.self) { (state: inout AppState, action) in
             state.todos.todos = state.todos.todos.map {
-                guard $0 == uncompleteTodoAction.todo else { return $0 }
+                guard $0 == action.todo else { return $0 }
                 var todo = $0
                 todo.done = false
                 return todo
             }
-        case let deleteTodoAction as DeleteTodoAction:
-            state.todos.todos.remove(at: deleteTodoAction.index)
-        default:
-            ()
+        },
+        reduceOn(DeleteTodoAction.self) { (state: inout AppState, action) in
+            state.todos.todos.remove(at: action.index)
         }
-        return state
-    }
+    )
 }
