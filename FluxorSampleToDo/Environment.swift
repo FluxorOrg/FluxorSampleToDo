@@ -14,7 +14,7 @@ struct Environment {
         let store = Store(initialState: AppState())
         store.register(reducer: Reducers.fetchingTodosReducer)
         store.register(reducer: Reducers.handlingTodosReducer)
-        store.register(effects: TodosEffects.self)
+        store.register(effects: TodosEffects())
         #if DEBUG
         store.register(interceptor: FluxorExplorerInterceptor(displayName: UIDevice.current.name))
         #endif

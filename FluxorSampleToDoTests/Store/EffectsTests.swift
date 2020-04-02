@@ -6,6 +6,7 @@
 
 import Combine
 import Fluxor
+import FluxorTestSupport
 #if SWIFTUI
 @testable import FluxorSampleToDoSwiftUI
 #else
@@ -13,43 +14,31 @@ import Fluxor
 #endif
 import XCTest
 
+// swiftlint:disable force_cast
+
 class EffectsTests: XCTestCase {
-    @Published private var action: Action = InitialTestAction()
+    private let effects = TodosEffects()
 
     func testFetchTodosSuccess() {
         // Given
-        let expectation = XCTestExpectation(description: debugDescription)
         Current.todoService = TodoServiceMock(shouldSucceed: true)
-        let effects = TodosEffects($action)
-        guard case .dispatching(let fetchTodos) = effects.fetchTodos else { XCTFail(); return }
-        let cancellable = fetchTodos.sink { action in
-            guard let action = action as? DidFetchTodosAction else { return }
-            XCTAssertEqual(action.todos.count, 4)
-            expectation.fulfill()
-        }
         // When
-        action = FetchTodosAction()
+        let actions = effects.fetchTodos.run(with: FetchTodosAction())
         // Then
-        wait(for: [expectation], timeout: 5)
-        XCTAssertNotNil(cancellable)
+        XCTAssertEqual(actions.count, 1)
+        let action = actions[0] as! DidFetchTodosAction
+        XCTAssertEqual(action.todos.count, 4)
     }
 
     func testFetchTodosFailure() {
         // Given
-        let expectation = XCTestExpectation(description: debugDescription)
         Current.todoService = TodoServiceMock(shouldSucceed: false)
-        let effects = TodosEffects($action)
-        guard case .dispatching(let fetchTodos) = effects.fetchTodos else { XCTFail(); return }
-        let cancellable = fetchTodos.sink { action in
-            guard let action = action as? DidFailFetchingTodosAction else { return }
-            XCTAssertEqual(action.error, "Something bad happened, and the todos could not be fetched.")
-            expectation.fulfill()
-        }
         // When
-        action = FetchTodosAction()
+        let actions = effects.fetchTodos.run(with: FetchTodosAction())
         // Then
-        wait(for: [expectation], timeout: 5)
-        XCTAssertNotNil(cancellable)
+        XCTAssertEqual(actions.count, 1)
+        let action = actions[0] as! DidFailFetchingTodosAction
+        XCTAssertEqual(action.error, "Something bad happened, and the todos could not be fetched.")
     }
 }
 
