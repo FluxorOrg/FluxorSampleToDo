@@ -14,6 +14,8 @@ import FluxorTestSupport
 #endif
 import XCTest
 
+// swiftlint:disable force_cast
+
 class EffectsTests: XCTestCase {
     private let effects = TodosEffects()
 
