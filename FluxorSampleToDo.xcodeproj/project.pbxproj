@@ -1036,10 +1036,10 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		5A2EF51623BCD97D0098218E /* XCRemoteSwiftPackageReference "Fluxor" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MortenGregersen/Fluxor";
+			repositoryURL = "https://github.com/FluxorOrg/Fluxor";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 		5A2F4F1E23A2D0FE00352C74 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
@@ -1060,10 +1060,10 @@
 		};
 		5A744D792401DBE000608799 /* XCRemoteSwiftPackageReference "FluxorExplorerInterceptor" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MortenGregersen/FluxorExplorerInterceptor";
+			repositoryURL = "https://github.com/FluxorOrg/FluxorExplorerInterceptor";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
