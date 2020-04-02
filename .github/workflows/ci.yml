@@ -1,4 +1,4 @@
-name: Test
+name: CI
 
 on:
   push:
@@ -10,12 +10,21 @@ on:
 
 jobs:
   build:
-    runs-on: macOS-latest
+    name: Build and Test
+    runs-on: macos-latest
     env: 
-      DEVELOPER_DIR: /Applications/Xcode_11.3.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Test
       run: |
         set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme FluxorSampleToDoSwiftUI -destination "OS=13.3,name=iPhone 11 Pro" clean test | xcpretty
         set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme FluxorSampleToDoUIKit -destination "OS=13.3,name=iPhone 11 Pro" clean test | xcpretty
+    - name: Upload coverage
+      uses: paambaati/codeclimate-action@v2.5.6
+      env:
+        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      with:
+        coverageCommand: ls
+        coverageLocations: coverage.lcov:lcov
+        debug: true
