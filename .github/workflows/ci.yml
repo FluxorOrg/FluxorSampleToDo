@@ -23,7 +23,7 @@ jobs:
     - name: Export coverage
       run: |
         xcrun xccov view --report --json ./FluxorSampleToDoSwiftUI.xcresult > FluxorSampleToDoSwiftUI-cov.json
-        xcrun xccov view --report --json ./FluxorSampleToDoUIKit.xcresultt > FluxorSampleToDoUIKit-cov.json
+        xcrun xccov view --report --json ./FluxorSampleToDoUIKit.xcresult > FluxorSampleToDoUIKit-cov.json
         git clone https://github.com/trax-retail/xccov2lcov.git
         cd xccov2lcov
         swift run xccov2lcov ../FluxorSampleToDoSwiftUI-cov.json > ../FluxorSampleToDoSwiftUI-lcov.info
