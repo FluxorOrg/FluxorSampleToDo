@@ -16,8 +16,15 @@ struct RootView: View {
                     self.showAddSheet = true
                 })
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $showAddSheet) {
             AddTodoView(showAddSheet: self.$showAddSheet)
         }
+    }
+}
+
+struct RootView_Previews: PreviewProvider {
+    static var previews: some View {
+        RootView()
     }
 }

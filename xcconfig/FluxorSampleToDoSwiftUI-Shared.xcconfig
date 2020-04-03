@@ -5,7 +5,9 @@
 // https://github.com/dempseyatgithub/BuildSettingExtractor
 //
 
+CODE_SIGN_ENTITLEMENTS = FluxorSampleToDoSwiftUI.entitlements;
 DEVELOPMENT_ASSET_PATHS = "FluxorSampleToDo/Preview Content"
 ENABLE_PREVIEWS = YES
 INFOPLIST_FILE = FluxorSampleToDo/SwiftUI-app/Info.plist
 PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorSampleToDo.SwiftUI
+SUPPORTS_MACCATALYST = YES;
