@@ -28,6 +28,7 @@ extension AddTodoView: View {
                 self.showAddSheet = false
             })
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
