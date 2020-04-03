@@ -21,6 +21,7 @@ jobs:
         set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme FluxorSampleToDoSwiftUI -destination "OS=13.4,name=iPhone 11 Pro"  -enableCodeCoverage YES -resultBundlePath ./FluxorSampleToDoSwiftUI.xcresult clean test | xcpretty
         set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme FluxorSampleToDoUIKit -destination "OS=13.4,name=iPhone 11 Pro" -enableCodeCoverage YES -resultBundlePath ./FluxorSampleToDoUIKit.xcresult clean test | xcpretty
     - name: Export coverage
+      run: |
         xcrun xccov view --report --json ./FluxorSampleToDoSwiftUI.xcresult > FluxorSampleToDoSwiftUI-cov.json
         xcrun xccov view --report --json ./FluxorSampleToDoUIKit.xcresultt > FluxorSampleToDoUIKit-cov.json
         git clone https://github.com/trax-retail/xccov2lcov.git
