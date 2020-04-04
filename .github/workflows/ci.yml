@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: macos-latest
+    env: 
+      DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
+      CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Notify CodeClimate
+      run: |
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+        ./cc-test-reporter before-build
+    - name: Test
+      run: |
+        set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme FluxorSampleToDoSwiftUI -destination "OS=13.4,name=iPhone 11 Pro"  -enableCodeCoverage YES -resultBundlePath ./FluxorSampleToDoSwiftUI.xcresult clean test | xcpretty
+        set -o pipefail && env NSUnbufferedIO=YES xcodebuild -scheme FluxorSampleToDoUIKit -destination "OS=13.4,name=iPhone 11 Pro" -enableCodeCoverage YES -resultBundlePath ./FluxorSampleToDoUIKit.xcresult clean test | xcpretty
+    - name: Export coverage
+      run: |
+        xcrun xccov view --report --json ./FluxorSampleToDoSwiftUI.xcresult > FluxorSampleToDoSwiftUI-cov.json
+        xcrun xccov view --report --json ./FluxorSampleToDoUIKit.xcresult > FluxorSampleToDoUIKit-cov.json
+        git clone https://github.com/trax-retail/xccov2lcov.git
+        cd xccov2lcov
+        swift run xccov2lcov ../FluxorSampleToDoSwiftUI-cov.json > ../coverage-SwiftUI.lcov
+        swift run xccov2lcov ../FluxorSampleToDoUIKit-cov.json > ../coverage-UIKit.lcov
+        cd ..
+        mkdir coverage
+        ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.SwiftUI.json coverage-SwiftUI.lcov
+        ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.UIKit.json coverage-UIKit.lcov
+        ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2
+        ./cc-test-reporter upload-coverage -r "$CC_TEST_REPORTER_ID"
