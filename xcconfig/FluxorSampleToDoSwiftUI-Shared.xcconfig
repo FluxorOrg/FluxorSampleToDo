@@ -5,7 +5,7 @@
 // https://github.com/dempseyatgithub/BuildSettingExtractor
 //
 
-CODE_SIGN_ENTITLEMENTS = FluxorSampleToDoSwiftUI.entitlements;
+CODE_SIGN_ENTITLEMENTS = FluxorSampleToDo/SwiftUI-app/FluxorSampleToDoSwiftUI.entitlements
 DEVELOPMENT_ASSET_PATHS = "FluxorSampleToDo/Preview Content"
 ENABLE_PREVIEWS = YES
 INFOPLIST_FILE = FluxorSampleToDo/SwiftUI-app/Info.plist
