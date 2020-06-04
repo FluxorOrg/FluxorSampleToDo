@@ -7,6 +7,8 @@
 import Combine
 import UIKit
 
+// swiftlint:disable trailing_comma
+
 class TodoListViewController: UITableViewController {
     let model = TodoListViewModel()
     var todos = [Todo]() { didSet { reloadSection() } }

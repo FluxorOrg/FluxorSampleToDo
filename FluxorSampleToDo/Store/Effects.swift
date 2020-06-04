@@ -18,7 +18,9 @@ class TodosEffects: Effects {
                 environment.todoService.fetchTodos()
                     .map { DidFetchTodosAction(todos: $0) }
                     .catch { _ -> Just<Action> in
-                        Just(DidFailFetchingTodosAction(error: "Something bad happened, and the todos could not be fetched."))
+                        Just(DidFailFetchingTodosAction(
+                            error: "Something bad happened, and the todos could not be fetched."
+                        ))
                     }
             }
             .eraseToAnyPublisher()
