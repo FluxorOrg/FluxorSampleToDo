@@ -18,23 +18,28 @@ import XCTest
 
 class EffectsTests: XCTestCase {
     private let effects = TodosEffects()
+    private var environment: AppEnvironment!
+    
+    override func setUp() {
+        environment = AppEnvironment()
+    }
 
-    func testFetchTodosSuccess() {
+    func testFetchTodosSuccess() throws{
         // Given
-        Current.todoService = TodoServiceMock(shouldSucceed: true)
+        environment.todoService = TodoServiceMock(shouldSucceed: true)
         // When
-        let actions = effects.fetchTodos.run(with: FetchTodosAction())
+        let actions = try EffectRunner.run(effects.fetchTodos, with: FetchTodosAction(), environment: environment)!
         // Then
         XCTAssertEqual(actions.count, 1)
         let action = actions[0] as! DidFetchTodosAction
         XCTAssertEqual(action.todos.count, 4)
     }
 
-    func testFetchTodosFailure() {
+    func testFetchTodosFailure() throws {
         // Given
-        Current.todoService = TodoServiceMock(shouldSucceed: false)
+        environment.todoService = TodoServiceMock(shouldSucceed: false)
         // When
-        let actions = effects.fetchTodos.run(with: FetchTodosAction())
+        let actions = try EffectRunner.run(effects.fetchTodos, with: FetchTodosAction(), environment: environment)!
         // Then
         XCTAssertEqual(actions.count, 1)
         let action = actions[0] as! DidFailFetchingTodosAction
