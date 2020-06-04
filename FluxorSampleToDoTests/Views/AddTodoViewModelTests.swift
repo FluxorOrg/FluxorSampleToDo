@@ -10,18 +10,16 @@ import Fluxor
 #else
 @testable import FluxorSampleToDoUIKit
 #endif
+import FluxorTestSupport
 import XCTest
 
 class AddTodoViewModelTests: XCTestCase {
-    var store: Store<AppState>!
-    var storeInterceptor: TestInterceptor<AppState>!
+    var store: MockStore<AppState, AppEnvironment>!
     var model: AddTodoViewModel!
 
     override func setUp() {
         super.setUp()
-        storeInterceptor = .init()
-        store = .init(initialState: AppState())
-        store.register(interceptor: storeInterceptor)
+        store = .init(initialState: AppState(), environment: AppEnvironment())
         model = .init(store: store)
     }
 
@@ -31,7 +29,7 @@ class AddTodoViewModelTests: XCTestCase {
         // When
         model.addTodo(title: title)
         // Then
-        let action = storeInterceptor.dispatchedActionsAndStates[0].action as! AddTodoAction
+        let action = store.stateChanges[0].action as! AddTodoAction
         XCTAssertEqual(action.title, title)
     }
 }

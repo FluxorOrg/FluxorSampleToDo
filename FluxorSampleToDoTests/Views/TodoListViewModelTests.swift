@@ -10,18 +10,16 @@ import Fluxor
 #else
 @testable import FluxorSampleToDoUIKit
 #endif
+import FluxorTestSupport
 import XCTest
 
 class TodoListViewModelTests: XCTestCase {
-    var store: Store<AppState>!
-    var storeInterceptor: TestInterceptor<AppState>!
+    var store: MockStore<AppState, AppEnvironment>!
     var model: TodoListViewModel!
 
     override func setUp() {
         super.setUp()
-        storeInterceptor = .init()
-        store = .init(initialState: AppState())
-        store.register(interceptor: storeInterceptor)
+        store = .init(initialState: AppState(), environment: AppEnvironment())
         model = .init(store: store)
     }
 
@@ -29,7 +27,7 @@ class TodoListViewModelTests: XCTestCase {
         // When
         model.fetchTodos()
         // Then
-        XCTAssertNotNil(storeInterceptor.dispatchedActionsAndStates[0].action as? FetchTodosAction)
+        XCTAssertNotNil(store.stateChanges[0].action as? FetchTodosAction)
     }
 
     func testToggleUncompleteTodo() {
@@ -38,7 +36,7 @@ class TodoListViewModelTests: XCTestCase {
         // When
         model.toggle(todo: todo)
         // Then
-        let action = storeInterceptor.dispatchedActionsAndStates[0].action as! CompleteTodoAction
+        let action = store.stateChanges[0].action as! CompleteTodoAction
         XCTAssertEqual(action.todo, todo)
     }
 
@@ -49,7 +47,7 @@ class TodoListViewModelTests: XCTestCase {
         // When
         model.toggle(todo: todo)
         // Then
-        let action = storeInterceptor.dispatchedActionsAndStates[0].action as! UncompleteTodoAction
+        let action = store.stateChanges[0].action as! UncompleteTodoAction
         XCTAssertEqual(action.todo, todo)
     }
 
@@ -59,7 +57,7 @@ class TodoListViewModelTests: XCTestCase {
         // When
         model.delete(at: index)
         // Then
-        let action = storeInterceptor.dispatchedActionsAndStates[0].action as! DeleteTodoAction
+        let action = store.stateChanges[0].action as! DeleteTodoAction
         XCTAssertEqual(action.index, index)
     }
 }

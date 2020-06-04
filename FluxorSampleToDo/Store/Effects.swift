@@ -9,13 +9,19 @@ import Fluxor
 import Foundation
 
 class TodosEffects: Effects {
-    let fetchTodos = createEffectCreator { (actions: AnyPublisher<Action, Never>) in
+    typealias Environment = AppEnvironment
+
+    let fetchTodos = Effect<Environment>.dispatchingOne { actions, environment in
         actions
             .ofType(FetchTodosAction.self)
             .flatMap { _ in
-                Current.todoService.fetchTodos()
+                environment.todoService.fetchTodos()
                     .map { DidFetchTodosAction(todos: $0) }
-                    .catch { _ in Just(DidFailFetchingTodosAction(error: "Something bad happened, and the todos could not be fetched.")) }
+                    .catch { _ -> Just<Action> in
+                        Just(DidFailFetchingTodosAction(
+                            error: "Something bad happened, and the todos could not be fetched."
+                        ))
+                    }
             }
             .eraseToAnyPublisher()
     }
