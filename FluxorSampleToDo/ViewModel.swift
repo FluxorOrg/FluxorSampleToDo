@@ -7,9 +7,9 @@
 import Fluxor
 
 class ViewModel {
-    let store: Store<AppState>
+    let store: Store<AppState, Void>
 
-    init(store: Store<AppState> = Current.store) {
+    init(store: Store<AppState, Void> = Current.store) {
         self.store = store
     }
 }

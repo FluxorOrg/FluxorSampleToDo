@@ -8,7 +8,7 @@
 
 import Fluxor
 
-let previewStore: Store<AppState> = {
+let previewStore: Store<AppState, Void> = {
     let state = AppState(todos: TodosState(todos: [Todo(title: "Dispatch actions"),
                                                    Todo(title: "Create effects"),
                                                    Todo(title: "Select something"),

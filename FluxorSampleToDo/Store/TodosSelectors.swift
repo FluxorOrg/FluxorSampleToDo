@@ -7,9 +7,9 @@
 import Fluxor
 
 struct TodosSelectors {
-    private static let getTodosState = createRootSelector(keyPath: \AppState.todos)
-    static let getTodos = createSelector(TodosSelectors.getTodosState) { $0.todos }
-    static let isLoadingTodos = createSelector(TodosSelectors.getTodosState) { $0.loadingTodos }
-    static let getError = createSelector(TodosSelectors.getTodosState) { $0.error }
-    static let shouldShowError = createSelector(TodosSelectors.getTodosState) { $0.error != nil }
+    private static let getTodosState = Selector(keyPath: \AppState.todos)
+    static let getTodos = Selector.with(TodosSelectors.getTodosState) { $0.todos }
+    static let isLoadingTodos = Selector.with(TodosSelectors.getTodosState) { $0.loadingTodos }
+    static let getError = Selector.with(TodosSelectors.getTodosState) { $0.error }
+    static let shouldShowError = Selector.with(TodosSelectors.getTodosState) { $0.error != nil }
 }
