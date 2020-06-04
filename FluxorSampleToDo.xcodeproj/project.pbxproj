@@ -182,8 +182,7 @@
 		5A7AC78123873BD300EC24AF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		5A7AC7852389E3A300EC24AF /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		5A7AC7882389EAAD00EC24AF /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
-		5A838C3E2437D80300EAE9ED /* FluxorSampleToDoSwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FluxorSampleToDoSwiftUI.entitlements; sourceTree = "<group>"; };
-		5A838C3F2437D9E900EAE9ED /* FluxorSampleToDoUIKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FluxorSampleToDoUIKit.entitlements; sourceTree = "<group>"; };
+		5A838C3F2437D9E900EAE9ED /* FluxorSampleToDo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FluxorSampleToDo.entitlements; sourceTree = "<group>"; };
 		5ACB8EAB239DA9A700CA9D2F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		5AD0A11E2384951000A32232 /* FluxorSampleToDoSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluxorSampleToDoSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD0A1212384951000A32232 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,7 +191,6 @@
 		5AD0A1272384951400A32232 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AD0A12A2384951400A32232 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5AD0A12D2384951400A32232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5AD0A12F2384951400A32232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AD63F5F23C2A4A800FAA419 /* FluxorSampleToDoUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluxorSampleToDoUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD63F6323C2A4A800FAA419 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5AD63F6523C2A4A800FAA419 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
@@ -432,6 +430,8 @@
 				5AD0A1212384951000A32232 /* AppDelegate.swift */,
 				5ACB8EAB239DA9A700CA9D2F /* ViewModel.swift */,
 				5A2F4F09239F006A00352C74 /* Environment.swift */,
+				5A838C3F2437D9E900EAE9ED /* FluxorSampleToDo.entitlements */,
+				5AD63F6F23C2A4AD00FAA419 /* Info.plist */,
 				5AD0A1272384951400A32232 /* Assets.xcassets */,
 				5AD0A12C2384951400A32232 /* LaunchScreen.storyboard */,
 				5AD0A1292384951400A32232 /* Preview Content */,
@@ -453,8 +453,6 @@
 			children = (
 				5A7AC7872389EA9900EC24AF /* Views */,
 				5AD0A1232384951000A32232 /* SceneDelegate.swift */,
-				5AD0A12F2384951400A32232 /* Info.plist */,
-				5A838C3E2437D80300EAE9ED /* FluxorSampleToDoSwiftUI.entitlements */,
 			);
 			path = "SwiftUI-app";
 			sourceTree = "<group>";
@@ -464,8 +462,6 @@
 			children = (
 				5A4D9EC323C51ED500BC3D8B /* ViewControllers */,
 				5AD63F6323C2A4A800FAA419 /* SceneDelegate.swift */,
-				5AD63F6F23C2A4AD00FAA419 /* Info.plist */,
-				5A838C3F2437D9E900EAE9ED /* FluxorSampleToDoUIKit.entitlements */,
 			);
 			path = "UIKit-app";
 			sourceTree = "<group>";
