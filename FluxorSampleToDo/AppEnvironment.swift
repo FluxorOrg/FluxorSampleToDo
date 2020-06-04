@@ -8,10 +8,13 @@ import Fluxor
 import FluxorExplorerInterceptor
 import UIKit
 
-struct Environment {
+struct AppEnvironment {
     var todoService: TodoServiceProtocol = TodoService()
-    let store: Store<AppState, Void> = {
-        let store = Store(initialState: AppState())
+}
+
+struct Current {
+    static let store: Store<AppState, AppEnvironment> = {
+        let store = Store(initialState: AppState(), environment: AppEnvironment())
         store.register(reducer: Reducers.fetchingTodosReducer)
         store.register(reducer: Reducers.handlingTodosReducer)
         store.register(effects: TodosEffects())
@@ -21,5 +24,3 @@ struct Environment {
         return store
     }()
 }
-
-var Current = Environment()
