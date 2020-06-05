@@ -10,7 +10,9 @@
         <img src="https://img.shields.io/badge/twitter-@mortengregersen-blue.svg" alt="Twitter: @mortengregersen">
     </a>
     <br />
-    <img src="https://github.com/FluxorOrg/FluxorSampleToDo/workflows/CI/badge.svg" alt="CI" />
+    <a href="https://app.bitrise.io/app/765017444c3aec79">
+        <img src="https://app.bitrise.io/app/765017444c3aec79/status.svg?token=HnPkt967T40G4c0L2UFHGw" alt="CI" />
+    </a>
     <a href="https://codeclimate.com/github/FluxorOrg/FluxorSampleToDo/maintainability">
         <img src="https://api.codeclimate.com/v1/badges/10eb9f25d3afafb5c5eb/maintainability" alt="Maintainability" />
     </a>
