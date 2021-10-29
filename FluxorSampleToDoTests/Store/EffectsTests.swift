@@ -28,22 +28,22 @@ class EffectsTests: XCTestCase {
         // Given
         environment.todoService = TodoServiceMock(shouldSucceed: true)
         // When
-        let actions = try EffectRunner.run(effects.fetchTodos, with: FetchTodosAction(), environment: environment)!
+        let actions = try EffectRunner.run(effects.fetchTodos, with: FetchingActions.fetchTodos(), environment: environment)!
         // Then
         XCTAssertEqual(actions.count, 1)
-        let action = actions[0] as! DidFetchTodosAction
-        XCTAssertEqual(action.todos.count, 4)
+        let action = actions[0] as! AnonymousAction<[Todo]>
+        XCTAssertEqual(action.payload.count, 4)
     }
 
     func testFetchTodosFailure() throws {
         // Given
         environment.todoService = TodoServiceMock(shouldSucceed: false)
         // When
-        let actions = try EffectRunner.run(effects.fetchTodos, with: FetchTodosAction(), environment: environment)!
+        let actions = try EffectRunner.run(effects.fetchTodos, with: FetchingActions.fetchTodos(), environment: environment)!
         // Then
         XCTAssertEqual(actions.count, 1)
-        let action = actions[0] as! DidFailFetchingTodosAction
-        XCTAssertEqual(action.error, "Something bad happened, and the todos could not be fetched.")
+        let action = actions[0] as! AnonymousAction<String>
+        XCTAssertEqual(action.payload, "Something bad happened, and the todos could not be fetched.")
     }
 }
 

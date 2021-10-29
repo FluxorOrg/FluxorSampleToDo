@@ -7,8 +7,8 @@
 import SwiftUI
 
 struct TodoRowView: View {
-    var todo: Todo
-    var didSelect: () -> Void
+    let todo: Todo
+    let didSelect: () -> Void
 
     var body: some View {
         Button(action: didSelect) {

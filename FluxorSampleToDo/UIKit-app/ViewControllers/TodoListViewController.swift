@@ -10,7 +10,7 @@ import UIKit
 // swiftlint:disable trailing_comma
 
 class TodoListViewController: UITableViewController {
-    let model = TodoListViewModel()
+//    let model = TodoListViewModel()
     var todos = [Todo]() { didSet { reloadSection() } }
     var loading = false { didSet { reloadSection() } }
     var error: String? { didSet { if error != nil { showErrorAlert() } } }
@@ -20,12 +20,12 @@ class TodoListViewController: UITableViewController {
         super.viewDidLoad()
         title = "Fluxor todos"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(TodoListViewController.addTodo))
-        cancellables.append(contentsOf: [
-            model.store.select(TodosSelectors.getTodos).assign(to: \.todos, on: self),
-            model.store.select(TodosSelectors.isLoadingTodos).assign(to: \.loading, on: self),
-            model.store.select(TodosSelectors.getError).assign(to: \.error, on: self),
-        ])
-        model.fetchTodos()
+//        cancellables.append(contentsOf: [
+//            model.store.select(TodosSelectors.getTodos).assign(to: \.todos, on: self),
+//            model.store.select(TodosSelectors.isLoadingTodos).assign(to: \.loading, on: self),
+//            model.store.select(TodosSelectors.getError).assign(to: \.error, on: self),
+//        ])
+//        model.fetchTodos()
     }
 
     func reloadSection() {
@@ -66,14 +66,14 @@ class TodoListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard todos.count > 0 else { return }
-        let todo = todos[indexPath.row]
-        model.toggle(todo: todo)
+//        guard todos.count > 0 else { return }
+//        let todo = todos[indexPath.row]
+//        model.toggle(todo: todo)
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            model.delete(at: indexPath.row)
+//            model.delete(at: indexPath.row)
         }
     }
 }

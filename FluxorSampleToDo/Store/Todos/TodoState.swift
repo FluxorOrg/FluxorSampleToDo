@@ -4,7 +4,8 @@
  *  MIT license, see LICENSE file for details
  */
 
-struct AppState: Encodable {
-    var todo = TodoState()
-    var navigation = NavigationState()
+struct TodoState: Encodable {
+    var todos = [Todo]()
+    var loadingTodos = false
+    var error: String?
 }

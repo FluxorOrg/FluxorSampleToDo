@@ -8,7 +8,7 @@ import Combine
 import UIKit
 
 class AddTodoViewController: UITableViewController {
-    let model = AddTodoViewModel()
+//    let model = AddTodoViewModel()
     var todoTitle = "" { didSet { saveButton.isEnabled = todoTitle.lengthOfBytes(using: .utf8) > 0 } }
     let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
     
@@ -25,7 +25,7 @@ class AddTodoViewController: UITableViewController {
     }
     
     @objc func save() {
-        model.addTodo(title: todoTitle)
+//        model.addTodo(title: todoTitle)
         dismiss(animated: true, completion: nil)
     }
     

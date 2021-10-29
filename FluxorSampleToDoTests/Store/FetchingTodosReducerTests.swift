@@ -13,35 +13,35 @@
 import XCTest
 
 class FetchingTodosReducerTests: XCTestCase {
-    let reducer = Reducers.fetchingTodosReducer
+    let reducer = todoReducer
 
     func testFetchTodosAction() {
-        var state = AppState()
-        reducer.reduce(&state, FetchTodosAction())
-        XCTAssertTrue(state.todos.loadingTodos)
-        XCTAssertNil(state.todos.error)
+        var state = TodoState()
+        reducer.reduce(&state, FetchingActions.fetchTodos())
+        XCTAssertTrue(state.loadingTodos)
+        XCTAssertNil(state.error)
     }
 
     func testDidFetchTodosAction() {
-        var state = AppState()
+        var state = TodoState()
         let todos = [Todo(title: "Buy milk"), Todo(title: "Walk the dog")]
-        reducer.reduce(&state, DidFetchTodosAction(todos: todos))
-        XCTAssertEqual(state.todos.todos, todos)
-        XCTAssertFalse(state.todos.loadingTodos)
+        reducer.reduce(&state, FetchingActions.didFetchTodos(payload: todos))
+        XCTAssertEqual(state.todos, todos)
+        XCTAssertFalse(state.loadingTodos)
     }
 
     func testDidFailFetchingTodosAction() {
         let todos = [Todo(title: "Buy milk"), Todo(title: "Walk the dog")]
-        var state = AppState(todos: TodosState(todos: todos))
+        var state = TodoState(todos: todos)
         let error = "Some error occurred"
-        reducer.reduce(&state, DidFailFetchingTodosAction(error: error))
-        XCTAssertEqual(state.todos.todos, [])
-        XCTAssertFalse(state.todos.loadingTodos)
-        XCTAssertEqual(state.todos.error, error)
+        reducer.reduce(&state, FetchingActions.didFailFetchingTodos(payload: error))
+        XCTAssertEqual(state.todos, [])
+        XCTAssertFalse(state.loadingTodos)
+        XCTAssertEqual(state.error, error)
     }
 
     func testIrrelevantAction() {
-        var state = AppState()
+        var state = TodoState()
         reducer.reduce(&state, IrrelevantAction())
         XCTAssertEqual(state, state)
     }
@@ -49,14 +49,8 @@ class FetchingTodosReducerTests: XCTestCase {
 
 private struct IrrelevantAction: Action {}
 
-extension AppState: Equatable {
-    public static func == (lhs: AppState, rhs: AppState) -> Bool {
-        return lhs.todos == rhs.todos
-    }
-}
-
-extension TodosState: Equatable {
-    public static func == (lhs: TodosState, rhs: TodosState) -> Bool {
+extension TodoState: Equatable {
+    public static func == (lhs: TodoState, rhs: TodoState) -> Bool {
         return lhs.todos == rhs.todos
             && lhs.loadingTodos == rhs.loadingTodos
             && lhs.error == rhs.error

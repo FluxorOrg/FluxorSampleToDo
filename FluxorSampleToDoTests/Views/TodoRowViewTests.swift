@@ -15,7 +15,7 @@ class TodoRowViewTests: XCTestCase {
         // Given
         let view = TodoRowView(todo: todo, didSelect: {})
         // Then
-        let text = try view.inspect().button().hStack().text(0)
+        let text = try view.inspect().button().labelView().hStack().text(0)
         XCTAssertEqual(try text.string(), view.todo.title)
     }
 
@@ -23,8 +23,8 @@ class TodoRowViewTests: XCTestCase {
         // Given
         let view = TodoRowView(todo: todo, didSelect: {})
         // Then
-        let image = try view.inspect().button().hStack().image(2)
-        XCTAssertEqual(try image.imageName()!, "circle")
+        let image = try view.inspect().button().labelView().hStack().image(2)
+        XCTAssertEqual(try image.actualImage().name(), "circle")
     }
 
     func testDoneImage() throws {
@@ -33,8 +33,8 @@ class TodoRowViewTests: XCTestCase {
         todo.done = true
         let view = TodoRowView(todo: todo, didSelect: {})
         // Then
-        let image = try view.inspect().button().hStack().image(2)
-        XCTAssertEqual(try image.imageName()!, "checkmark.circle.fill")
+        let image = try view.inspect().button().labelView().hStack().image(2)
+        XCTAssertEqual(try image.actualImage().name(), "checkmark.circle.fill")
     }
 
     func testDidSelect() throws {

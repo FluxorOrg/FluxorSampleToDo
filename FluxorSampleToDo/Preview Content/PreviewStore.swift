@@ -9,9 +9,11 @@
 import Fluxor
 
 let previewStore: Store<AppState, AppEnvironment> = {
-    let state = AppState(todos: TodosState(todos: [Todo(title: "Dispatch actions"),
-                                                   Todo(title: "Create effects"),
-                                                   Todo(title: "Select something"),
-                                                   Todo(title: "Intercept everything")]))
-    return Store(initialState: state, environment: AppEnvironment())
+    let state = AppState(todo: TodoState(todos: [Todo(title: "Dispatch actions"),
+                                                  Todo(title: "Create effects"),
+                                                  Todo(title: "Select something"),
+                                                  Todo(title: "Intercept everything")]))
+    let store = Store(initialState: state, environment: AppEnvironment())
+    StorePropertyWrapper.addStore(store)
+    return store
 }()

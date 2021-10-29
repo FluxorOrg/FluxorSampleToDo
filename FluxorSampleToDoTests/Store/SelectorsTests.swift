@@ -12,7 +12,7 @@
 import XCTest
 
 class SelectorsTests: XCTestCase {
-    let state = TodosState(todos: [Todo(title: "Dispatch actions"),
+    let state = TodoState(todos: [Todo(title: "Dispatch actions"),
                                    Todo(title: "Create effects"),
                                    Todo(title: "Select something"),
                                    Todo(title: "Intercept everything")],
@@ -29,9 +29,5 @@ class SelectorsTests: XCTestCase {
 
     func testGetError() {
         XCTAssertEqual(TodosSelectors.getError.projector(state), state.error)
-    }
-
-    func testShouldShowError() {
-        XCTAssertEqual(TodosSelectors.shouldShowError.projector(state), true)
     }
 }
