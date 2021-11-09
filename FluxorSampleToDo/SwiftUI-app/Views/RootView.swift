@@ -20,7 +20,9 @@ struct RootView: View {
                 }
         }
         .navigationViewStyle(.stack)
-        .inspectableSheet(isPresented: store.binding(get: NavigationSelectors.shoulShowAddShet, enable: NavigationActions.showAddSheet, disable: NavigationActions.hideAddSheet)) {
+        .inspectableSheet(isPresented: store.binding(get: NavigationSelectors.shoulShowAddShet,
+                                                     enable: NavigationActions.showAddSheet,
+                                                     disable: NavigationActions.hideAddSheet)) {
             AddTodoView(store: store)
         }
     }

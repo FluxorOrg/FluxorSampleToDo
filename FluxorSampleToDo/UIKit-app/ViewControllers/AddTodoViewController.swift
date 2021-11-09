@@ -10,7 +10,9 @@ import UIKit
 
 class AddTodoViewController: UITableViewController {
     private var store: Store<AppState, AppEnvironment> { TodoApp.store }
-    var todoTitle = "" { didSet { navigationItem.rightBarButtonItem?.isEnabled = todoTitle.lengthOfBytes(using: .utf8) > 0 } }
+    var todoTitle = "" { didSet {
+        navigationItem.rightBarButtonItem?.isEnabled = todoTitle.lengthOfBytes(using: .utf8) > 0
+    } }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +58,7 @@ class AddTodoViewController: UITableViewController {
                 cell.contentView.addConstraints([
                     textField.leftAnchor.constraint(equalTo: cell.contentView.layoutMarginsGuide.leftAnchor),
                     textField.rightAnchor.constraint(equalTo: cell.contentView.layoutMarginsGuide.rightAnchor),
-                    textField.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+                    textField.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor)
                 ])
                 return cell
             }()
