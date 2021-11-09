@@ -11,7 +11,7 @@
 #endif
 import XCTest
 
-class SelectorsTests: XCTestCase {
+class TodoSelectorsTests: XCTestCase {
     let state = TodoState(todos: [Todo(title: "Dispatch actions"),
                                    Todo(title: "Create effects"),
                                    Todo(title: "Select something"),

@@ -20,6 +20,9 @@ let todoReducer = Reducer<TodoState>(
         state.loadingTodos = false
         state.error = action.payload
     },
+    ReduceOn(FetchingActions.dismissError) { state, _ in
+        state.error = nil
+    },
     ReduceOn(HandlingActions.addTodo) { state, action in
         state.todos.append(Todo(title: action.payload))
     },

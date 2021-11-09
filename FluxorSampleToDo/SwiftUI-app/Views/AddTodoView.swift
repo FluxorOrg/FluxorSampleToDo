@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddTodoView: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var store: Store<AppState, AppEnvironment>
+    @ObservedObject var store: Store<AppState, AppEnvironment>
     @State private var todoTitle = ""
 
     var body: some View {
@@ -34,12 +34,16 @@ struct AddTodoView: View {
             }
         }
         .navigationViewStyle(.stack)
+        .onAppear { self.didAppear?(self) }
     }
+
+    internal var didAppear: ((Self) -> Void)?
 }
 
+#if !TESTING
 struct AddTodoView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTodoView()
-            .environmentObject(previewStore)
+        AddTodoView(store: previewStore)
     }
 }
+#endif

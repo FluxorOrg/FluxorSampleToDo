@@ -4,7 +4,7 @@
  *  MIT license, see LICENSE file for details
  */
 
-@testable import Fluxor
+import Fluxor
 #if SWIFTUI
 @testable import FluxorSampleToDoSwiftUI
 #else

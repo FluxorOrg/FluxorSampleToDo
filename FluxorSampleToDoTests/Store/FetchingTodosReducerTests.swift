@@ -4,7 +4,7 @@
  *  MIT license, see LICENSE file for details
  */
 
-@testable import Fluxor
+import Fluxor
 #if SWIFTUI
 @testable import FluxorSampleToDoSwiftUI
 #else
@@ -38,6 +38,12 @@ class FetchingTodosReducerTests: XCTestCase {
         XCTAssertEqual(state.todos, [])
         XCTAssertFalse(state.loadingTodos)
         XCTAssertEqual(state.error, error)
+    }
+    
+    func testDismissErrorAction() {
+        var state = TodoState(error: "Some error occurred")
+        reducer.reduce(&state, FetchingActions.dismissError())
+        XCTAssertNil(state.error)
     }
 
     func testIrrelevantAction() {

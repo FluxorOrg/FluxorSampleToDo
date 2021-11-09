@@ -5,39 +5,39 @@
  */
 
 import Combine
+import Fluxor
 import UIKit
 
 class AddTodoViewController: UITableViewController {
-//    let model = AddTodoViewModel()
-    var todoTitle = "" { didSet { saveButton.isEnabled = todoTitle.lengthOfBytes(using: .utf8) > 0 } }
-    let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+    private var store: Store<AppState, AppEnvironment> { TodoApp.store }
+    var todoTitle = "" { didSet { navigationItem.rightBarButtonItem?.isEnabled = todoTitle.lengthOfBytes(using: .utf8) > 0 } }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add Todo"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        navigationItem.rightBarButtonItem = saveButton
-        saveButton.isEnabled = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
-    
+
     @objc func cancel() {
-        dismiss(animated: true, completion: nil)
+        store.dispatch(action: NavigationActions.hideAddSheet())
     }
-    
+
     @objc func save() {
-//        model.addTodo(title: todoTitle)
-        dismiss(animated: true, completion: nil)
+        store.dispatch(action: HandlingActions.addTodo(payload: todoTitle))
+        store.dispatch(action: NavigationActions.hideAddSheet())
     }
-    
+
     @objc func titleChanged(textField: UITextField) {
         todoTitle = textField.text!
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        1
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    override func tableView(_ tableView: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
         let reuseIdentifier = "TitleCell"
         let textFieldCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)
             ?? { () -> UITableViewCell in
@@ -52,7 +52,7 @@ class AddTodoViewController: UITableViewController {
                 cell.contentView.addConstraints([
                     textField.leftAnchor.constraint(equalTo: cell.contentView.layoutMarginsGuide.leftAnchor),
                     textField.rightAnchor.constraint(equalTo: cell.contentView.layoutMarginsGuide.rightAnchor),
-                    textField.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor)
+                    textField.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
                 ])
                 return cell
             }()

@@ -8,7 +8,7 @@ import Fluxor
 import SwiftUI
 
 struct RootView: View {
-    @EnvironmentObject var store: Store<AppState, AppEnvironment>
+    @ObservedObject var store: Store<AppState, AppEnvironment>
 
     var body: some View {
         NavigationView {
@@ -20,15 +20,16 @@ struct RootView: View {
                 }
         }
         .navigationViewStyle(.stack)
-        .sheet(isPresented: store.binding(get: NavigationSelectors.shoulShowAddShet, enable: NavigationActions.showAddSheet, disable: NavigationActions.hideAddSheet)) {
-            AddTodoView()
+        .inspectableSheet(isPresented: store.binding(get: NavigationSelectors.shoulShowAddShet, enable: NavigationActions.showAddSheet, disable: NavigationActions.hideAddSheet)) {
+            AddTodoView(store: store)
         }
     }
 }
 
+#if !TESTING
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
-            .environmentObject(previewStore)
+        RootView(store: previewStore)
     }
 }
+#endif

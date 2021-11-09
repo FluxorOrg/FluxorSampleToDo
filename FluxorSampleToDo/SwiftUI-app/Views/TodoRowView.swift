@@ -22,8 +22,10 @@ struct TodoRowView: View {
     }
 }
 
+#if !TESTING
 struct TodoRowView_Previews: PreviewProvider {
     static var previews: some View {
         TodoRowView(todo: Todo(title: "Buy milk"), didSelect: {})
     }
 }
+#endif

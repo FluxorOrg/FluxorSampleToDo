@@ -10,15 +10,15 @@ import SwiftUI
 
 struct TodoListView: View {
     @ObservedObject var store: Store<AppState, AppEnvironment>
-    @StoreValue(TodosSelectors.getTodos) var todos
-    @StoreValue(TodosSelectors.isLoadingTodos) var loading
-    @StoreValue(TodosSelectors.getError) var error
+    @StoreValue(TodoApp.store, TodosSelectors.getTodos) var todos
+    @StoreValue(TodoApp.store, TodosSelectors.isLoadingTodos) var loading
+    @StoreValue(TodoApp.store, TodosSelectors.getError) var error
 
     var body: some View {
         List {
             if loading {
                 HStack {
-                    ActivityIndicator()
+                    ProgressView()
                     Text("Loading todos...")
                 }
             } else if todos.count > 0 {
@@ -45,8 +45,10 @@ struct TodoListView: View {
     }
 }
 
+#if !TESTING
 struct TodoListView_Previews: PreviewProvider {
     static var previews: some View {
         TodoListView(store: previewStore)
     }
 }
+#endif

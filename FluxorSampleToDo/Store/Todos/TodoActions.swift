@@ -10,6 +10,7 @@ enum FetchingActions {
     static let fetchTodos = ActionTemplate(id: "[Fetching] Fetch todos")
     static let didFetchTodos = ActionTemplate(id: "[Fetching] Did fetch todos", payloadType: [Todo].self)
     static let didFailFetchingTodos = ActionTemplate(id: "[Fetching] Did fail fetching todos", payloadType: String.self)
+    static let dismissError = ActionTemplate(id: "[Fetching] Dismiss error")
 }
 
 enum HandlingActions {

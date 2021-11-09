@@ -20,7 +20,8 @@ class TodoService: TodoServiceProtocol {
 
     func fetchTodos() -> AnyPublisher<[Todo], Error> {
         var url = URL(string: "https://raw.githubusercontent.com/MortenGregersen/FluxorSampleToDo/master/todos.json")!
-        #if DEBUG
+        #if !SWIFTUI
+        // Only used in the UI tests for the UIKit app
         if CommandLine.arguments.contains("-fail-fetching") {
             url = URL(string: "https://httpstat.us/500")!
         }

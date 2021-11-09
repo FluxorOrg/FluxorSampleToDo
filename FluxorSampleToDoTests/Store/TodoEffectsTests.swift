@@ -16,7 +16,7 @@ import XCTest
 
 // swiftlint:disable force_cast
 
-class EffectsTests: XCTestCase {
+class TodosEffectsTests: XCTestCase {
     private let effects = TodosEffects()
     private var environment: AppEnvironment!
     
