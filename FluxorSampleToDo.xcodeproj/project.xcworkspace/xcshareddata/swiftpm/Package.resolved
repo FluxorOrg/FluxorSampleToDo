@@ -2,21 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "FluxorExplorerInterceptor",
-        "repositoryURL": "https://github.com/FluxorOrg/FluxorExplorerInterceptor",
+        "package": "Fluxor",
+        "repositoryURL": "https://github.com/FluxorOrg/Fluxor",
         "state": {
-          "branch": null,
-          "revision": "b60fec8a5590ccb4643f04f28d9bd04a77dc69ee",
-          "version": "4.0.0"
-        }
-      },
-      {
-        "package": "FluxorExplorerSnapshot",
-        "repositoryURL": "https://github.com/FluxorOrg/FluxorExplorerSnapshot",
-        "state": {
-          "branch": null,
-          "revision": "69580eca8981b8c0e09b2e0ddc154b9abcaa17f0",
-          "version": "4.0.0"
+          "branch": "master",
+          "revision": "a5dbb6083a2570d3d2e9fd5e3c430b4167690366",
+          "version": null
         }
       },
       {
