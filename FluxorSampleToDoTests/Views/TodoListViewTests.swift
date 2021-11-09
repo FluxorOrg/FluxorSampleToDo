@@ -1,4 +1,4 @@
-/**
+/*
  * FluxorSampleToDoTests
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
@@ -70,7 +70,7 @@ final class TodoListViewTests: ViewTestCase {
         // Then
         XCTAssertEqual(mockStore.dispatchedActions[1], HandlingActions.uncompleteTodo(payload: todos[1]))
     }
-    
+
     func testDeleteTodo() throws {
         // Given
         mockStore.overrideSelector(TodosSelectors.getTodos, value: todos)

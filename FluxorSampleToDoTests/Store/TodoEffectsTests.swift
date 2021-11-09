@@ -1,4 +1,4 @@
-/**
+/*
  * FluxorSampleToDoTests
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
@@ -19,16 +19,18 @@ import XCTest
 class TodosEffectsTests: XCTestCase {
     private let effects = TodosEffects()
     private var environment: AppEnvironment!
-    
+
     override func setUp() {
         environment = AppEnvironment()
     }
 
-    func testFetchTodosSuccess() throws{
+    func testFetchTodosSuccess() throws {
         // Given
         environment.todoService = TodoServiceMock(shouldSucceed: true)
         // When
-        let actions = try EffectRunner.run(effects.fetchTodos, with: FetchingActions.fetchTodos(), environment: environment)!
+        let actions = try EffectRunner.run(effects.fetchTodos,
+                                           with: FetchingActions.fetchTodos(),
+                                           environment: environment)!
         // Then
         XCTAssertEqual(actions.count, 1)
         let action = actions[0] as! AnonymousAction<[Todo]>
@@ -39,7 +41,9 @@ class TodosEffectsTests: XCTestCase {
         // Given
         environment.todoService = TodoServiceMock(shouldSucceed: false)
         // When
-        let actions = try EffectRunner.run(effects.fetchTodos, with: FetchingActions.fetchTodos(), environment: environment)!
+        let actions = try EffectRunner.run(effects.fetchTodos,
+                                           with: FetchingActions.fetchTodos(),
+                                           environment: environment)!
         // Then
         XCTAssertEqual(actions.count, 1)
         let action = actions[0] as! AnonymousAction<String>

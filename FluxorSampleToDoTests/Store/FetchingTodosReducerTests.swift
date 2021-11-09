@@ -1,4 +1,4 @@
-/**
+/*
  * FluxorSampleToDoTests
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
@@ -39,7 +39,7 @@ class FetchingTodosReducerTests: XCTestCase {
         XCTAssertFalse(state.loadingTodos)
         XCTAssertEqual(state.error, error)
     }
-    
+
     func testDismissErrorAction() {
         var state = TodoState(error: "Some error occurred")
         reducer.reduce(&state, FetchingActions.dismissError())
@@ -57,7 +57,7 @@ private struct IrrelevantAction: Action {}
 
 extension TodoState: Equatable {
     public static func == (lhs: TodoState, rhs: TodoState) -> Bool {
-        return lhs.todos == rhs.todos
+        lhs.todos == rhs.todos
             && lhs.loadingTodos == rhs.loadingTodos
             && lhs.error == rhs.error
     }
