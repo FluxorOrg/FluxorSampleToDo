@@ -23,7 +23,7 @@ final class TodoListViewTests: ViewTestCase {
         // When
         try view.inspect().list().callOnAppear()
         // Then
-        XCTAssertEqual(mockStore.dispatchedActions[0], FetchingActions.fetchTodos())
+        XCTAssertEqual(mockStore.dispatchedActions[0] as! AnonymousAction<Void>, FetchingActions.fetchTodos())
     }
 
     func testLoading() throws {
@@ -63,12 +63,12 @@ final class TodoListViewTests: ViewTestCase {
         let row1 = try forEach.view(TodoRowView.self, 0).actualView()
         row1.didSelect()
         // Then
-        XCTAssertEqual(mockStore.dispatchedActions[0], HandlingActions.completeTodo(payload: todos[0]))
+        XCTAssertEqual(mockStore.dispatchedActions[0] as! AnonymousAction<Todo>, HandlingActions.completeTodo(payload: todos[0]))
         // When
         let row2 = try forEach.view(TodoRowView.self, 1).actualView()
         row2.didSelect()
         // Then
-        XCTAssertEqual(mockStore.dispatchedActions[1], HandlingActions.uncompleteTodo(payload: todos[1]))
+        XCTAssertEqual(mockStore.dispatchedActions[1] as! AnonymousAction<Todo>, HandlingActions.uncompleteTodo(payload: todos[1]))
     }
 
     func testDeleteTodo() throws {
@@ -79,7 +79,7 @@ final class TodoListViewTests: ViewTestCase {
         // When
         try forEach.callOnDelete(IndexSet(integer: 0))
         // Then
-        XCTAssertEqual(mockStore.dispatchedActions[0], HandlingActions.deleteTodo(payload: 0))
+        XCTAssertEqual(mockStore.dispatchedActions[0] as! AnonymousAction<Int>, HandlingActions.deleteTodo(payload: 0))
     }
 }
 

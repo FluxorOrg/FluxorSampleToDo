@@ -18,7 +18,7 @@ final class RootViewTests: ViewTestCase {
         // When
         try view.inspect().navigationView().view(TodoListView.self, 0).toolbar().find(button: "Add").tap()
         // Then
-        XCTAssertEqual(mockStore.dispatchedActions[0], NavigationActions.showAddSheet())
+        XCTAssertEqual(mockStore.dispatchedActions[0] as! AnonymousAction<Void>, NavigationActions.showAddSheet())
     }
 
     func testSheetIsHidden() throws {

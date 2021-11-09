@@ -4,6 +4,7 @@
  *  MIT license, see LICENSE file for details
  */
 
+import Fluxor
 @testable import FluxorSampleToDoSwiftUI
 import FluxorTestSupport
 import SwiftUI
@@ -18,7 +19,7 @@ class AddTodoViewTests: ViewTestCase {
             let textField = try form.textField(0)
             try textField.setInput("Buy milk")
             try form.toolbar(0).find(button: "Save").tap()
-            XCTAssertEqual(self.mockStore.dispatchedActions[0], HandlingActions.addTodo(payload: "Buy milk"))
+            XCTAssertEqual(self.mockStore.dispatchedActions[0] as! AnonymousAction<String>, HandlingActions.addTodo(payload: "Buy milk"))
         }
         ViewHosting.host(view: view)
         wait(for: [exp], timeout: 0.1)
