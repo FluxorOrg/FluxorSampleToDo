@@ -8,5 +8,5 @@
 #include "FluxorSampleToDoTests-Shared.xcconfig"
 
 INFOPLIST_FILE = FluxorSampleToDoTests/SwiftUI-Tests-Info.plist
-SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFTUI
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = $(inherited) SWIFTUI
 TEST_HOST = $(BUILT_PRODUCTS_DIR)/FluxorSampleToDoSwiftUI.app/FluxorSampleToDoSwiftUI
