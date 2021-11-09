@@ -37,7 +37,10 @@ class TodoListViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Fluxor Todos"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(TodoListViewController.addTodo))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(TodoListViewController.addTodo))
         setupCollectionView()
         store.$state
             .receive(on: RunLoop.main) // Wait for the properties to be updated
@@ -90,26 +93,29 @@ class TodoListViewController: UICollectionViewController {
     }
 
     private lazy var dataSource: UICollectionViewDiffableDataSource<Int, AnyHashable> = {
-        let todoCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Todo>(handler: { cell, _, todo in
-            var content = cell.defaultContentConfiguration()
-            content.text = todo.title
-            cell.contentConfiguration = content
-            if todo.done {
-                cell.accessories = [.checkmark()]
-            } else {
-                cell.accessories = []
-            }
-        })
-        let loadingCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Void>(handler: { cell, _, _ in
-            var content = cell.defaultContentConfiguration()
-            content.text = "Loading..."
-            cell.contentConfiguration = content
-        })
-        let noTodosCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Void>(handler: { cell, _, _ in
-            var content = cell.defaultContentConfiguration()
-            content.text = "No todos"
-            cell.contentConfiguration = content
-        })
+        let todoCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Todo>(
+            handler: { cell, _, todo in
+                var content = cell.defaultContentConfiguration()
+                content.text = todo.title
+                cell.contentConfiguration = content
+                if todo.done {
+                    cell.accessories = [.checkmark()]
+                } else {
+                    cell.accessories = []
+                }
+            })
+        let loadingCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Void>(
+            handler: { cell, _, _ in
+                var content = cell.defaultContentConfiguration()
+                content.text = "Loading..."
+                cell.contentConfiguration = content
+            })
+        let noTodosCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Void>(
+            handler: { cell, _, _ in
+                var content = cell.defaultContentConfiguration()
+                content.text = "No todos"
+                cell.contentConfiguration = content
+            })
         return UICollectionViewDiffableDataSource<Int, AnyHashable>(
             collectionView: collectionView,
             cellProvider: { collectionView, indexPath, hashable -> UICollectionViewCell? in
@@ -127,16 +133,17 @@ class TodoListViewController: UICollectionViewController {
                     }
                 }
                 return nil
-            }
-        )
+            })
     }()
 
     private func setupCollectionView() {
         var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        config.trailingSwipeActionsConfigurationProvider = { indexPath in .init(actions: [.init(style: .destructive, title: "Delete", handler: { _, _, actionPerformed in
-            self.store.dispatch(action: HandlingActions.deleteTodo(payload: indexPath.item))
-            actionPerformed(true)
-        })]) }
+        config.trailingSwipeActionsConfigurationProvider = { indexPath in
+            .init(actions: [.init(style: .destructive, title: "Delete", handler: { _, _, actionPerformed in
+                self.store.dispatch(action: HandlingActions.deleteTodo(payload: indexPath.item))
+                actionPerformed(true)
+            })])
+        }
         collectionView.collectionViewLayout = UICollectionViewCompositionalLayout.list(using: config)
         collectionView.dataSource = dataSource
     }

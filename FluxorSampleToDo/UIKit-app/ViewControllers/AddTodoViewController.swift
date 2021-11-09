@@ -11,12 +11,16 @@ import UIKit
 class AddTodoViewController: UITableViewController {
     private var store: Store<AppState, AppEnvironment> { TodoApp.store }
     var todoTitle = "" { didSet { navigationItem.rightBarButtonItem?.isEnabled = todoTitle.lengthOfBytes(using: .utf8) > 0 } }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Add Todo"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                           target: self,
+                                                           action: #selector(cancel))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
+                                                            target: self,
+                                                            action: #selector(save))
         navigationItem.rightBarButtonItem?.isEnabled = false
     }
 

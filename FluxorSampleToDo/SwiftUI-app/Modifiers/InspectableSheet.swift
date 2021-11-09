@@ -10,8 +10,10 @@ import SwiftUI
 // Reference: https://github.com/nalexn/ViewInspector/blob/master/guide_popups.md#sheet
 
 extension View {
-    func inspectableSheet<Sheet>(isPresented: Binding<Bool>, onDismiss: (() -> Void)? = nil, @ViewBuilder content: @escaping () -> Sheet) -> some View where Sheet: View {
-        return modifier(InspectableSheet(isPresented: isPresented, onDismiss: onDismiss, popupBuilder: content))
+    func inspectableSheet<Sheet>(isPresented: Binding<Bool>,
+                                 onDismiss: (() -> Void)? = nil,
+                                 @ViewBuilder content: @escaping () -> Sheet) -> some View where Sheet: View {
+        modifier(InspectableSheet(isPresented: isPresented, onDismiss: onDismiss, popupBuilder: content))
     }
 }
 
