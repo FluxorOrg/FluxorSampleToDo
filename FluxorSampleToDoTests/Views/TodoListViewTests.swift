@@ -10,6 +10,8 @@ import FluxorTestSupport
 import ViewInspector
 import XCTest
 
+// swiftlint:disable force_cast
+
 final class TodoListViewTests: ViewTestCase {
     let todos = [Todo(title: "Dispatch actions"),
                  { var todo = Todo(title: "Create effects"); todo.done = true; return todo }(),
@@ -63,12 +65,14 @@ final class TodoListViewTests: ViewTestCase {
         let row1 = try forEach.view(TodoRowView.self, 0).actualView()
         row1.didSelect()
         // Then
-        XCTAssertEqual(mockStore.dispatchedActions[0] as! AnonymousAction<Todo>, HandlingActions.completeTodo(payload: todos[0]))
+        XCTAssertEqual(mockStore.dispatchedActions[0] as! AnonymousAction<Todo>,
+                       HandlingActions.completeTodo(payload: todos[0]))
         // When
         let row2 = try forEach.view(TodoRowView.self, 1).actualView()
         row2.didSelect()
         // Then
-        XCTAssertEqual(mockStore.dispatchedActions[1] as! AnonymousAction<Todo>, HandlingActions.uncompleteTodo(payload: todos[1]))
+        XCTAssertEqual(mockStore.dispatchedActions[1] as! AnonymousAction<Todo>,
+                       HandlingActions.uncompleteTodo(payload: todos[1]))
     }
 
     func testDeleteTodo() throws {

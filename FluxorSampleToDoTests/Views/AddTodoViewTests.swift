@@ -11,6 +11,8 @@ import SwiftUI
 import ViewInspector
 import XCTest
 
+// swiftlint:disable force_cast
+
 class AddTodoViewTests: ViewTestCase {
     func testAddTodo() throws {
         var view = AddTodoView(store: mockStore)
@@ -19,7 +21,8 @@ class AddTodoViewTests: ViewTestCase {
             let textField = try form.textField(0)
             try textField.setInput("Buy milk")
             try form.toolbar(0).find(button: "Save").tap()
-            XCTAssertEqual(self.mockStore.dispatchedActions[0] as! AnonymousAction<String>, HandlingActions.addTodo(payload: "Buy milk"))
+            XCTAssertEqual(self.mockStore.dispatchedActions[0] as! AnonymousAction<String>,
+                           HandlingActions.addTodo(payload: "Buy milk"))
         }
         ViewHosting.host(view: view)
         wait(for: [exp], timeout: 0.1)

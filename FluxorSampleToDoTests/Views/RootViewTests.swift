@@ -10,6 +10,8 @@ import FluxorTestSupport
 import ViewInspector
 import XCTest
 
+// swiftlint:disable force_cast
+
 final class RootViewTests: ViewTestCase {
     func testShowAddSheet() throws {
         // Given
