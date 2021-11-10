@@ -75,6 +75,7 @@
 		5AEC546F27387D29000C0DDD /* Fluxor in Frameworks */ = {isa = PBXBuildFile; productRef = 5AEC546E27387D29000C0DDD /* Fluxor */; };
 		5AEC547127387D29000C0DDD /* FluxorTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 5AEC547027387D29000C0DDD /* FluxorTestSupport */; };
 		5AEC5478273B29E4000C0DDD /* Fluxor in Frameworks */ = {isa = PBXBuildFile; productRef = 5AEC5477273B29E4000C0DDD /* Fluxor */; };
+		5AEC547A273BE9BE000C0DDD /* FluxorTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 5AEC5479273BE9BE000C0DDD /* FluxorTestSupport */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AEC547A273BE9BE000C0DDD /* FluxorTestSupport in Frameworks */,
 				5A4D9E9223C3E94500BC3D8B /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,6 +541,7 @@
 			name = "FluxorSampleToDoUIKit-Tests";
 			packageProductDependencies = (
 				5A4D9E8223C3E94500BC3D8B /* ViewInspector */,
+				5AEC5479273BE9BE000C0DDD /* FluxorTestSupport */,
 			);
 			productName = FluxorSampleToDoTests;
 			productReference = 5A4D9E9723C3E94500BC3D8B /* FluxorSampleToDoUIKit-Tests.xctest */;
@@ -1063,6 +1066,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5AEC546D27387D29000C0DDD /* XCRemoteSwiftPackageReference "Fluxor" */;
 			productName = Fluxor;
+		};
+		5AEC5479273BE9BE000C0DDD /* FluxorTestSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5AEC546D27387D29000C0DDD /* XCRemoteSwiftPackageReference "Fluxor" */;
+			productName = FluxorTestSupport;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
