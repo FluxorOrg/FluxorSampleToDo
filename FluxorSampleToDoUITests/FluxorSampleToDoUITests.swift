@@ -1,4 +1,4 @@
-/**
+/*
  * FluxorSampleToDoTests
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
@@ -69,19 +69,11 @@ struct ListPage {
     let app: XCUIApplication
     
     var numberOfTodos: Int {
-        #if SWIFTUI
-        return app.tables.buttons.count
-        #else
-        return app.tables.cells.count
-        #endif
+        return app.collectionViews.cells.count
     }
     
     var numberOfCompletedTodos: Int {
-        #if SWIFTUI
-        return app.tables.buttons.matching(NSPredicate(format: "label ENDSWITH 'Done'")).count
-        #else
-        return app.tables.cells.matching(NSPredicate(format: "selected == true")).count
-        #endif
+        return app.collectionViews.cells.matching(NSPredicate(format: "value == 'checked'")).count
     }
     
     var alertIsShown: Bool {
@@ -89,23 +81,19 @@ struct ListPage {
     }
     
     func showAddPage() -> AddPage {
-        app.navigationBars["Fluxor todos"].buttons["Add"].tap()
+        app.navigationBars["Fluxor Todos"].buttons["Add"].tap()
         return AddPage(app: app)
     }
     
     func tapTodo(at index: Int) {
-        let todoCell = app.tables.cells.element(boundBy: index)
+        let todoCell = app.collectionViews.cells.element(boundBy: index)
         todoCell.tap()
     }
     
     func deleteTodo(title: String) {
-        #if SWIFTUI
-        let todoCell = app.tables.buttons.matching(NSPredicate(format: "label BEGINSWITH '\(title)'")).element(boundBy: 0)
-        #else
-        let todoCell = app.tables.cells.staticTexts[title]
-        #endif
+        let todoCell = app.collectionViews.cells.staticTexts[title]
         todoCell.swipeLeft()
-        app.tables.buttons["trailing0"].tap()
+        app.collectionViews.buttons["Delete"].tap()
     }
     
     func dismissAlert() {

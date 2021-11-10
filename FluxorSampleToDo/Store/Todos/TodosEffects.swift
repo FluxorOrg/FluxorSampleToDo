@@ -1,4 +1,4 @@
-/**
+/*
  * FluxorSampleToDo
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
@@ -13,13 +13,13 @@ class TodosEffects: Effects {
 
     let fetchTodos = Effect<Environment>.dispatchingOne { actions, environment in
         actions
-            .ofType(FetchTodosAction.self)
+            .wasCreated(from: FetchingActions.fetchTodos)
             .flatMap { _ in
                 environment.todoService.fetchTodos()
-                    .map { DidFetchTodosAction(todos: $0) }
+                    .map { FetchingActions.didFetchTodos(payload: $0) }
                     .catch { _ -> Just<Action> in
-                        Just(DidFailFetchingTodosAction(
-                            error: "Something bad happened, and the todos could not be fetched."
+                        Just(FetchingActions.didFailFetchingTodos(
+                            payload: "Something bad happened, and the todos could not be fetched."
                         ))
                     }
             }

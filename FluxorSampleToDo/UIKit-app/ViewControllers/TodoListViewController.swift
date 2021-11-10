@@ -1,116 +1,150 @@
-/**
+/*
  * FluxorSampleToDo
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
  */
 
 import Combine
+import Fluxor
 import UIKit
 
-// swiftlint:disable trailing_comma
+class TodoListViewController: UICollectionViewController {
+    private var store: Store<AppState, AppEnvironment> { TodoApp.store }
+    @StoreValue(TodoApp.store, TodosSelectors.getTodos) var todos
+    @StoreValue(TodoApp.store, TodosSelectors.isLoadingTodos) var loading
+    @StoreValue(TodoApp.store, TodosSelectors.getError) var error
+    @StoreValue(TodoApp.store, NavigationSelectors.shoulShowAddShet) var shouldShowAddSheet
+    private var cancellables = Set<AnyCancellable>()
 
-class TodoListViewController: UITableViewController {
-    let model = TodoListViewModel()
-    var todos = [Todo]() { didSet { reloadSection() } }
-    var loading = false { didSet { reloadSection() } }
-    var error: String? { didSet { if error != nil { showErrorAlert() } } }
-    var cancellables = [AnyCancellable]()
+    private enum PlaceholderCell: Hashable {
+        case loading
+        case noTodos
+    }
+
+    private func applySnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, AnyHashable>()
+        snapshot.appendSections([0])
+        if loading {
+            snapshot.appendItems([PlaceholderCell.loading])
+        } else if todos.count == 0 {
+            snapshot.appendItems([PlaceholderCell.noTodos])
+        } else {
+            snapshot.appendItems(todos)
+        }
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Fluxor todos"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(TodoListViewController.addTodo))
-        cancellables.append(contentsOf: [
-            model.store.select(TodosSelectors.getTodos).assign(to: \.todos, on: self),
-            model.store.select(TodosSelectors.isLoadingTodos).assign(to: \.loading, on: self),
-            model.store.select(TodosSelectors.getError).assign(to: \.error, on: self),
-        ])
-        model.fetchTodos()
-    }
-
-    func reloadSection() {
-        tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
-    }
-
-    func showErrorAlert() {
-        let alertC = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        alertC.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            alertC.dismiss(animated: true, completion: nil)
-        }))
-        present(alertC, animated: true, completion: nil)
+        title = "Fluxor Todos"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(TodoListViewController.addTodo))
+        setupCollectionView()
+        store.$state
+            .receive(on: RunLoop.main) // Wait for the properties to be updated
+            .sink(receiveValue: { _ in self.applySnapshot() })
+            .store(in: &cancellables)
+        $error
+            .sink(receiveValue: { error in
+                if let error = error {
+                    let alertC = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+                    alertC.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        self.store.dispatch(action: FetchingActions.dismissError())
+                    }))
+                    self.present(alertC, animated: true, completion: nil)
+                } else {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
+            .store(in: &cancellables)
+        $shouldShowAddSheet
+            .sink { shouldShowAddSheet in
+                if shouldShowAddSheet {
+                    let addTodoVC = AddTodoViewController(style: .grouped)
+                    let navC = UINavigationController(rootViewController: addTodoVC)
+                    navC.navigationBar.prefersLargeTitles = true
+                    self.present(navC, animated: true, completion: nil)
+                } else {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+            .store(in: &cancellables)
+        store.dispatch(action: FetchingActions.fetchTodos())
     }
 
     @objc func addTodo() {
-        let addTodoVC = AddTodoViewController(style: .grouped)
-        let navC = UINavigationController(rootViewController: addTodoVC)
-        navC.navigationBar.prefersLargeTitles = true
-        present(navC, animated: true, completion: nil)
+        store.dispatch(action: NavigationActions.showAddSheet())
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if loading || todos.count == 0 { return 1 }
-        return todos.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard !loading else { return createLoadingCell() }
-        guard todos.count > 0 else { return createNoTodosCell() }
-
-        let todo = todos[indexPath.row]
-        let reuseIdentifier = "TodoCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)
-            ?? UITableViewCell(style: .default, reuseIdentifier: reuseIdentifier)
-        cell.textLabel?.text = todo.title
-        cell.accessoryType = todo.done ? .checkmark : .none
-        return cell
-    }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard todos.count > 0 else { return }
         let todo = todos[indexPath.row]
-        model.toggle(todo: todo)
-    }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            model.delete(at: indexPath.row)
+        if todo.done {
+            store.dispatch(action: HandlingActions.uncompleteTodo(payload: todo))
+        } else {
+            store.dispatch(action: HandlingActions.completeTodo(payload: todo))
         }
     }
-}
 
-extension TodoListViewController {
-    private func createLoadingCell() -> UITableViewCell {
-        let reuseIdentifier = "LoadingCell"
-        let loadingCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier) ?? { () -> UITableViewCell in
-            let spinner = UIActivityIndicatorView()
-            spinner.translatesAutoresizingMaskIntoConstraints = false
-            spinner.color = .black
-            spinner.startAnimating()
-            let titleLabel = UILabel()
-            titleLabel.translatesAutoresizingMaskIntoConstraints = false
-            titleLabel.text = "Loading todos..."
-            let cell = UITableViewCell(style: .default, reuseIdentifier: reuseIdentifier)
-            cell.selectionStyle = .none
-            cell.contentView.addSubview(spinner)
-            cell.contentView.addSubview(titleLabel)
-            cell.contentView.addConstraints([
-                spinner.leftAnchor.constraint(equalTo: cell.contentView.layoutMarginsGuide.leftAnchor),
-                spinner.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
-                titleLabel.leftAnchor.constraint(equalTo: spinner.rightAnchor, constant: 8),
-                titleLabel.centerYAnchor.constraint(equalTo: spinner.centerYAnchor),
-            ])
-            return cell
-        }()
-        return loadingCell
+    override func collectionView(_: UICollectionView, shouldHighlightItemAt _: IndexPath) -> Bool {
+        todos.count > 0
     }
 
-    private func createNoTodosCell() -> UITableViewCell {
-        let reuseIdentifier = "NoTodosCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)
-            ?? UITableViewCell(style: .default, reuseIdentifier: reuseIdentifier)
-        cell.textLabel?.text = "No todos"
-        cell.textLabel?.textAlignment = .center
-        cell.selectionStyle = .none
-        return cell
+    private lazy var dataSource: UICollectionViewDiffableDataSource<Int, AnyHashable> = {
+        let todoCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Todo>(
+            handler: { cell, _, todo in
+                var content = cell.defaultContentConfiguration()
+                content.text = todo.title
+                cell.contentConfiguration = content
+                if todo.done {
+                    cell.accessories = [.checkmark()]
+                } else {
+                    cell.accessories = []
+                }
+            })
+        let loadingCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Void>(
+            handler: { cell, _, _ in
+                var content = cell.defaultContentConfiguration()
+                content.text = "Loading..."
+                cell.contentConfiguration = content
+            })
+        let noTodosCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Void>(
+            handler: { cell, _, _ in
+                var content = cell.defaultContentConfiguration()
+                content.text = "No todos"
+                cell.contentConfiguration = content
+            })
+        return UICollectionViewDiffableDataSource<Int, AnyHashable>(
+            collectionView: collectionView,
+            cellProvider: { collectionView, indexPath, hashable -> UICollectionViewCell? in
+                if let todo = hashable as? Todo {
+                    return collectionView.dequeueConfiguredReusableCell(using:
+                        todoCellRegistration, for: indexPath, item: todo)
+                } else if let placeholder = hashable as? PlaceholderCell {
+                    switch placeholder {
+                    case .loading:
+                        return collectionView.dequeueConfiguredReusableCell(using:
+                            loadingCellRegistration, for: indexPath, item: ())
+                    case .noTodos:
+                        return collectionView.dequeueConfiguredReusableCell(using:
+                            noTodosCellRegistration, for: indexPath, item: ())
+                    }
+                }
+                return nil
+            })
+    }()
+
+    private func setupCollectionView() {
+        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        config.trailingSwipeActionsConfigurationProvider = { indexPath in
+            .init(actions: [.init(style: .destructive, title: "Delete", handler: { _, _, actionPerformed in
+                self.store.dispatch(action: HandlingActions.deleteTodo(payload: indexPath.item))
+                actionPerformed(true)
+            })])
+        }
+        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout.list(using: config)
+        collectionView.dataSource = dataSource
     }
 }

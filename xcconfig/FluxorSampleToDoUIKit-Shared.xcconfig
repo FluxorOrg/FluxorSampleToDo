@@ -5,4 +5,5 @@
 // https://github.com/dempseyatgithub/BuildSettingExtractor
 //
 
+INFOPLIST_FILE = FluxorSampleToDo/UIKit-app/UIKit-Info.plist
 PRODUCT_BUNDLE_IDENTIFIER = dk.MoGee.FluxorSampleToDo.UIKit

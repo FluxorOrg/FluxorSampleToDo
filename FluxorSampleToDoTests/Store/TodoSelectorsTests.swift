@@ -1,4 +1,4 @@
-/**
+/*
  * FluxorSampleToDoTests
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
@@ -11,8 +11,8 @@
 #endif
 import XCTest
 
-class SelectorsTests: XCTestCase {
-    let state = TodosState(todos: [Todo(title: "Dispatch actions"),
+class TodoSelectorsTests: XCTestCase {
+    let state = TodoState(todos: [Todo(title: "Dispatch actions"),
                                    Todo(title: "Create effects"),
                                    Todo(title: "Select something"),
                                    Todo(title: "Intercept everything")],
@@ -29,9 +29,5 @@ class SelectorsTests: XCTestCase {
 
     func testGetError() {
         XCTAssertEqual(TodosSelectors.getError.projector(state), state.error)
-    }
-
-    func testShouldShowError() {
-        XCTAssertEqual(TodosSelectors.shouldShowError.projector(state), true)
     }
 }

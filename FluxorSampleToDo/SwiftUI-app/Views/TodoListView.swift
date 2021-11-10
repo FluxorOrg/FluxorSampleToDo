@@ -1,4 +1,4 @@
-/**
+/*
  * FluxorSampleToDo
  *  Copyright (c) Morten Bjerg Gregersen 2020
  *  MIT license, see LICENSE file for details
@@ -8,48 +8,47 @@ import Combine
 import Fluxor
 import SwiftUI
 
-struct TodoListView {
-    var model = TodoListViewModel()
-    @State var todos = [Todo]()
-    @State var loading = false
-    @State var error: String?
-    @State var showErrorAlert = false
-}
+struct TodoListView: View {
+    @ObservedObject var store: Store<AppState, AppEnvironment>
+    @StoreValue(TodoApp.store, TodosSelectors.getTodos) var todos
+    @StoreValue(TodoApp.store, TodosSelectors.isLoadingTodos) var loading
+    @StoreValue(TodoApp.store, TodosSelectors.getError) var error
 
-extension TodoListView: View {
     var body: some View {
         List {
             if loading {
                 HStack {
-                    ActivityIndicator()
+                    ProgressView()
                     Text("Loading todos...")
                 }
             } else if todos.count > 0 {
                 ForEach(todos, id: \.id) { todo in
-                    TodoRowView(todo: todo) { self.model.toggle(todo: todo) }
+                    TodoRowView(todo: todo) {
+                        if todo.done {
+                            store.dispatch(action: HandlingActions.uncompleteTodo(payload: todo))
+                        } else {
+                            store.dispatch(action: HandlingActions.completeTodo(payload: todo))
+                        }
+                    }
                 }
-                .onDelete(perform: { self.model.delete(at: $0.first!) })
+                .onDelete {
+                    store.dispatch(action: HandlingActions.deleteTodo(payload: $0.first!))
+                }
             } else {
                 Text("No todos").multilineTextAlignment(.center)
             }
         }
-        .listStyle(GroupedListStyle())
-        .navigationBarTitle("Fluxor todos")
-        .alert(isPresented: $showErrorAlert) {
-            Alert(title: Text("Error"), message: Text(error!), dismissButton: .default(Text("OK")))
-        }
+        .navigationTitle("Fluxor Todos")
         .onAppear {
-            self.model.fetchTodos()
+            store.dispatch(action: FetchingActions.fetchTodos())
         }
-        .onReceive(model.store.select(TodosSelectors.getTodos), perform: { self.todos = $0 })
-        .onReceive(model.store.select(TodosSelectors.isLoadingTodos), perform: { self.loading = $0 })
-        .onReceive(model.store.select(TodosSelectors.getError), perform: { self.error = $0 })
-        .onReceive(model.store.select(TodosSelectors.shouldShowError), perform: { self.showErrorAlert = $0 })
     }
 }
 
+#if !TESTING
 struct TodoListView_Previews: PreviewProvider {
     static var previews: some View {
-        TodoListView(model: .init(store: previewStore))
+        TodoListView(store: previewStore)
     }
 }
+#endif

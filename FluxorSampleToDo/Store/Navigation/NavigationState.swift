@@ -4,7 +4,6 @@
  *  MIT license, see LICENSE file for details
  */
 
-struct AppState: Encodable {
-    var todo = TodoState()
-    var navigation = NavigationState()
+struct NavigationState: Encodable {
+    var showAddSheet = false
 }

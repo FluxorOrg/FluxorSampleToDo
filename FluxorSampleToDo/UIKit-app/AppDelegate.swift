@@ -4,7 +4,7 @@
  *  MIT license, see LICENSE file for details
  */
 
-struct AppState: Encodable {
-    var todo = TodoState()
-    var navigation = NavigationState()
-}
+import UIKit
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {}
